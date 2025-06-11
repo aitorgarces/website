@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metadatos -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Prof. Dr. Aitor Garcés Manzanera</title>
+    <!-- Enlaces a CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Meta descripción -->
+    <meta name="description" content="Blog del Prof. Dr. Aitor Garcés Manzanera. Publicaciones y artículos sobre Educación y Lingüística Aplicada.">
+</head>
+<body>
+    <div id="google_translate_container" style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
+        <div id="google_translate_element"></div>
+        <p style="margin: 0; font-size: 12px; text-align: center;">Translate page</p>
+    </div>
+    <!-- Barra de Progreso -->
+    <div id="progressContainer">
+        <div id="progressBar"></div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <a href="index.html"><i class="fas fa-user-graduate"></i> Aitor Garcés</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="docencia.html">Docencia</a></li>
+                <li><a href="conferencias.html">Conferencias</a></li>
+                <li><a href="proyectos.html">Proyectos</a></li>
+                <li><a href="publicaciones.html">Publicaciones</a></li>
+                <li><a href="estadistica.html">Estadística</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="talleres.html">Talleres & Asesoramiento</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <section class="section container">
+            <h2>Blog</h2>
+            <div id="blog-posts" class="blog-grid">
+                <!-- Publicaciones cargadas dinámicamente -->
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://linkedin.com/in/aitorgarces" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://twitter.com/aitorgarces" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2024 Prof. Dr. Aitor Garcés Manzanera. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="posts.js"></script>
+    <script src="script.js"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
