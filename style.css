@@ -3,15 +3,14 @@
 ==================================== */
 :root {
   /* Colores Principales */
-  --color-primario: #2D3748; /* Gris Oscuro */
-  --color-secundario: #EDF2F7; /* Gris Claro */
-  --color-acento: #38B2AC; /* Turquesa */
-  --color-acento-hover: #2C7A7B; /* Turquesa Oscuro */
-  --color-boton: #FF6F00; /* Naranja */
-  --color-boton-hover: #E65C00; /* Naranja Oscuro */
-  --color-texto: #1A202C; /* Casi Negro */
-  --color-fondo: #FFFFFF; /* Blanco */
-
+  --color-primario: #80140D;      /* Rojo oscuro */
+  --color-secundario: #F5F5F5;    /* Gris muy claro */
+  --color-acento: #C62828;        /* Rojo vivo */
+  --color-acento-hover: #9E1B1B;  /* Rojo más oscuro */
+  --color-boton: #EE1C25;         /* Rojo intenso */
+  --color-boton-hover: #CC1A20;   /* Rojo profundo */
+  --color-texto: #1A202C;         /* Casi negro */
+  --color-fondo: #FFFFFF;         /* Blanco */
   /* Tipografías */
   --fuente-primaria: 'Poppins', sans-serif;
   --fuente-secundaria: 'Roboto', sans-serif;
