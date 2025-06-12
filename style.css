@@ -11,6 +11,7 @@
   --color-boton-hover: #CC1A20;   /* Rojo profundo */
   --color-texto: #1A202C;         /* Casi negro */
   --color-fondo: #FFFFFF;         /* Blanco */
+
   /* Tipografías */
   --fuente-primaria: 'Poppins', sans-serif;
   --fuente-secundaria: 'Roboto', sans-serif;
@@ -84,7 +85,6 @@ img {
    NAVEGACIÓN
 ==================================== */
 header {
-  /* Fondo con gradiente sutil */
   background: linear-gradient(135deg, var(--color-primario), var(--color-acento));
   position: sticky;
   top: 0;
@@ -125,7 +125,6 @@ nav ul li a {
   padding: 5px 0;
   font-size: 1rem;
   color: var(--color-secundario);
-  /* Sutil sombra en el texto */
   text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
 }
 
@@ -1439,7 +1438,6 @@ footer p {
   background: #fff;
   border-radius: 5px;
   position: relative;
-  /* Efecto de desenfoque en el fondo */
   backdrop-filter: blur(8px);
 }
 
