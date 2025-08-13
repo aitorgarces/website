@@ -1,76 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Metadatos -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Prof. Dr. Aitor Garcés Manzanera</title>
-    <!-- Enlaces a CSS -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Meta descripción -->
-    <meta name="description" content="Blog del Prof. Dr. Aitor Garcés Manzanera. Publicaciones y artículos sobre Educación y Lingüística Aplicada.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Prof. Dr. Aitor Garcés Manzanera</title>
+  <meta name="description" content="Notas y entrada de blog.">
+  <meta name="theme-color" content="#80140D">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="google_translate_container" style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
-        <div id="google_translate_element"></div>
-        <p style="margin: 0; font-size: 12px; text-align: center;">Translate page</p>
+  <div id="progressContainer"><div id="progressBar"></div></div>
+  <a class="visually-hidden" href="#main">Saltar al contenido</a>
+
+  <header>
+    <nav class="container" aria-label="Principal">
+      <div class="logo">
+        <a href="index.html"><i class="fas fa-user-graduate" aria-hidden="true"></i> Aitor Garcés</a>
+      </div>
+      <ul class="nav-links" role="menubar" id="site-menu">
+        <li role="none"><a role="menuitem" href="docencia.html">Docencia</a></li>
+        <li role="none"><a role="menuitem" href="conferencias.html">Conferencias</a></li>
+        <li role="none"><a role="menuitem" href="proyectos.html">Proyectos</a></li>
+        <li role="none"><a role="menuitem" href="publicaciones.html">Publicaciones</a></li>
+        <li role="none"><a role="menuitem" href="estadistica.html">Estadística</a></li>
+        <li role="none"><a role="menuitem" class="active" aria-current="page" href="blog.html">Blog</a></li>
+        <li role="none"><a role="menuitem" href="talleres.html">Talleres & Asesoramiento</a></li>
+      </ul>
+      <div class="burger">
+        <button type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-menu">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="section container">
+    <h2>Blog</h2>
+
+    <!-- Plantilla de entrada -->
+    <article class="blog-card">
+      <header class="blog-content">
+        <h2>Pauses, bursts y calidad textual: notas rápidas</h2>
+        <p class="post-date">13 agosto 2025</p>
+      </header>
+      <figure class="post-figure">
+        <img src="https://images.unsplash.com/photo-1529078155058-5d716f45d604?q=80&w=1400&auto=format&fit=crop"
+             alt="Cuaderno y teclado para escribir" loading="lazy" decoding="async">
+        <figcaption>Relación entre pausas y calidad del texto en escritura digital.</figcaption>
+      </figure>
+      <div class="blog-content">
+        <p>Trabajo con métricas observables con KLS. Interesa el equilibrio entre fluidez y revisión, no solo el conteo de pausas.</p>
+        <p>Próximas entradas cubrirán: definición operativa de ráfagas, pausas por ubicación y efectos de tareas multimodales.</p>
+      </div>
+      <a class="btn btn-secondary" href="mailto:aitor.garces@pdi.atlanticomedio.es">Comentar por email</a>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="https://linkedin.com/in/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://twitter.com/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p>&copy; 2024 Prof. Dr. Aitor Garcés Manzanera. Todos los derechos reservados.</p>
     </div>
-    <!-- Barra de Progreso -->
-    <div id="progressContainer">
-        <div id="progressBar"></div>
-    </div>
+  </footer>
 
-    <!-- HEADER -->
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <a href="index.html"><i class="fas fa-user-graduate"></i> Aitor Garcés</a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="docencia.html">Docencia</a></li>
-                <li><a href="conferencias.html">Conferencias</a></li>
-                <li><a href="proyectos.html">Proyectos</a></li>
-                <li><a href="publicaciones.html">Publicaciones</a></li>
-                <li><a href="estadistica.html">Estadística</a></li>
-                <li><a href="blog.html" class="active">Blog</a></li>
-                <li><a href="talleres.html">Talleres & Asesoramiento</a></li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </nav>
-    </header>
-
-    <!-- MAIN CONTENT -->
-    <main>
-        <section class="section container">
-            <h2>Blog</h2>
-            <div id="blog-posts" class="blog-grid">
-                <!-- Publicaciones cargadas dinámicamente -->
-            </div>
-        </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://linkedin.com/in/aitorgarces" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://twitter.com/aitorgarces" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            </div>
-            <p>&copy; 2024 Prof. Dr. Aitor Garcés Manzanera. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-    <!-- JavaScript -->
-    <script src="posts.js"></script>
-    <script src="script.js"></script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="script.js" defer></script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
 </body>
 </html>
