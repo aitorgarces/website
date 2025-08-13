@@ -1,237 +1,983 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Conferencias - Prof. Dr. Aitor Garcés Manzanera</title>
-  <meta name="description" content="Conferencias impartidas por el Prof. Dr. Aitor Garcés Manzanera. Vídeos, resúmenes y material gráfico.">
-  <meta name="theme-color" content="#80140D">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Asistente Avanzado de Estadística para Investigación</title>
 
-  <!-- Social -->
-  <meta property="og:title" content="Conferencias — Prof. Dr. Aitor Garcés">
-  <meta property="og:description" content="Muestras de plenarias, presentaciones y comunicaciones.">
-  <meta property="og:type" content="website">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 
-  <!-- JSON-LD simple (lista de ítems) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"CollectionPage",
-    "name":"Conferencias de Aitor Garcés Manzanera",
-    "about":"Muestras de charlas y participaciones",
-    "hasPart":[
-      {"@type":"CreativeWork","name":"Conferencia Plenaria en el Congreso EL21C","url":"https://drive.google.com/file/d/1eU2OsUx3gvU4dtS8vNnl4w3JRvbD4k9o/preview"},
-      {"@type":"VideoObject","name":"Conferencia en EDUNOVATIC22","url":"https://www.youtube.com/watch?v=o6QXDlpG1OM"},
-      {"@type":"ImageObject","name":"Conferencia en CIEB 2024","contentUrl":"https://cdn.glitch.global/dbb76279-9080-4683-96a4-a2929ed450fd/63985886552.jpg?v=1733015892153"}
-    ]
-  }
-  </script>
+  <!-- docx for DOCX export -->
+  <script src="https://unpkg.com/docx@8.5.0/build/index.umd.js"></script>
+  <!-- FileSaver (fallback for some browsers) -->
+  <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
 
-  <!-- Estilos locales de esta página -->
   <style>
-    .toolbar{position:sticky;top:70px;background:#fff;border-top:1px solid #eee;border-bottom:1px solid #eee;z-index:5}
-    .toolbar .container{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:10px 20px}
-    .search{flex:1 1 260px;display:flex;align-items:center;gap:8px;border:1px solid #e8e8e8;border-radius:12px;padding:8px 12px;background:#fff}
-    .search input{border:0;outline:0;width:100%;font-family:inherit}
-    .filters{display:flex;gap:8px;flex-wrap:wrap}
-    .filter-btn{padding:8px 12px;border:1px solid #e8e8e8;border-radius:999px;background:#fff;cursor:pointer}
-    .filter-btn[aria-pressed="true"]{background:var(--color-acento);color:#fff;border-color:var(--color-acento)}
-    .count{margin-left:auto;font-size:.95rem;color:#333}
-    .conferencias-grid{margin-top:24px}
-    .conferencia-card{display:flex;flex-direction:column;gap:10px}
-    .meta{font-size:.95rem;color:#333}
-    .chips{display:flex;gap:8px;flex-wrap:wrap}
-    .chip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;border:1px solid #eee;background:#fff}
-    .embed{width:100%;aspect-ratio:16/9;border:0;border-radius:var(--radio-borde);box-shadow:var(--sombra)}
-    .thumb{width:100%;border-radius:var(--radio-borde);box-shadow:var(--sombra)}
-    .card-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
-    @media (max-width: 768px){ .toolbar .container{justify-content:space-between} .count{order:3;width:100%} }
+    :root{
+      --brand:#2563eb; /* azul accesible */
+      --brand-600:#1d4ed8;
+      --ok:#16a34a;
+      --danger:#dc2626;
+      --warn:#d97706;
+    }
+    html,body{height:100%}
+    body{font-family:'Poppins',system-ui,Segoe UI,Roboto,Arial,sans-serif;background-color:#f0f2f5}
+    /* Tooltips accesibles */
+    .tooltip-container{position:relative;display:inline-block;cursor:help}
+    .tooltip-text{
+      visibility:hidden;opacity:0;transform:translateY(4px);
+      width:260px;background:#111827;color:#fff;border-radius:.5rem;padding:.5rem .75rem;
+      position:absolute;z-index:20;bottom:125%;left:50%;margin-left:-130px;transition:.2s;
+      font-size:.8rem;line-height:1.2
+    }
+    .tooltip-container:focus .tooltip-text,
+    .tooltip-container:hover .tooltip-text{visibility:visible;opacity:1;transform:translateY(0)}
+    /* Animaciones suaves */
+    .fade-in{animation:fadeIn .35s ease-out both}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+    /* Modal */
+    .modal-overlay{transition:opacity .2s ease}
+    .modal-content{transition:transform .2s ease}
+    /* Print */
+    @media print{
+      body *{visibility:hidden}
+      #result-section, #result-section *{visibility:visible}
+      #result-section{position:absolute;left:0;top:0;width:100%;padding:1rem}
+      .no-print{display:none !important}
+    }
+    /* Dark mode helpers */
+    .dark .card{background:#0f172a;color:#e5e7eb;border-color:#1f2937}
+    .dark .muted{color:#94a3b8}
+    .dark body{background:#0b1220}
   </style>
 </head>
-<body>
-  <div id="progressContainer"><div id="progressBar"></div></div>
-  <a class="visually-hidden" href="#main">Saltar al contenido</a>
 
-  <header>
-    <nav class="container" aria-label="Principal">
-      <div class="logo">
-        <a href="index.html"><i class="fas fa-user-graduate" aria-hidden="true"></i> Aitor Garcés</a>
+<body class="min-h-screen bg-gray-50 text-gray-900 dark:bg-slate-900 dark:text-slate-100">
+  <!-- Skip link -->
+  <a href="#app-container" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white dark:bg-slate-800 text-black dark:text-white px-3 py-2 rounded-md shadow">Ir al contenido</a>
+
+  <!-- Header -->
+  <header class="no-print sticky top-0 z-40 backdrop-blur bg-white/85 dark:bg-slate-900/85 border-b border-gray-200 dark:border-slate-700">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center gap-3">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--brand)] text-white font-bold">A</span>
+        <div>
+          <h1 class="text-lg sm:text-xl font-semibold leading-tight">Asistente de Estadística</h1>
+          <p class="text-xs sm:text-sm text-gray-500 dark:text-slate-400 leading-tight">Guía paso a paso · compatible con impresión y exportación</p>
+        </div>
       </div>
-      <ul class="nav-links" role="menubar" id="site-menu">
-        <li role="none"><a role="menuitem" href="docencia.html">Docencia</a></li>
-        <li role="none"><a role="menuitem" class="active" aria-current="page" href="conferencias.html">Conferencias</a></li>
-        <li role="none"><a role="menuitem" href="proyectos.html">Proyectos</a></li>
-        <li role="none"><a role="menuitem" href="publicaciones.html">Publicaciones</a></li>
-        <li role="none"><a role="menuitem" href="estadistica.html">Estadística</a></li>
-        <li role="none"><a role="menuitem" href="blog.html">Blog</a></li>
-        <li role="none"><a role="menuitem" href="talleres.html">Talleres & Asesoramiento</a></li>
-      </ul>
-      <div class="burger">
-        <button type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-menu">
-          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      <div class="ml-auto flex items-center gap-2">
+        <!-- Estado guardado -->
+        <div id="save-indicator" class="hidden text-xs px-2 py-1 rounded bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300">guardado</div>
+        <!-- Tema -->
+        <button id="theme-toggle" type="button" class="px-3 py-2 rounded-md border border-gray-200 dark:border-slate-600 hover:bg-gray-50 dark:hover:bg-slate-800 text-sm" aria-pressed="false" title="Cambiar tema (Alt+T)">
+          🌙/☀️
+        </button>
+        <!-- Ayuda -->
+        <button id="help-button" class="px-3 py-2 rounded-md bg-[var(--brand)] hover:bg-[var(--brand-600)] text-white text-sm" title="Ayuda (Alt+H)">
+          Ayuda
         </button>
       </div>
-    </nav>
+    </div>
   </header>
 
-  <div id="google_translate_container" style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
-    <div id="google_translate_element"></div>
-    <p style="margin:0;font-size:12px;text-align:center">Translate page</p>
-  </div>
-
-  <!-- Barra de búsqueda y filtros -->
-  <div class="toolbar" role="region" aria-label="Herramientas">
-    <div class="container">
-      <form class="search" role="search" aria-label="Buscar conferencias" onsubmit="event.preventDefault();">
-        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-        <label for="q" class="visually-hidden">Buscar</label>
-        <input id="q" type="search" placeholder="Buscar por título o evento…" autocomplete="off">
-      </form>
-
-      <div class="filters" role="group" aria-label="Filtrar por tipo">
-        <button type="button" class="filter-btn" data-type="all" aria-pressed="true">Todas</button>
-        <button type="button" class="filter-btn" data-type="Plenaria">Plenarias</button>
-        <button type="button" class="filter-btn" data-type="Presentación">Presentaciones</button>
-        <button type="button" class="filter-btn" data-type="Comunicación">Comunicaciones</button>
-      </div>
-
-      <div class="count" aria-live="polite" aria-atomic="true">
-        <span id="resultCount">3</span> resultados
-      </div>
-    </div>
-  </div>
-
-  <main id="main" class="section container">
-    <h2>Conferencias</h2>
-
-    <div id="grid" class="conferencias-grid">
-      <!-- EL21C -->
-      <article class="conferencia-card fade-in" data-type="Plenaria" data-title="Conferencia Plenaria en el Congreso EL21C" data-evento="Congreso EL21C">
-        <h3>Conferencia Plenaria en el Congreso EL21C</h3>
-        <p class="meta"><strong>Evento:</strong> Congreso EL21C</p>
-        <div class="chips" aria-label="Tipo">
-          <span class="chip"><i class="fa-solid fa-microphone" aria-hidden="true"></i> Plenaria</span>
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-6 flex gap-6">
+    <!-- Aside: stepper -->
+    <aside class="no-print hidden lg:block w-72">
+      <div class="card bg-white border border-gray-200 rounded-xl p-4 sticky top-20">
+        <h2 class="font-semibold text-gray-800 dark:text-slate-100 mb-2">Progreso</h2>
+        <div class="w-full bg-gray-200 dark:bg-slate-800 rounded-full h-2 mb-4">
+          <div id="progress-bar" class="bg-[var(--brand)] h-2 rounded-full transition-all duration-500" style="width:0%"></div>
         </div>
-        <iframe class="embed"
-                src="https://drive.google.com/file/d/1eU2OsUx3gvU4dtS8vNnl4w3JRvbD4k9o/preview"
-                title="Conferencia Plenaria en el Congreso EL21C"
-                loading="lazy"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen></iframe>
-        <div class="card-actions">
-          <a class="btn btn-secondary" href="https://drive.google.com/file/d/1eU2OsUx3gvU4dtS8vNnl4w3JRvbD4k9o/view" target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver en Drive
-          </a>
+        <ol id="stepper" class="space-y-2 text-sm" aria-live="polite"></ol>
+        <div class="mt-4">
+          <button id="jump-last" class="w-full text-sm px-3 py-2 rounded-md border border-gray-200 dark:border-slate-600 hover:bg-gray-50 dark:hover:bg-slate-800">Ir al último paso</button>
         </div>
-      </article>
-
-      <!-- EDUNOVATIC22 -->
-      <article class="conferencia-card fade-in" data-type="Presentación" data-title="Conferencia en EDUNOVATIC22" data-evento="EDUNOVATIC22">
-        <h3>Conferencia en EDUNOVATIC22</h3>
-        <p class="meta"><strong>Evento:</strong> EDUNOVATIC22</p>
-        <div class="chips" aria-label="Tipo">
-          <span class="chip"><i class="fa-solid fa-presentation-screen" aria-hidden="true"></i> Presentación</span>
+        <div class="mt-4">
+          <label class="inline-flex items-center gap-2 text-xs">
+            <input id="compact-mode" type="checkbox" class="h-4 w-4 rounded border-gray-300 dark:border-slate-600">
+            <span>Modo compacto</span>
+          </label>
         </div>
-        <iframe class="embed"
-                src="https://www.youtube.com/embed/o6QXDlpG1OM"
-                title="Conferencia en EDUNOVATIC22"
-                loading="lazy"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen></iframe>
-        <div class="card-actions">
-          <a class="btn btn-secondary" href="https://www.youtube.com/watch?v=o6QXDlpG1OM" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-youtube"></i> Ver en YouTube
-          </a>
-        </div>
-      </article>
-
-      <!-- CIEB 2024 -->
-      <article class="conferencia-card fade-in" data-type="Comunicación" data-title="Conferencia en CIEB 2024" data-evento="Congreso Internacional de Enseñanza Bilingüe 2024">
-        <h3>Conferencia en CIEB 2024</h3>
-        <p class="meta"><strong>Evento:</strong> Congreso Internacional de Enseñanza Bilingüe 2024</p>
-        <div class="chips" aria-label="Tipo">
-          <span class="chip"><i class="fa-regular fa-comments" aria-hidden="true"></i> Comunicación</span>
-        </div>
-        <figure class="post-figure" style="margin:0">
-          <img class="thumb"
-               src="https://cdn.glitch.global/dbb76279-9080-4683-96a4-a2929ed450fd/63985886552.jpg?v=1733015892153"
-               alt="Imagen de ponencia en CIEB 2024"
-               loading="lazy" decoding="async">
-          <figcaption class="visually-hidden">Ponencia en CIEB 2024</figcaption>
-        </figure>
-      </article>
-    </div>
-
-    <!-- CTA -->
-    <section class="section" aria-label="Invitaciones">
-      <div class="repository-card" style="max-width:720px">
-        <div class="card-content">
-          <h3><i class="fa-solid fa-calendar-plus" aria-hidden="true"></i> ¿Quieres invitar una charla?</h3>
-          <p>Escribe con el contexto del evento y la audiencia prevista.</p>
-          <a class="btn" href="mailto:aitor.garces@pdi.atlanticomedio.es"><i class="fa-solid fa-envelope"></i> Solicitar información</a>
-        </div>
-        <div class="card-icon" aria-hidden="true">
-          <i class="fa-solid fa-people-group fa-2x"></i>
+        <div class="mt-4">
+          <h3 class="font-medium text-gray-800 dark:text-slate-100 text-sm mb-2">Notas del proyecto</h3>
+          <textarea id="user-notes" class="w-full min-h-[90px] text-sm rounded-md border border-gray-200 dark:border-slate-600 bg-white dark:bg-slate-900 p-2" placeholder="Anota decisiones, códigos de variable, etc."></textarea>
         </div>
       </div>
+    </aside>
+
+    <!-- App container -->
+    <section id="app-container" class="flex-1 card bg-white border border-gray-200 rounded-2xl shadow-xl p-5 sm:p-7 dark:bg-slate-900 dark:border-slate-700 transition-all duration-300">
+      <!-- Inicio -->
+      <section id="start-section" class="text-center fade-in">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-slate-100 mb-2">Asistente de Estadística</h2>
+        <p class="text-gray-600 dark:text-slate-400 mb-6">Te acompaño paso a paso para elegir la prueba adecuada con buenos hábitos de análisis.</p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <button id="start-button" class="bg-[var(--brand)] hover:bg-[var(--brand-600)] text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-transform hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--brand)]">
+            Comenzar planificación
+          </button>
+          <button id="resume-link" class="hidden bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 px-6 rounded-lg border border-gray-200">
+            Reanudar
+          </button>
+        </div>
+        <p id="resume-text" class="text-sm text-gray-500 mt-4 hidden">Hay un progreso guardado listo para continuar.</p>
+        <details class="text-left max-w-2xl mx-auto mt-6 open:shadow-sm">
+          <summary class="cursor-pointer text-sm text-gray-700 dark:text-slate-300">Atajos de teclado</summary>
+          <ul class="mt-2 text-sm text-gray-600 dark:text-slate-400 space-y-1">
+            <li><kbd class="px-1 py-0.5 border rounded">Alt</kbd> + <kbd class="px-1 py-0.5 border rounded">→</kbd> Siguiente</li>
+            <li><kbd class="px-1 py-0.5 border rounded">Alt</kbd> + <kbd class="px-1 py-0.5 border rounded">←</kbd> Volver</li>
+            <li><kbd class="px-1 py-0.5 border rounded">Alt</kbd> + <kbd class="px-1 py-0.5 border rounded">T</kbd> Tema</li>
+            <li><kbd class="px-1 py-0.5 border rounded">R</kbd> Reiniciar</li>
+            <li><kbd class="px-1 py-0.5 border rounded">Enter</kbd> Aceptar número</li>
+          </ul>
+        </details>
+      </section>
+
+      <!-- Preguntas -->
+      <section id="question-section" class="hidden">
+        <div class="mb-4">
+          <h3 id="question-text" class="text-2xl font-semibold text-gray-800 dark:text-slate-100"></h3>
+        </div>
+        <form id="options-form" class="space-y-3 mb-6" aria-live="polite"></form>
+
+        <!-- Mensajes -->
+        <div id="message-box" class="hidden bg-red-50 border border-red-300 text-red-700 px-4 py-3 rounded-lg relative mb-4" role="alert" aria-atomic="true">
+          <span class="block sm:inline" id="message-text"></span>
+        </div>
+
+        <!-- Progreso (duplicado para móvil) -->
+        <div class="lg:hidden w-full bg-gray-200 rounded-full h-2.5 mb-6">
+          <div id="progress-bar-mobile" class="bg-[var(--brand)] h-2.5 rounded-full transition-all duration-500" style="width:0%"></div>
+        </div>
+
+        <!-- Navegación -->
+        <div class="flex justify-between items-center gap-3">
+          <button id="back-button" type="button" class="bg-gray-100 hover:bg-gray-200 text-gray-900 font-semibold py-2 px-5 rounded-lg border border-gray-200">
+            Volver
+          </button>
+          <div class="flex items-center gap-3">
+            <button id="next-button" type="button" class="bg-[var(--brand)] hover:bg-[var(--brand-600)] text-white font-semibold py-2 px-6 rounded-lg shadow disabled:bg-gray-300 disabled:text-gray-600 disabled:cursor-not-allowed">
+              Siguiente
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resultado -->
+      <section id="result-section" class="hidden fade-in">
+        <h2 class="text-3xl font-bold text-center mb-5">Tu plan estadístico recomendado</h2>
+        <div id="result-content" class="bg-gray-50 dark:bg-slate-800/50 p-6 rounded-xl border border-gray-200 dark:border-slate-700">
+          <h3 id="result-title" class="text-2xl font-semibold text-[var(--brand)] mb-3"></h3>
+
+          <div class="space-y-4">
+            <div>
+              <h4 class="font-semibold text-gray-800 dark:text-slate-100">Descripción</h4>
+              <p id="result-description" class="muted"></p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800 dark:text-slate-100">Supuestos clave</h4>
+              <p id="result-assumptions" class="muted"></p>
+            </div>
+            <div id="how-to-check-container" class="hidden">
+              <h4 class="font-semibold text-gray-800 dark:text-slate-100">Cómo comprobar los supuestos</h4>
+              <p id="result-how-to-check" class="muted"></p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800 dark:text-slate-100">Software recomendado</h4>
+              <p id="result-software" class="muted"></p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800 dark:text-slate-100">Recursos</h4>
+              <div id="result-resources" class="muted"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Acciones -->
+        <div class="mt-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 no-print">
+          <button id="copy-button" class="flex items-center justify-center gap-2 bg-[var(--ok)] hover:bg-emerald-700 text-white font-semibold py-2.5 px-4 rounded-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"/><path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2H6z"/></svg>
+            <span id="copy-button-text">Copiar al portapapeles</span>
+          </button>
+
+          <button id="print-button" class="flex items-center justify-center gap-2 bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2.5 px-4 rounded-lg">
+            🖨️ Imprimir / PDF
+          </button>
+
+          <button id="restart-button" class="flex items-center justify-center gap-2 bg-[var(--danger)] hover:bg-red-700 text-white font-semibold py-2.5 px-4 rounded-lg">
+            ♻️ Reiniciar
+          </button>
+
+          <button id="export-docx" class="flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2.5 px-4 rounded-lg">
+            ⤓ Exportar DOCX
+          </button>
+
+          <button id="export-json" class="flex items-center justify-center gap-2 bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2.5 px-4 rounded-lg">
+            ⤓ Exportar JSON
+          </button>
+
+          <label class="flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2.5 px-4 rounded-lg cursor-pointer">
+            ⤒ Importar JSON
+            <input id="import-json" type="file" accept="application/json" class="hidden"/>
+          </label>
+
+          <button id="share-link" class="flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2.5 px-4 rounded-lg sm:col-span-2 lg:col-span-3">
+            🔗 Compartir enlace con mi estado
+          </button>
+        </div>
+      </section>
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <div class="social-links">
-        <a href="https://linkedin.com/in/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://twitter.com/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-      </div>
-      <p>&copy; 2025 Prof. Dr. Aitor Garcés Manzanera. Todos los derechos reservados.</p>
-    </div>
+  <!-- Footer -->
+  <footer class="no-print text-center py-5 px-4 bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-700">
+    <p class="text-sm text-gray-600 dark:text-slate-400">
+      &copy; <span id="current-year"></span> Aitor Garcés Manzanera.
+      <a href="https://aitorgarces.github.io/website/estadistica.html" target="_blank" rel="noopener" class="text-[var(--brand)] hover:underline">Web original</a>
+    </p>
   </footer>
 
-  <script src="script.js" defer></script>
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+  <!-- Modal Reinicio -->
+  <div id="restart-modal" class="fixed inset-0 bg-gray-900/50 overflow-y-auto h-full w-full flex items-center justify-center z-50 hidden modal-overlay">
+    <div class="relative mx-auto p-5 w-11/12 max-w-md shadow-lg rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 modal-content">
+      <div class="mt-1 text-center">
+        <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100 dark:bg-red-900/30">
+          <svg class="h-6 w-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+        </div>
+        <h3 class="text-lg font-semibold mt-3">¿Reiniciar asistente?</h3>
+        <p class="text-sm text-gray-600 dark:text-slate-400 mt-2">Se borrará el progreso actual y volverás al inicio.</p>
+        <div class="items-center px-4 py-4 flex justify-center gap-3">
+          <button id="confirm-restart" class="px-4 py-2 bg-[var(--danger)] text-white text-base font-medium rounded-md shadow-sm hover:bg-red-700">Sí, reiniciar</button>
+          <button id="cancel-restart" class="px-4 py-2 bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-white text-base font-medium rounded-md shadow-sm border border-gray-200 dark:border-slate-600 hover:bg-gray-200 dark:hover:bg-slate-700">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <!-- Filtro y búsqueda -->
+  <!-- Modal Ayuda -->
+  <div id="help-modal" class="fixed inset-0 bg-gray-900/50 overflow-y-auto h-full w-full flex items-center justify-center z-50 hidden modal-overlay">
+    <div class="relative mx-auto p-5 w-11/12 max-w-xl shadow-lg rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 modal-content">
+      <div class="mt-1">
+        <h3 class="text-xl font-semibold">Ayuda rápida</h3>
+        <ul class="mt-3 text-sm text-gray-700 dark:text-slate-300 space-y-2">
+          <li><strong>Flujo:</strong> responde a cada paso y avanza con “Siguiente”.</li>
+          <li><strong>Volver:</strong> botón “Volver” o Alt+←.</li>
+          <li><strong>Guardar:</strong> se guarda de forma automática en este navegador.</li>
+          <li><strong>Exportar:</strong> DOCX o JSON para compartir o archivar.</li>
+          <li><strong>Compartir:</strong> genera un enlace con tu estado actual.</li>
+          <li><strong>Accesibilidad:</strong> compatible con teclado y lectores de pantalla.</li>
+        </ul>
+        <div class="mt-4 text-right">
+          <button id="close-help" class="px-4 py-2 bg-[var(--brand)] hover:bg-[var(--brand-600)] text-white rounded-md">Entendido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Región aria-live para toasts -->
+  <div id="aria-live" class="sr-only" aria-live="polite"></div>
+
+  <!-- Toasts -->
+  <div id="toast-container" class="fixed bottom-4 right-4 z-50 space-y-2"></div>
+
+  <!-- Lógica -->
   <script>
-    (function(){
-      const q = document.getElementById('q');
-      const buttons = Array.from(document.querySelectorAll('.filter-btn'));
-      const grid = document.getElementById('grid');
-      const cards = Array.from(grid.querySelectorAll('.conferencia-card'));
-      const count = document.getElementById('resultCount');
-      let activeType = 'all';
+  (function(){
+    // ---------- Utilidades UI ----------
+    const $ = (sel)=>document.querySelector(sel);
+    const $$ = (sel)=>document.querySelectorAll(sel);
 
-      function apply(){
-        const term = (q.value || '').trim().toLowerCase();
-        let visible = 0;
-        cards.forEach(card=>{
-          const matchesType = activeType === 'all' || card.dataset.type === activeType;
-          const haystack = (card.dataset.title + ' ' + card.dataset.evento).toLowerCase();
-          const matchesText = !term || haystack.includes(term);
-          const show = matchesType && matchesText;
-          card.style.display = show ? '' : 'none';
-          if(show) visible++;
-        });
-        count.textContent = visible;
+    const dom = {
+      startSection: $('#start-section'),
+      questionSection: $('#question-section'),
+      resultSection: $('#result-section'),
+      startButton: $('#start-button'),
+      questionText: $('#question-text'),
+      optionsForm: $('#options-form'),
+      progressBar: $('#progress-bar'),
+      progressBarMobile: $('#progress-bar-mobile'),
+      backButton: $('#back-button'),
+      nextButton: $('#next-button'),
+      resultTitle: $('#result-title'),
+      resultDescription: $('#result-description'),
+      resultAssumptions: $('#result-assumptions'),
+      howToCheckContainer: $('#how-to-check-container'),
+      resultHowToCheck: $('#result-how-to-check'),
+      resultSoftware: $('#result-software'),
+      resultResources: $('#result-resources'),
+      restartButton: $('#restart-button'),
+      copyButton: $('#copy-button'),
+      copyButtonText: $('#copy-button-text'),
+      printButton: $('#print-button'),
+      messageBox: $('#message-box'),
+      messageText: $('#message-text'),
+      resumeText: $('#resume-text'),
+      resumeLink: $('#resume-link'),
+      currentYear: $('#current-year'),
+      restartModal: $('#restart-modal'),
+      confirmRestart: $('#confirm-restart'),
+      cancelRestart: $('#cancel-restart'),
+      stepper: $('#stepper'),
+      jumpLast: $('#jump-last'),
+      compactMode: $('#compact-mode'),
+      notes: $('#user-notes'),
+      themeToggle: $('#theme-toggle'),
+      helpButton: $('#help-button'),
+      helpModal: $('#help-modal'),
+      closeHelp: $('#close-help'),
+      saveIndicator: $('#save-indicator'),
+      exportDocx: $('#export-docx'),
+      exportJson: $('#export-json'),
+      importJson: $('#import-json'),
+      shareLink: $('#share-link'),
+      ariaLive: $('#aria-live'),
+      toastContainer: $('#toast-container'),
+    };
+
+    // ---------- Estado ----------
+    let state = {
+      currentQuestionId: null,
+      answers: [],          // [{from, answer:{type,value}}]
+      userInputs: {},       // map questionId -> value
+      totalQuestions: 8,    // estimación
+      notes: '',
+      compact: false
+    };
+
+    // ---------- Mensajes/Toasts ----------
+    function showMessage(text='', show=false){
+      dom.messageText.textContent = text;
+      dom.messageBox.classList.toggle('hidden', !show);
+      if(show) dom.messageBox.focus?.();
+    }
+
+    function toast(msg, variant='ok'){
+      const wrap = document.createElement('div');
+      wrap.className = 'rounded-lg shadow px-4 py-3 text-sm text-white fade-in';
+      wrap.style.background = variant==='ok' ? '#16a34a' : (variant==='warn' ? '#d97706' : '#dc2626');
+      wrap.textContent = msg;
+      dom.toastContainer.appendChild(wrap);
+      dom.ariaLive.textContent = msg;
+      setTimeout(()=>wrap.remove(), 3000);
+    }
+
+    function markSaved(){
+      dom.saveIndicator.classList.remove('hidden');
+      setTimeout(()=>dom.saveIndicator.classList.add('hidden'), 1200);
+    }
+
+    // ---------- Tema ----------
+    function applyTheme(){
+      const t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+      document.documentElement.classList.toggle('dark', t==='dark');
+      dom.themeToggle.setAttribute('aria-pressed', t==='dark' ? 'true':'false');
+    }
+    function toggleTheme(){
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', isDark?'dark':'light');
+      dom.themeToggle.setAttribute('aria-pressed', isDark?'true':'false');
+      toast(isDark ? 'Tema oscuro activado' : 'Tema claro activado','ok');
+    }
+
+    // ---------- Tooltips helper ----------
+    const createTooltip = (text) => `
+      <span class="tooltip-container align-middle" tabindex="0" aria-label="${text.replace(/"/g,'&quot;')}">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block text-[var(--brand)] ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <span class="tooltip-text">${text}</span>
+      </span>`;
+
+    // ---------- Datos (preguntas y resultados) ----------
+    // (SE MANTIENE tu árbol completo; solo reuso createTooltip)
+    const questions = {
+      q_initial:{id:'q_initial',text:"Antes de seleccionar una prueba, ¿qué deseas hacer?",type:'radio',options:[
+        {text:"Explorar y describir mis datos", next:'q_describe_what_var'},
+        {text:"Ir directamente a elegir una prueba de hipótesis", next:'q_objective'}
+      ]},
+      q_describe_what_var:{id:'q_describe_what_var',text:"¿Qué tipo de variable principal quieres describir?",type:'radio',options:[
+        {text:`Categórica / Cualitativa ${createTooltip('La variable agrupa en categorías. Ej: Género (Hombre, Mujer), Nivel Educativo (Básico, Medio, Superior).')}`, next:'res_describe_categorical'},
+        {text:`Numérica / Cuantitativa ${createTooltip('La variable es un número que se puede medir. Ej: Edad, Puntuación en un test, Altura.')}`, next:'res_describe_numerical'}
+      ]},
+      q_objective:{id:'q_objective',text:"¿Cuál es el objetivo principal de tu análisis de hipótesis?",type:'radio',options:[
+        {text:"Comparar grupos",next:'q_compare_groups'},
+        {text:"Relacionar o asociar variables",next:'q_relate_vars'},
+        {text:"Predecir el valor de una variable",next:'q_predict_vars_how_many'},
+        {text:"Analizar la fiabilidad de un test/escala",next:'q_reliability'},
+        {text:"Explorar la estructura de tus datos (Análisis Factorial)",next:'q_factor_analysis'},
+      ]},
+      q_compare_groups:{id:'q_compare_groups',text:"¿Las mediciones en los grupos son independientes o relacionadas?",type:'radio',options:[
+        {text:`Independientes ${createTooltip('Cada participante pertenece a un único grupo. Ej: Grupo Control vs. Grupo Tratamiento.')}`, next:'q_n_independent'},
+        {text:`Relacionadas / Medidas Repetidas ${createTooltip('Los mismos participantes son medidos en diferentes momentos o condiciones. Ej: Pre-test y Post-test.')}`, next:'q_n_related'},
+      ]},
+      q_n_independent:{id:'q_n_independent',text:"¿Cuántos grupos independientes (N) quieres comparar?",type:'numberInput',placeholder:"Ej: 3",min:2,
+        next:(v)=> v==2?'q_check_assumptions_ttest':'q_check_assumptions_anova'},
+      q_n_related:{id:'q_n_related',text:"¿Cuántas mediciones relacionadas (momentos/condiciones) tienes?",type:'numberInput',placeholder:"Ej: 2",min:2,
+        next:(v)=> v==2?'q_check_assumptions_ttest_related':'q_check_assumptions_rm_anova'},
+      q_check_assumptions_ttest:{id:'q_check_assumptions_ttest',text:`¿Has comprobado los supuestos para una prueba paramétrica? ${createTooltip('Normalidad (ej. test Shapiro-Wilk) y Homogeneidad de varianzas (ej. test de Levene).')}`,type:'radio',options:[
+        {text:"Sí, y se cumplen",next:'res_t_test_independent'},
+        {text:"Sí, pero NO se cumplen",next:'res_mann_whitney'},
+        {text:"No, necesito ayuda para comprobarlos",next:'res_how_to_check_ttest'},
+      ]},
+      q_check_assumptions_anova:{id:'q_check_assumptions_anova',text:`¿Has comprobado los supuestos para una prueba paramétrica? ${createTooltip('Normalidad (ej. test Shapiro-Wilk en cada grupo) y Homogeneidad de varianzas (ej. test de Levene).')}`,type:'radio',options:[
+        {text:"Sí, y se cumplen",next:'q_ancova_check'},
+        {text:"Sí, pero NO se cumplen",next:'res_kruskal_wallis'},
+        {text:"No, necesito ayuda para comprobarlos",next:'res_how_to_check_anova'},
+      ]},
+      q_ancova_check:{id:'q_ancova_check',text:`¿Existe alguna otra variable numérica (covariable) que podría influir en tu variable de resultado y que quisieras controlar? ${createTooltip('Ej: quieres comparar el efecto de dos métodos de enseñanza en las notas, pero quieres controlar por el CI previo de los estudiantes.')}`,type:'radio',options:[
+        {text:"Sí, quiero controlar una covariable",next:'res_ancova'},
+        {text:"No, solo quiero comparar los grupos",next:'res_anova_oneway'},
+      ]},
+      q_check_assumptions_ttest_related:{id:'q_check_assumptions_ttest_related',text:`¿Has comprobado si las diferencias entre las mediciones siguen una distribución normal? ${createTooltip('Calcula la diferencia (Post - Pre) y realiza un test de normalidad (ej. Shapiro-Wilk) sobre esas diferencias.')}`,type:'radio',options:[
+        {text:"Sí, las diferencias son normales",next:'res_t_test_related'},
+        {text:"No, las diferencias no son normales",next:'res_wilcoxon'},
+        {text:"No, necesito ayuda para comprobarlo",next:'res_how_to_check_ttest_related'},
+      ]},
+      q_check_assumptions_rm_anova:{id:'q_check_assumptions_rm_anova',text:`¿Has comprobado los supuestos de normalidad y esfericidad? ${createTooltip('La esfericidad (Test de Mauchly) es clave. Si p > .05, se cumple. Si no, correcciones.')}`,type:'radio',options:[
+        {text:"Sí, y se cumplen",next:'res_rm_anova'},
+        {text:"Sí, pero NO se cumplen",next:'res_friedman'},
+        {text:"No, necesito ayuda para comprobarlos",next:'res_how_to_check_rm_anova'},
+      ]},
+      q_relate_vars:{id:'q_relate_vars',text:"¿Qué tipo de variables quieres relacionar?",type:'radio',options:[
+        {text:"Dos variables numéricas/cuantitativas",next:'q_relate_continuous'},
+        {text:"Dos variables ordinales (o numéricas no paramétricas)",next:'q_relate_ordinal'},
+        {text:"Dos variables categóricas/nominales",next:'res_chi_square'},
+      ]},
+      q_relate_continuous:{id:'q_relate_continuous',text:`¿La relación es lineal y los datos son paramétricos? ${createTooltip('Un diagrama de dispersión ayuda con la linealidad. Comprueba normalidad con Shapiro-Wilk.')}`,type:'radio',options:[
+        {text:"Sí",next:'q_partial_corr_check'},
+        {text:"No",next:'q_partial_corr_check_spearman'},
+      ]},
+      q_relate_ordinal:{id:'q_relate_ordinal',text:`Vas a usar una correlación de Spearman. ¿Quieres controlar una tercera variable? ${createTooltip('Aísla la relación principal eliminando un confusor.')}`,type:'radio',options:[
+        {text:"Sí, quiero controlar una tercera variable",next:'res_partial_spearman'},
+        {text:"No, solo la relación entre las dos",next:'res_spearman'},
+      ]},
+      q_partial_corr_check:{id:'q_partial_corr_check',text:`Vas a usar Pearson. ¿Controlar una tercera variable? ${createTooltip('Elimina la influencia de una variable confusora.')}`,type:'radio',options:[
+        {text:"Sí, controlar una tercera variable",next:'res_partial_pearson'},
+        {text:"No, solo la relación entre las dos",next:'res_pearson'},
+      ]},
+      q_partial_corr_check_spearman:{id:'q_partial_corr_check_spearman',text:`Vas a usar Spearman. ¿Controlar una tercera variable? ${createTooltip('Versión no paramétrica.')}`,type:'radio',options:[
+        {text:"Sí, controlar una tercera variable",next:'res_partial_spearman'},
+        {text:"No, solo la relación entre las dos",next:'res_spearman'},
+      ]},
+      q_predict_vars_how_many:{id:'q_predict_vars_how_many',text:"¿Cuántas variables predictoras (independientes) usarás?",type:'radio',options:[
+        {text:`Una sola variable predictora ${createTooltip('Ej: predecir nota con horas de estudio.')}`, next:'q_predict_var_type'},
+        {text:`Dos o más variables predictoras ${createTooltip('Ej: horas de estudio, CI y motivación.')}`, next:'q_predict_var_type_multiple'},
+      ]},
+      q_predict_var_type:{id:'q_predict_var_type',text:"¿Qué tipo de variable quieres predecir (dependiente)?",type:'radio',options:[
+        {text:"Una variable continua (Regresión Lineal Simple)",next:'res_linear_regression_simple'},
+        {text:"Una variable categórica (Regresión Logística Simple)",next:'res_logistic_regression_simple'},
+      ]},
+      q_predict_var_type_multiple:{id:'q_predict_var_type_multiple',text:"¿Qué tipo de variable quieres predecir (dependiente)?",type:'radio',options:[
+        {text:"Una variable continua (Regresión Lineal Múltiple)",next:'res_linear_regression_multiple'},
+        {text:"Una variable categórica (Regresión Logística Múltiple)",next:'res_logistic_regression_multiple'},
+      ]},
+      q_reliability:{id:'q_reliability',text:"¿Qué tipo de fiabilidad quieres medir?",type:'radio',options:[
+        {text:`Consistencia interna de una escala ${createTooltip('Para ítems tipo Likert.')}`, next:'res_cronbach_alpha'},
+        {text:`Concordancia entre dos observadores/jueces ${createTooltip('Acuerdo categórico entre evaluadores.')}`, next:'res_cohen_kappa'},
+      ]},
+      q_factor_analysis:{id:'q_factor_analysis',text:"¿Tu análisis factorial es exploratorio o confirmatorio?",type:'radio',options:[
+        {text:`Exploratorio (AFE) ${createTooltip('Explora estructura sin hipótesis previa.')}`, next:'res_efa'},
+        {text:`Confirmatorio (AFC) ${createTooltip('Contrasta un modelo teórico con SEM.')}`, next:'res_cfa'},
+      ]},
+    };
+
+    const results = {
+      res_describe_categorical:{title:"Análisis Descriptivo para Variable Categórica",description:"Para entender la distribución de una variable que agrupa en categorías, céntrate en las frecuencias.",assumptions:"No se requieren supuestos. Este paso es exploratorio.",howToCheck:"",software:"SPSS, R, Python, Excel, JASP, Jamovi.",resources:"<ul><li><b>Tabla de frecuencias</b> (N y %)</li><li><b>Gráfico de barras</b></li><li><b>Gráfico circular</b> si hay pocas categorías</li></ul>"},
+      res_describe_numerical:{title:"Análisis Descriptivo para Variable Numérica",description:"Examina tendencia central, dispersión y forma de la distribución.",assumptions:"No hay supuestos para describir; útil para pasos posteriores.",howToCheck:"",software:"SPSS, R, Python, JASP, Jamovi.",resources:"<ul><li><b>Media</b> y <b>mediana</b></li><li><b>Desviación estándar</b> y rango</li><li><b>Histograma</b> y <b>Box Plot</b></li></ul>"},
+      res_how_to_check_ttest:{title:"Comprobación de supuestos (t indep.)",description:"Comprueba normalidad y homogeneidad de varianzas.",assumptions:"Ideal si p > .05 en ambas pruebas.",howToCheck:"<b>1. Normalidad:</b> Shapiro–Wilk por grupo (p > .05).<br><b>2. Homogeneidad:</b> Levene (p > .05).<br><br><b>Decisión:</b> si fallan, usa U de Mann–Whitney.",software:"SPSS, R, Python, JASP, Jamovi.",resources:""},
+      res_how_to_check_anova:{title:"Comprobación de supuestos (ANOVA)",description:"Similar a t pero para ≥3 grupos.",assumptions:"Ideal si p > .05 en ambas pruebas.",howToCheck:"<b>1. Normalidad:</b> Shapiro–Wilk en cada grupo (p > .05).<br><b>2. Homogeneidad:</b> Levene (p > .05).<br><br><b>Decisión:</b> si fallan, Kruskal–Wallis.",software:"SPSS, R, Python, JASP, Jamovi.",resources:""},
+      res_how_to_check_ttest_related:{title:"Comprobación de supuestos (t pareada)",description:"La normalidad se aplica a las diferencias.",assumptions:"Ideal si p > .05.",howToCheck:"1) Calcula Post–Pre. 2) Shapiro–Wilk sobre la diferencia. 3) Si falla, usa Wilcoxon.",software:"SPSS, R, Python, JASP, Jamovi.",resources:""},
+      res_how_to_check_rm_anova:{title:"Comprobación de supuestos (ANOVA rep.)",description:"Además de normalidad, revisa esfericidad.",assumptions:"Normalidad y esfericidad (p > .05).",howToCheck:"<b>Mauchly</b> para esfericidad. Si falla, corrige con Greenhouse–Geisser o Huynh–Feldt.",software:"SPSS, R, JASP, Jamovi.",resources:""},
+      res_t_test_independent:{title:"Prueba t para muestras independientes",description:"Compara medias de dos grupos independientes.",assumptions:"VD continua, independencia, normalidad por grupo, varianzas iguales.",software:"SPSS, R, Python, JASP, Jamovi.",resources:'<a class="text-[var(--brand)] hover:underline" target="_blank" href="https://www.cienciadedatos.net/documentos/pystad_t-test.html">Guía rápida</a>'},
+      res_mann_whitney:{title:"U de Mann–Whitney",description:"Alternativa no paramétrica a t independiente.",assumptions:"VD ordinal o continua; independencia; formas similares.",software:"SPSS, R, Python, JASP, Jamovi.",resources:'<a class="text-[var(--brand)] hover:underline" target="_blank" href="https://humanidades.com/prueba-u-de-mann-whitney/">Referencia</a>'},
+      res_anova_oneway:{title:"ANOVA de un factor",description:"Compara medias de ≥3 grupos independientes. Si hay diferencias, usa post-hoc.",assumptions:"Normalidad, homogeneidad de varianzas, independencia.",software:"SPSS, R, Python, JASP, Jamovi.",resources:'<a class="text-[var(--brand)] hover:underline" target="_blank" href="https://www.questionpro.com/blog/es/anova-de-un-factor/">Referencia</a>'},
+      res_ancova:{title:"ANCOVA",description:"ANOVA controlando una covariable continua.",assumptions:"Supuestos de ANOVA + independencia VI–covariable y relación lineal covariable–VD.",software:"SPSS, R, Python, JASP, Jamovi.",resources:'<a class="text-[var(--brand)] hover:underline" target="_blank" href="https://www.datanovia.com/en/lessons/ancova-in-r/">Cómo en R</a>'},
+      res_kruskal_wallis:{title:"Kruskal–Wallis",description:"Alternativa no paramétrica al ANOVA de un factor.",assumptions:"VD ordinal/continua; independencia; formas similares.",software:"SPSS, R, Python, JASP, Jamovi.",resources:'<a class="text-[var(--brand)] hover:underline" target="_blank" href="https://www.addlink.es/noticias/minitab/2833-cuando-utilizar-la-prueba-de-kruskal-wallis">Referencia</a>'},
+      res_t_test_related:{title:"t para muestras relacionadas",description:"Compara medias de dos medidas en los mismos sujetos.",assumptions:"Normalidad de las diferencias.",software:"SPSS, R, Python, JASP, Jamovi.",resources:'<a class="text-[var(--brand)] hover:underline" target="_blank" href="https://proyectodescartes.org/inferencia/materiales_didacticos/estim_contraste_param-JS/t_muestras_pareadas.html">Referencia</a>'},
+      res_wilcoxon:{title:"Wilcoxon (rangos con signo)",description:"Alternativa no paramétrica a t pareada.",assumptions:"Diferencias con simetría aproximada.",software:"SPSS, R, Python, JASP, Jamovi.",resources:'<a class="text-[var(--brand)] hover:underline" target="_blank" href="https://www.cienciadedatos.net/documentos/pystad_wilcoxon_rank_sum_test.html">Referencia</a>'},
+      res_rm_anova:{title:"ANOVA de medidas repetidas",description:"Compara medias de ≥3 medidas en los mismos sujetos.",assumptions:"Normalidad y esfericidad (si falla, correcciones).",software:"SPSS, R, Python, JASP, Jamovi.",resources:'<a class="text-[var(--brand)] hover:underline" target="_blank" href="https://investigaliacr.com/investigacion/anova-para-medidas-repetidas-de-un-factor/">Referencia</a>'},
+      res_friedman:{title:"Friedman",description:"Alternativa no paramétrica al ANOVA repetido.",assumptions:"Sin necesidad de normalidad ni esfericidad.",software:"SPSS, R, Python, JASP, Jamovi.",resources:'<a class="text-[var(--brand)] hover:underline" target="_blank" href="https://www.questionpro.com/blog/es/prueba-de-friedman/">Referencia</a>'},
+      res_pearson:{title:"Correlación de Pearson (r)",description:"Asociación lineal entre dos variables continuas.",assumptions:"Continuas; linealidad; normalidad bivariada.",software:"SPSS, R, Python, JASP, Jamovi.",resources:'<a class="text-[var(--brand)] hover:underline" target="_blank" href="https://www.questionpro.com/blog/es/coeficiente-de-correlacion-de-pearson/">Referencia</a>'},
+      res_partial_pearson:{title:"Correlación parcial (Pearson)",description:"Relación lineal entre dos variables controlando otra(s).",assumptions:"Como Pearson, aplicado a residuos.",software:"SPSS, R, Python.",resources:'<a class="text-[var(--brand)] hover:underline" target="_blank" href="https://www.statology.org/partial-correlation-in-r/">Referencia</a>'},
+      res_spearman:{title:"Correlación de Spearman (ρ)",description:"Asociación monotónica con rangos.",assumptions:"Al menos ordinales; sin normalidad.",software:"SPSS, R, Python, JASP, Jamovi.",resources:'<a class="text-[var(--brand)] hover:underline" target="_blank" href="https://www.addlink.es/noticias/minitab/2821-correlacion-de-spearman-la-guia-sencilla">Referencia</a>'},
+      res_partial_spearman:{title:"Correlación parcial (Spearman)",description:"Relación monotónica controlando otra(s).",assumptions:"Variables ordinales/continuas sin normalidad.",software:"R (ppcor), Python (pingouin).",resources:'<a class="text-[var(--brand)] hover:underline" target="_blank" href="https://www.statology.org/partial-correlation-python/">Referencia</a>'},
+      res_chi_square:{title:"Chi-cuadrado de independencia",description:"Asociación entre dos variables categóricas.",assumptions:"Frecuencias esperadas > 5; si no, Fisher.",software:"SPSS, R, Python, JASP, Jamovi.",resources:'<a class="text-[var(--brand)] hover:underline" target="_blank" href="https://www.jmp.com/es_es/statistics-knowledge-portal/chi-square-test.html">Referencia</a>'},
+      res_linear_regression_simple:{title:"Regresión lineal simple",description:"Y = b0 + b1·X para predecir VD continua con un predictor.",assumptions:"Linealidad; independencia; homocedasticidad; normalidad de errores.",software:"SPSS, R, Python, JASP, Jamovi.",resources:'<a class="text-[var(--brand)] hover:underline" target="_blank" href="https://www.ibm.com/es-es/analytics/learn/linear-regression">Referencia</a>'},
+      res_linear_regression_multiple:{title:"Regresión lineal múltiple",description:"VD continua con varios predictores.",assumptions:"Las de la simple + sin multicolinealidad.",software:"SPSS, R, Python, JASP, Jamovi.",resources:'<a class="text-[var(--brand)] hover:underline" target="_blank" href="https://www.cienciadedatos.net/documentos/py10-regresion-lineal-multiple-python.html">Referencia</a>'},
+      res_logistic_regression_simple:{title:"Regresión logística simple",description:"Probabilidad de evento con un predictor.",assumptions:"VD categórica; independencia; relación lineal predictor–logit.",software:"SPSS, R, Python, JASP, Jamovi.",resources:'<a class="text-[var(--brand)] hover:underline" target="_blank" href="https://www.cienciadedatos.net/documentos/py17-regresion-logistica-python.html">Referencia</a>'},
+      res_logistic_regression_multiple:{title:"Regresión logística múltiple",description:"Probabilidad de evento con varios predictores.",assumptions:"Como la simple + sin multicolinealidad.",software:"SPSS, R, Python, JASP, Jamovi.",resources:'<a class="text-[var(--brand)] hover:underline" target="_blank" href="https://www.datanovia.com/en/lessons/multiple-logistic-regression-in-r/">Referencia</a>'},
+      res_cronbach_alpha:{title:"Alfa de Cronbach (α)",description:"Consistencia interna de una escala.",assumptions:"Unidimensionalidad; nivel al menos de intervalo.",software:"SPSS, R, JASP, Jamovi.",resources:'<a class="text-[var(--brand)] hover:underline" target="_blank" href="https://www.questionpro.com/blog/es/alfa-de-cronbach/">Referencia</a>'},
+      res_cohen_kappa:{title:"Kappa de Cohen (κ)",description:"Acuerdo entre evaluadores corrigiendo azar.",assumptions:"Datos categóricos; evaluadores independientes.",software:"SPSS, R, JASP, Jamovi.",resources:'<a class="text-[var(--brand)] hover:underline" target="_blank" href="https://universidadeuropea.com/blog/coeficiente-kappa-cohen/">Referencia</a>'},
+      res_efa:{title:"Análisis factorial exploratorio (AFE)",description:"Identifica estructura latente sin modelo previo.",assumptions:"Datos continuos/ordinales; relaciones lineales; tamaño muestral adecuado.",software:"SPSS, R (psych), JASP, Jamovi.",resources:'<a class="text-[var(--brand)] hover:underline" target="_blank" href="https://explorable.com/es/analisis-factorial-exploratorio">Referencia</a>'},
+      res_cfa:{title:"Análisis factorial confirmatorio (AFC)",description:"Contrasta un modelo de factores con SEM.",assumptions:"Modelo teórico; muestra grande; normalidad multivariante (o estimadores robustos).",software:"R (lavaan), AMOS, Mplus, JASP.",resources:'<a class="text-[var(--brand)] hover:underline" target="_blank" href="https://www.psicologia-online.com/analisis-factorial-confirmatorio-que-es-y-como-se-realiza-5437.html">Referencia</a>'},
+    };
+
+    // ---------- Persistencia ----------
+    function saveState(){
+      try{
+        state.notes = dom.notes.value || '';
+        localStorage.setItem('statsPlannerState', JSON.stringify(state));
+        markSaved();
+      }catch(e){ console.error('No se pudo guardar el estado:', e); }
+    }
+    function loadState(){
+      try{
+        const saved = localStorage.getItem('statsPlannerState');
+        if(saved){
+          state = JSON.parse(saved);
+          if(state.currentQuestionId && !String(state.currentQuestionId).startsWith('res_')){
+            dom.resumeText.classList.remove('hidden');
+            dom.resumeLink.classList.remove('hidden');
+          }
+          dom.notes.value = state.notes || '';
+          dom.compactMode.checked = !!state.compact;
+          applyCompactMode(!!state.compact);
+        }
+      }catch(e){
+        console.error('No se pudo cargar el estado:', e);
+        localStorage.removeItem('statsPlannerState');
       }
+    }
 
-      buttons.forEach(btn=>{
-        btn.addEventListener('click', ()=>{
-          buttons.forEach(b=>b.setAttribute('aria-pressed','false'));
-          btn.setAttribute('aria-pressed','true');
-          activeType = btn.dataset.type;
-          apply();
+    // Compartir por enlace (hash base64 url-safe)
+    function encodeStateToUrl(){
+      const raw = JSON.stringify(state);
+      const b64 = btoa(unescape(encodeURIComponent(raw))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+      const url = location.origin + location.pathname + '#s=' + b64;
+      navigator.clipboard.writeText(url).then(()=>toast('Enlace copiado','ok')).catch(()=>toast('No se pudo copiar','err'));
+    }
+    function tryRestoreFromUrl(){
+      if(location.hash.startsWith('#s=')){
+        try{
+          const b64 = location.hash.slice(3).replace(/-/g,'+').replace(/_/g,'/');
+          const raw = decodeURIComponent(escape(atob(b64)));
+          const parsed = JSON.parse(raw);
+          if(parsed && parsed.currentQuestionId){
+            state = parsed;
+            dom.notes.value = state.notes || '';
+            dom.compactMode.checked = !!state.compact;
+            applyCompactMode(!!state.compact);
+            startQuiz(true);
+            toast('Estado cargado desde enlace','ok');
+          }
+        }catch(e){ console.warn('Hash inválido'); }
+      }
+    }
+
+    // ---------- UI helpers ----------
+    function updateProgressBars(){
+      const pct = Math.min((state.answers.length / state.totalQuestions) * 100, 100);
+      dom.progressBar.style.width = pct + '%';
+      if(dom.progressBarMobile) dom.progressBarMobile.style.width = pct + '%';
+    }
+
+    function rebuildStepper(){
+      dom.stepper.innerHTML = '';
+      state.answers.forEach((step, idx)=>{
+        const li = document.createElement('li');
+        li.className = 'flex items-start gap-2';
+        li.innerHTML = `
+          <span class="mt-1 h-2 w-2 rounded-full ${idx===state.answers.length-1?'bg-[var(--brand)]':'bg-gray-300 dark:bg-slate-600'}"></span>
+          <button class="text-left flex-1 text-gray-700 dark:text-slate-300 hover:underline" data-step="${idx}">
+            ${step.from.replace(/^q_/,'').replaceAll('_',' ')}
+          </button>
+        `;
+        dom.stepper.appendChild(li);
+      });
+      // Click to jump
+      dom.stepper.querySelectorAll('button[data-step]').forEach(btn=>{
+        btn.addEventListener('click', (e)=>{
+          const idx = parseInt(e.currentTarget.getAttribute('data-step'),10);
+          jumpToStep(idx);
         });
       });
+    }
 
-      q.addEventListener('input', apply);
-      apply();
-    })();
+    function applyCompactMode(on){
+      document.body.classList.toggle('text-[15px]', on);
+      document.querySelectorAll('.card').forEach(c=>{
+        c.classList.toggle('p-4', on);
+        c.classList.toggle('p-6', !on);
+      });
+      state.compact = !!on;
+      saveState();
+    }
+
+    // ---------- Render ----------
+    function showQuestion(questionId){
+      const qData = questions[questionId];
+      if(!qData) return;
+
+      state.currentQuestionId = questionId;
+      dom.questionText.innerHTML = qData.text;
+      dom.optionsForm.innerHTML = '';
+      showMessage('', false);
+
+      if(qData.type==='radio'){
+        qData.options.forEach((option, index)=>{
+          const optId = `opt_${questionId}_${index}`;
+          const div = document.createElement('div');
+          div.className = 'block';
+          div.innerHTML = `
+            <label for="${optId}" class="flex items-start gap-3 p-3 border border-gray-200 dark:border-slate-700 rounded-lg cursor-pointer hover:bg-blue-50 dark:hover:bg-slate-800/50 transition-colors">
+              <input type="radio" id="${optId}" name="option" value="${option.next}" class="mt-0.5 h-4 w-4 text-[var(--brand)] border-gray-300 focus:ring-[var(--brand)]">
+              <span class="text-gray-800 dark:text-slate-100">${option.text}</span>
+            </label>`;
+          dom.optionsForm.appendChild(div);
+        });
+      }else if(qData.type==='numberInput'){
+        const inputId = `input_${questionId}`;
+        const div = document.createElement('div');
+        div.innerHTML = `
+          <label for="${inputId}" class="sr-only">${qData.text}</label>
+          <input type="number" id="${inputId}" min="${qData.min}" placeholder="${qData.placeholder}"
+            class="w-full px-4 py-3 text-lg text-center border border-gray-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-[var(--brand)] focus:border-[var(--brand)] bg-white dark:bg-slate-900 dark:text-slate-100 transition">
+          <p class="text-xs text-gray-500 mt-2">Introduce un entero ≥ ${qData.min}</p>
+        `;
+        dom.optionsForm.appendChild(div);
+        const inp = document.getElementById(inputId);
+        inp.value = state.userInputs[qData.id] ?? '';
+        inp.focus();
+      }
+
+      dom.backButton.classList.toggle('hidden', state.answers.length===0);
+      updateProgressBars();
+      rebuildStepper();
+      validateNextAvailability();
+      saveState();
+    }
+
+    function showResult(resultId){
+      const resultData = results[resultId];
+      if(!resultData) return;
+      state.currentQuestionId = resultId;
+
+      let title = resultData.title;
+      if(resultId==='res_anova_oneway' && state.userInputs.q_n_independent){
+        title += ` (para ${state.userInputs.q_n_independent} grupos)`;
+      }else if(resultId==='res_rm_anova' && state.userInputs.q_n_related){
+        title += ` (para ${state.userInputs.q_n_related} mediciones)`;
+      }
+
+      dom.resultTitle.textContent = title;
+      dom.resultDescription.innerHTML = resultData.description;
+      dom.resultAssumptions.innerHTML = resultData.assumptions || '—';
+      dom.resultSoftware.innerHTML = resultData.software || '—';
+      dom.resultResources.innerHTML = resultData.resources || '';
+      if(resultData.howToCheck){
+        dom.resultHowToCheck.innerHTML = resultData.howToCheck;
+        dom.howToCheckContainer.classList.remove('hidden');
+      }else{
+        dom.howToCheckContainer.classList.add('hidden');
+      }
+
+      dom.questionSection.classList.add('hidden');
+      dom.resultSection.classList.remove('hidden');
+      dom.resultSection.classList.add('fade-in');
+
+      updateProgressBars();
+      rebuildStepper();
+      saveState();
+      toast('Plan generado','ok');
+    }
+
+    function validateNextAvailability(){
+      const qData = questions[state.currentQuestionId];
+      if(!qData){ dom.nextButton.disabled = false; return; }
+      if(qData.type==='radio'){
+        const anyChecked = !!dom.optionsForm.querySelector('input[name="option"]:checked');
+        dom.nextButton.disabled = !anyChecked;
+      }else if(qData.type==='numberInput'){
+        const inputElem = dom.optionsForm.querySelector('input[type="number"]');
+        const value = parseInt(inputElem?.value ?? '', 10);
+        dom.nextButton.disabled = !(Number.isInteger(value) && value >= qData.min);
+      }
+    }
+
+    // ---------- Navegación ----------
+    function handleNext(){
+      const qData = questions[state.currentQuestionId];
+      if(!qData) return;
+
+      let nextQuestionId = null;
+      let userAnswer = null;
+
+      if(qData.type==='radio'){
+        const selectedOption = dom.optionsForm.querySelector('input[name="option"]:checked');
+        if(!selectedOption){ showMessage('Selecciona una opción para continuar.', true); return; }
+        nextQuestionId = selectedOption.value;
+        userAnswer = {type:'radio', value:selectedOption.id};
+      }else if(qData.type==='numberInput'){
+        const inputElem = dom.optionsForm.querySelector('input[type="number"]');
+        const value = parseInt(inputElem.value, 10);
+        if(isNaN(value) || value < qData.min){
+          showMessage(`Introduce un número válido (mínimo ${qData.min}).`, true);
+          return;
+        }
+        nextQuestionId = qData.next(value);
+        userAnswer = {type:'numberInput', value:value};
+        state.userInputs[qData.id] = value;
+      }
+
+      if(!nextQuestionId) return;
+      state.answers.push({from: state.currentQuestionId, answer: userAnswer});
+
+      if(nextQuestionId.startsWith('res_')) showResult(nextQuestionId);
+      else showQuestion(nextQuestionId);
+    }
+
+    function handleBack(){
+      if(state.answers.length===0) return;
+      const last = state.answers.pop();
+      const prevQ = last.from;
+      if(state.userInputs[prevQ]) delete state.userInputs[prevQ];
+      dom.resultSection.classList.add('hidden');
+      dom.questionSection.classList.remove('hidden');
+      showQuestion(prevQ);
+
+      const qData = questions[prevQ];
+      if(last.answer.type==='radio'){
+        const radioToSelect = document.getElementById(last.answer.value);
+        if(radioToSelect){ radioToSelect.checked = true; }
+      }else if(qData.type==='numberInput'){
+        const inp = dom.optionsForm.querySelector('input[type="number"]');
+        if(inp){ inp.value = last.answer.value; }
+      }
+    }
+
+    function jumpToStep(idx){
+      if(idx<0 || idx>=state.answers.length) return;
+      const target = state.answers[idx];
+      // recorta historial
+      state.answers = state.answers.slice(0, idx);
+      dom.resultSection.classList.add('hidden');
+      dom.questionSection.classList.remove('hidden');
+      showQuestion(target.from);
+    }
+
+    function startQuiz(resume=false){
+      dom.startSection.classList.add('hidden');
+      dom.resultSection.classList.add('hidden');
+      dom.questionSection.classList.remove('hidden');
+      dom.questionSection.classList.add('fade-in');
+      if(!resume){
+        state.currentQuestionId = 'q_initial';
+        state.answers = [];
+        state.userInputs = {};
+      }
+      showQuestion(state.currentQuestionId);
+      toast(resume?'Continuando donde lo dejaste':'Empezamos','ok');
+    }
+
+    function openRestartModal(){ dom.restartModal.classList.remove('hidden'); }
+    function closeRestartModal(){ dom.restartModal.classList.add('hidden'); }
+    function resetApp(){
+      state = { currentQuestionId:null, answers:[], userInputs:{}, totalQuestions:8, notes:'', compact: !!dom.compactMode.checked };
+      localStorage.removeItem('statsPlannerState');
+      dom.resultSection.classList.add('hidden');
+      dom.questionSection.classList.add('hidden');
+      dom.startSection.classList.remove('hidden');
+      dom.startSection.classList.add('fade-in');
+      dom.resumeText.classList.add('hidden');
+      dom.resumeLink.classList.add('hidden');
+      dom.notes.value = '';
+      closeRestartModal();
+      rebuildStepper();
+      updateProgressBars();
+      toast('Reiniciado','warn');
+    }
+
+    function copyResult(){
+      const title = dom.resultTitle.textContent.trim();
+      const description = `Descripción: ${dom.resultDescription.textContent.trim()}`;
+      const assumptions = `Supuestos clave: ${dom.resultAssumptions.textContent.trim()}`;
+      let howToCheck = '';
+      if(!dom.howToCheckContainer.classList.contains('hidden')){
+        howToCheck = `Cómo comprobar: ${dom.resultHowToCheck.textContent.trim()}`;
+      }
+      const software = `Software: ${dom.resultSoftware.textContent.trim()}`;
+      const resources = `Recursos: ${dom.resultResources.textContent.trim()}`;
+
+      const textToCopy = [title, description, assumptions, howToCheck, software, resources].filter(Boolean).join('\n\n');
+
+      navigator.clipboard.writeText(textToCopy).then(()=>{
+        dom.copyButtonText.textContent = '¡Copiado!';
+        setTimeout(()=> dom.copyButtonText.textContent = 'Copiar al portapapeles', 1600);
+        toast('Copiado al portapapeles','ok');
+      }).catch(()=>{
+        // Fallback
+        const ta = document.createElement('textarea');
+        ta.value = textToCopy;
+        document.body.appendChild(ta);
+        ta.select();
+        try{ document.execCommand('copy'); toast('Copiado','ok'); }catch(e){ toast('No se pudo copiar','err'); }
+        document.body.removeChild(ta);
+      });
+    }
+
+    // ---------- Exportar DOCX ----------
+    async function exportDocx(){
+      const { Document, Packer, Paragraph, TextRun, HeadingLevel } = window.docx;
+      const paras = [];
+      const pushH = (t)=>paras.push(new Paragraph({text:t, heading:HeadingLevel.HEADING_1}));
+      const pushH2 = (t)=>paras.push(new Paragraph({text:t, heading:HeadingLevel.HEADING_2}));
+      const pushP = (t)=>paras.push(new Paragraph({children:[new TextRun({text:t})]}));
+
+      pushH('Plan estadístico recomendado');
+      pushH2(dom.resultTitle.textContent.trim() || '—');
+
+      pushH2('Descripción');
+      pushP(dom.resultDescription.textContent.trim() || '—');
+
+      pushH2('Supuestos clave');
+      pushP(dom.resultAssumptions.textContent.trim() || '—');
+
+      if(!dom.howToCheckContainer.classList.contains('hidden')){
+        pushH2('Cómo comprobar los supuestos');
+        pushP(dom.resultHowToCheck.textContent.trim() || '—');
+      }
+
+      pushH2('Software recomendado');
+      pushP(dom.resultSoftware.textContent.trim() || '—');
+
+      pushH2('Recursos');
+      pushP(dom.resultResources.textContent.trim() || '—');
+
+      if(state.answers?.length){
+        pushH2('Ruta de decisiones');
+        state.answers.forEach((a,i)=>pushP(`${i+1}. ${a.from}`));
+      }
+
+      if(state.notes){
+        pushH2('Notas del proyecto');
+        pushP(state.notes);
+      }
+
+      const doc = new Document({sections:[{children:paras}]});
+      const blob = await Packer.toBlob(doc);
+      const fname = 'plan_estadistico.docx';
+      if(window.saveAs){ window.saveAs(blob, fname); }
+      else{
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = fname; a.click();
+        URL.revokeObjectURL(url);
+      }
+      toast('DOCX generado','ok');
+    }
+
+    // ---------- Export/Import JSON ----------
+    function exportJSON(){
+      const data = new Blob([JSON.stringify(state,null,2)], {type:'application/json'});
+      const url = URL.createObjectURL(data);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'asistente_estadistica_estado.json'; a.click();
+      URL.revokeObjectURL(url);
+      toast('JSON exportado','ok');
+    }
+    function importJSONFile(file){
+      const reader = new FileReader();
+      reader.onload = (e)=>{
+        try{
+          const obj = JSON.parse(e.target.result);
+          if(!obj || !obj.currentQuestionId) throw new Error('Estructura inválida');
+          state = obj;
+          dom.notes.value = state.notes || '';
+          dom.compactMode.checked = !!state.compact;
+          applyCompactMode(!!state.compact);
+          saveState();
+          if(String(state.currentQuestionId).startsWith('res_')){ // ir directo al resultado
+            dom.startSection.classList.add('hidden');
+            showResult(state.currentQuestionId);
+          }else{
+            startQuiz(true);
+          }
+          toast('Estado importado','ok');
+        }catch(err){
+          console.error(err);
+          toast('Archivo no válido','err');
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    // ---------- Eventos ----------
+    dom.startButton.addEventListener('click', ()=>startQuiz(false));
+    dom.resumeLink.addEventListener('click', (e)=>{ e.preventDefault(); startQuiz(true); });
+    dom.nextButton.addEventListener('click', handleNext);
+    dom.backButton.addEventListener('click', handleBack);
+    dom.restartButton.addEventListener('click', openRestartModal);
+    dom.confirmRestart.addEventListener('click', resetApp);
+    dom.cancelRestart.addEventListener('click', closeRestartModal);
+    dom.copyButton.addEventListener('click', copyResult);
+    dom.printButton.addEventListener('click', ()=>window.print());
+    dom.jumpLast.addEventListener('click', ()=> jumpToStep(state.answers.length-1));
+    dom.themeToggle.addEventListener('click', toggleTheme);
+    dom.helpButton.addEventListener('click', ()=> dom.helpModal.classList.remove('hidden'));
+    dom.closeHelp.addEventListener('click', ()=> dom.helpModal.classList.add('hidden'));
+    dom.exportDocx.addEventListener('click', exportDocx);
+    dom.exportJson.addEventListener('click', exportJSON);
+    dom.importJson.addEventListener('change', (e)=>{ const f=e.target.files?.[0]; if(f) importJSONFile(f); e.target.value=''; });
+    dom.shareLink.addEventListener('click', encodeStateToUrl);
+
+    // Validación dinámica
+    dom.optionsForm.addEventListener('change', validateNextAvailability);
+    dom.optionsForm.addEventListener('input', validateNextAvailability);
+
+    // Enter en numberInput
+    dom.questionSection.addEventListener('keydown', (e)=>{
+      if(e.key==='Enter'){
+        const qData = questions[state.currentQuestionId];
+        if(qData?.type==='numberInput'){ e.preventDefault(); handleNext(); }
+      }
+    });
+
+    // Atajos de teclado globales
+    document.addEventListener('keydown', (e)=>{
+      if(e.altKey && e.key==='ArrowRight'){ e.preventDefault(); if(!dom.resultSection.classList.contains('hidden')) return; handleNext(); }
+      if(e.altKey && e.key==='ArrowLeft'){ e.preventDefault(); handleBack(); }
+      if(e.altKey && (e.key==='t' || e.key==='T')){ e.preventDefault(); toggleTheme(); }
+      if(e.key==='r' || e.key==='R'){ openRestartModal(); }
+      if(e.altKey && (e.key==='h' || e.key==='H')){ e.preventDefault(); dom.helpModal.classList.remove('hidden'); }
+    });
+
+    // Guardado en cambios de notas y modo compacto
+    dom.notes.addEventListener('input', ()=> { saveState(); });
+    dom.compactMode.addEventListener('change', (e)=> applyCompactMode(e.target.checked));
+
+    // ---------- Inicialización ----------
+    dom.currentYear.textContent = new Date().getFullYear();
+    applyTheme();
+    loadState();
+    tryRestoreFromUrl();
+
+    // Si hay un currentQuestionId result -> mostrar acorde al estado
+    if(state.currentQuestionId){
+      if(String(state.currentQuestionId).startsWith('res_')) showResult(state.currentQuestionId);
+      else{
+        dom.startSection.classList.add('hidden');
+        dom.questionSection.classList.remove('hidden');
+        showQuestion(state.currentQuestionId);
+      }
+    }
+
+    // Observador de guardado automático
+    window.addEventListener('beforeunload', saveState);
+  })();
   </script>
+
+  <!-- Contador externo (se mantiene) -->
+  <div class="mt-4 text-center text-xs opacity-60 no-print">
+    <div class="inline-block scale-75">
+      <script type="text/javascript" src="https://contador.websiteout.com/js/5/5/1/0"></script>
+    </div>
+  </div>
 </body>
 </html>
 
