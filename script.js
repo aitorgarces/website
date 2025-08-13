@@ -1,214 +1,78 @@
 // script.js
+// ===== Utilidades
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Menú Responsive
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('nav');
+// ===== Progreso lectura
+const bar = $('#progressBar');
+if (bar) {
+  const onScroll = () => {
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
+    bar.style.width = `${Math.max(0, Math.min(1, scrolled))*100}%`;
+  };
+  document.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+}
 
-    if (burger && nav) {
-        burger.addEventListener('click', () => {
-            nav.classList.toggle('active');
-            burger.classList.toggle('toggle');
-        });
+// ===== Menú accesible
+const nav = $('header nav');
+const list = $('.nav-links', nav);
+let burgerBtn = $('.burger button', nav);
 
-        // Cerrar el menú al hacer clic en un enlace (opcional)
-        const navLinks = document.querySelectorAll('nav ul li a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                nav.classList.remove('active');
-                burger.classList.remove('toggle');
-            });
-        });
-    }
+if (!burgerBtn) {
+  // crea el botón si no existe
+  const wrap = document.createElement('div');
+  wrap.className = 'burger';
+  const btn = document.createElement('button');
+  btn.setAttribute('type', 'button');
+  btn.setAttribute('aria-label', 'Abrir menú');
+  btn.setAttribute('aria-expanded', 'false');
+  btn.setAttribute('aria-controls', 'site-menu');
+  btn.innerHTML = '<span class="bar"></span><span class="bar"></span><span class="bar"></span>';
+  wrap.appendChild(btn);
+  nav.appendChild(wrap);
+  burgerBtn = btn;
+}
+if (list && !list.id) list.id = 'site-menu';
 
-    // Animaciones al Desplazarse
-    const faders = document.querySelectorAll('.fade-in');
-    const sliders = document.querySelectorAll('.slide-in');
+function closeMenu(){ nav?.setAttribute('data-open','false'); burgerBtn?.setAttribute('aria-expanded','false'); }
+function openMenu(){ nav?.setAttribute('data-open','true'); burgerBtn?.setAttribute('aria-expanded','true'); }
 
-    const appearOptions = {
-        threshold: 0,
-        rootMargin: "0px 0px -100px 0px"
-    };
-
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                return;
-            } else {
-                entry.target.classList.add('appear');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, appearOptions);
-
-    if (faders.length) {
-        faders.forEach(fader => {
-            appearOnScroll.observe(fader);
-        });
-    }
-
-    if (sliders.length) {
-        sliders.forEach(slider => {
-            appearOnScroll.observe(slider);
-        });
-    }
-
-    // Barra de Progreso al Desplazarse
-    const progressBar = document.getElementById('progressBar');
-    if (progressBar) {
-        window.addEventListener('scroll', () => {
-            const totalHeight = document.body.scrollHeight - window.innerHeight;
-            const progressHeight = (window.pageYOffset / totalHeight) * 100;
-            progressBar.style.width = `${progressHeight}%`;
-        });
-    }
-
-    // Funcionalidad para el botón personalizado de Traducción
-    const translateButton = document.getElementById('translateButton');
-    if (translateButton) {
-        translateButton.addEventListener('click', function() {
-            // Alternar visibilidad del dropdown personalizado
-            const customSelect = document.getElementById('customTranslateSelect');
-            if (customSelect) {
-                customSelect.classList.toggle('show');
-            }
-        });
-    }
-
-    // Funcionalidad para el dropdown personalizado de Traducción
-    const customTranslateSelect = document.getElementById('customTranslateSelect');
-    if (customTranslateSelect) {
-        customTranslateSelect.addEventListener('change', function() {
-            const selectedLang = this.value;
-            if (selectedLang) {
-                translatePage(selectedLang);
-            }
-        });
-    }
+burgerBtn?.addEventListener('click', () => {
+  const open = nav.getAttribute('data-open') === 'true';
+  open ? closeMenu() : openMenu();
 });
 
-// Load blog posts from posts.js
-loadBlogPosts();
-
-// Define the loadBlogPosts function
-function loadBlogPosts() {
-    const blogContainer = document.getElementById('blog-posts');
-    if (!blogContainer) return;
-
-    if (!Array.isArray(posts) || posts.length === 0) {
-        blogContainer.innerHTML = "<p>No hay publicaciones disponibles en este momento.</p>";
-        return;
-    }
-
-    posts.forEach(post => {
-        const postCard = document.createElement('div');
-        postCard.classList.add('blog-card', 'fade-in');
-
-        const postImage = document.createElement('img');
-        postImage.src = post.image;
-        postImage.alt = post.title;
-
-        const postContent = document.createElement('div');
-        postContent.classList.add('blog-content');
-
-        const postTitle = document.createElement('h3');
-        postTitle.textContent = post.title;
-
-        const postDate = document.createElement('p');
-        postDate.classList.add('post-date');
-        postDate.textContent = post.date;
-
-        const postSummary = document.createElement('p');
-        postSummary.textContent = post.content;
-
-        if (post.link) {
-            const readMoreBtn = document.createElement('a');
-            readMoreBtn.href = post.link;
-            readMoreBtn.classList.add('btn');
-            readMoreBtn.textContent = 'Leer Más';
-            readMoreBtn.target = '_blank';
-            readMoreBtn.rel = 'noopener noreferrer';
-            postContent.appendChild(readMoreBtn);
-        }
-
-        postContent.appendChild(postTitle);
-        postContent.appendChild(postDate);
-        postContent.appendChild(postSummary);
-
-        postCard.appendChild(postImage);
-        postCard.appendChild(postContent);
-
-        blogContainer.appendChild(postCard);
-    });
-}
-
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-        pageLanguage: 'es',
-        includedLanguages: 'en,fr,de', // Idiomas disponibles (puedes añadir más separados por coma)
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    }, 'google_translate_element');
-}
-
-// JavaScript para el modal y los colapsables
-// Obtener elementos
-var modal = document.getElementById("tocModal");
-var btn = document.getElementById("tocButton");
-var span = document.getElementsByClassName("close")[0];
-
-// Abrir el modal al hacer clic en el botón
-if (btn && modal && span) {
-    btn.onclick = function() {
-        modal.style.display = "block";
-    }
-
-    // Cerrar el modal al hacer clic en la 'X'
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    // Cerrar el modal al hacer clic fuera del contenido
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-}
-
-// Funcionalidad de los colapsables
-var collapsibles = document.getElementsByClassName("collapsible");
-for (var i = 0; i < collapsibles.length; i++) {
-    collapsibles[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.maxHeight && content.style.maxHeight !== "0px") {
-            content.style.maxHeight = "0px";
-            this.setAttribute("aria-expanded", "false");
-        } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-            this.setAttribute("aria-expanded", "true");
-        }
-    });
-}
-
-// Scrollspy Simple
-window.addEventListener('scroll', function() {
-    var sections = document.querySelectorAll('main section');
-    var navLinks = document.querySelectorAll('nav .nav-links a');
-
-    let current = '';
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 60;
-        if (pageYOffset >= sectionTop) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-            link.classList.add('active');
-        }
-    });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+document.addEventListener('click', e => {
+  if (!nav.contains(e.target)) closeMenu();
 });
+
+// ===== Lazy-load seguro en imágenes
+$$('img:not([loading])').forEach(img=>{
+  img.loading = 'lazy';
+  img.decoding = 'async';
+});
+
+// ===== Aparición suave opcional
+if (!prefersReduce && 'IntersectionObserver' in window) {
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if (e.isIntersecting) {
+        e.target.style.transition = 'transform .4s ease, opacity .4s ease';
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.08});
+
+  $$('.fade-in, .taller-card, .proyecto-card, .publicacion-card, .course-card').forEach(el=>{
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(12px)';
+    io.observe(el);
+  });
+}
+
