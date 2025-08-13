@@ -1,109 +1,91 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Metadatos -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Talleres & Asesoramiento - Prof. Dr. Aitor Garcés Manzanera</title>
-    <!-- Enlaces a CSS -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome para iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Meta descripción para SEO -->
-    <meta name="description" content="Talleres y asesoramiento ofrecidos por el Prof. Dr. Aitor Garcés Manzanera en áreas como Estadística, publicación en revistas de alto impacto y metodología de la investigación en Educación.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talleres & Asesoramiento - Prof. Dr. Aitor Garcés Manzanera</title>
+  <meta name="description" content="Oferta de talleres y asesoramiento.">
+  <meta name="theme-color" content="#80140D">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="google_translate_container" style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
-    <div id="google_translate_element"></div>
-    <p style="margin: 0; font-size: 12px; text-align: center;">Translate page</p>
-</div>
-    <!-- Barra de Progreso -->
-    <div id="progressContainer">
-        <div id="progressBar"></div>
+  <div id="progressContainer"><div id="progressBar"></div></div>
+  <a class="visually-hidden" href="#main">Saltar al contenido</a>
+
+  <header>
+    <nav class="container" aria-label="Principal">
+      <div class="logo">
+        <a href="index.html"><i class="fas fa-user-graduate" aria-hidden="true"></i> Aitor Garcés</a>
+      </div>
+      <ul class="nav-links" role="menubar" id="site-menu">
+        <li role="none"><a role="menuitem" href="docencia.html">Docencia</a></li>
+        <li role="none"><a role="menuitem" href="conferencias.html">Conferencias</a></li>
+        <li role="none"><a role="menuitem" href="proyectos.html">Proyectos</a></li>
+        <li role="none"><a role="menuitem" href="publicaciones.html">Publicaciones</a></li>
+        <li role="none"><a role="menuitem" href="estadistica.html">Estadística</a></li>
+        <li role="none"><a role="menuitem" href="blog.html">Blog</a></li>
+        <li role="none"><a role="menuitem" class="active" aria-current="page" href="talleres.html">Talleres & Asesoramiento</a></li>
+      </ul>
+      <div class="burger">
+        <button type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-menu">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="section container">
+    <h2>Talleres & asesoramiento</h2>
+    <p>Estoy disponible para impartir talleres y asesorar equipos en estas áreas.</p>
+
+    <div class="talleres-grid">
+      <article class="taller-card">
+        <div class="icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
+        <h3>Estadística</h3>
+        <p>Fundamentos y aplicaciones para investigación educativa. Desde conceptos básicos hasta técnicas aplicadas.</p>
+      </article>
+
+      <article class="taller-card">
+        <div class="icon"><i class="fa-solid fa-newspaper" aria-hidden="true"></i></div>
+        <h3>Publicación en revistas</h3>
+        <p>Estrategias de redacción, selección de revistas y revisión por pares.</p>
+      </article>
+
+      <article class="taller-card">
+        <div class="icon"><i class="fa-solid fa-flask" aria-hidden="true"></i></div>
+        <h3>Metodología de investigación</h3>
+        <p>Diseño y análisis en enfoques cualitativos, cuantitativos y mixtos.</p>
+      </article>
+
+      <article class="taller-card">
+        <div class="icon"><i class="fa-solid fa-keyboard" aria-hidden="true"></i></div>
+        <h3>Uso de Inputlog</h3>
+        <p>Recogida de datos para estudiar escritura y procesos asociados.</p>
+      </article>
     </div>
 
-    <!-- HEADER -->
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <a href="index.html"><i class="fas fa-user-graduate"></i> Aitor Garcés</a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="docencia.html">Docencia</a></li>
-                <li><a href="conferencias.html">Conferencias</a></li>
-                <li><a href="proyectos.html">Proyectos</a></li>
-                <li><a href="publicaciones.html">Publicaciones</a></li>
-                <li><a href="estadistica.html">Estadística</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="talleres.html" class="active">Talleres & Asesoramiento</a></li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </nav>
-    </header>
+    <div style="margin-top:28px">
+      <a class="btn" href="mailto:aitor.garces@pdi.atlanticomedio.es"><i class="fa-solid fa-envelope"></i> Pedir información</a>
+    </div>
+  </main>
 
-    <!-- MAIN CONTENT -->
-    <main>
-        <section class="talleres section container">
-            <h2>Talleres & Asesoramiento</h2>
-            <p>Estoy disponible para impartir talleres y brindar asesoramiento en las siguientes áreas:</p>
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="https://linkedin.com/in/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://twitter.com/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p>&copy; 2024 Prof. Dr. Aitor Garcés Manzanera. Todos los derechos reservados.</p>
+    </div>
+  </footer>
 
-            <div class="talleres-grid">
-                <!-- Taller 1: Estadística -->
-                <div class="taller-card fade-in">
-                    <i class="fas fa-chart-line icon"></i>
-                    <h3>Estadística</h3>
-                    <p>Aprende los fundamentos y aplicaciones de la estadística en la investigación educativa. Este taller abarca desde conceptos básicos hasta técnicas avanzadas para el análisis de datos.</p>
-                    <!-- Botón de Más Información (opcional) -->
-                    <!-- <a href="#" class="btn">Más Información</a> -->
-                </div>
-
-                <!-- Taller 2: Publicación en Revistas de Alto Impacto -->
-                <div class="taller-card fade-in">
-                    <i class="fas fa-pen-nib icon"></i>
-                    <h3>Publicación en Revistas de Alto Impacto</h3>
-                    <p>Descubre estrategias efectivas para publicar tus investigaciones en revistas académicas de prestigio. Incluye consejos sobre redacción, selección de revistas y procesos de revisión.</p>
-                    <!-- <a href="#" class="btn">Más Información</a> -->
-                </div>
-
-                <!-- Taller 3: Metodología de la Investigación en Educación -->
-                <div class="taller-card fade-in">
-                    <i class="fas fa-microscope icon"></i>
-                    <h3>Metodología de la Investigación en Educación</h3>
-                    <p>Desarrolla habilidades avanzadas en diseño y ejecución de investigaciones educativas. Este taller cubre métodos cualitativos y cuantitativos, así como la integración de ambos enfoques.</p>
-                    <!-- <a href="#" class="btn">Más Información</a> -->
-                </div>
-              
-                              <div class="taller-card fade-in">
-                    <i class="fas fa-microscope icon"></i>
-                    <h3>Uso de Inputlog para recoger datos</h3>
-                    <p>Con este taller, aprenderás a usar Inputlog como herramienta para investigar escritura y otros comportamientos. </p>
-                    <!-- <a href="#" class="btn">Más Información</a> -->
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://linkedin.com/in/aitorgarces" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://twitter.com/aitorgarces" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <!-- Añade más redes sociales aquí si lo deseas -->
-            </div>
-            <p>&copy; 2024 Prof. Dr. Aitor Garcés Manzanera. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-    <!-- Enlaces a archivos JavaScript -->
-    <script src="script.js"></script>
-      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="script.js" defer></script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
 </body>
 </html>
+
 
