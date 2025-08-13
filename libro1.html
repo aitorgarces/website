@@ -1,299 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Metadata -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantitative Approaches for Second Language Education Research - 2nd Edition</title>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Meta Description for SEO -->
-    <meta name="description" content="Explore the second edition of 'Quantitative Approaches for Second Language Education Research' by Prof. Dr. Aitor Garcés Manzanera, an essential resource for researchers in education and applied linguistics.">
+  <!-- Meta -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quantitative Approaches for Second Language Education Research · 2nd Edition</title>
+  <meta name="description" content="Second edition of “Quantitative Approaches for Second Language Education Research” by Prof. Dr. Aitor Garcés Manzanera. Clear, practical quantitative methods for education and applied linguistics.">
+  <meta name="theme-color" content="#80140D">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Quantitative Approaches for Second Language Education Research · 2nd Edition">
+  <meta property="og:description" content="Practical quantitative methods for education and applied linguistics.">
+  <meta property="og:type" content="book">
+  <meta property="og:image" content="https://cdn.glitch.global/dbb76279-9080-4683-96a4-a2929ed450fd/FrontCover_Book?v=1740148758115">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Preload hero (LCP) -->
+  <link rel="preload" as="image" href="https://cdn.glitch.global/dbb76279-9080-4683-96a4-a2929ed450fd/FrontCover_Book?v=1740148758115" imagesizes="(min-width: 992px) 340px, 60vw">
+
+  <!-- Page-scoped styles (dialog & details) -->
+  <style>
+    dialog#tocDialog{
+      width:min(800px,92vw);
+      border:none;border-radius:12px;padding:20px 18px 14px;background:#fff;box-shadow:0 24px 60px rgba(0,0,0,.22)
+    }
+    dialog#tocDialog::backdrop{background:rgba(0,0,0,.45)}
+    .toc-actions{display:flex;justify-content:flex-end;margin-top:14px}
+    .toc-list{list-style:none;padding:0;margin:12px 0}
+    .toc-list details{border:1px solid #eee;border-radius:10px;padding:10px 12px;margin-bottom:10px;background:#fff}
+    .toc-list summary{cursor:pointer;font-weight:700;color:#80140D;outline:none}
+    .toc-list summary:focus-visible{outline:3px solid #C62828;outline-offset:3px;border-radius:6px}
+    .toc-list ul{margin:10px 0 4px 18px}
+    .toc-list li{margin:6px 0}
+    .hero .subtitle{font-size:1.1rem;color:#1A202C;margin-bottom:1rem}
+  </style>
+
+  <!-- JSON-LD (Book) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Book",
+    "name":"Quantitative Approaches for Second Language Education Research",
+    "bookEdition":"Second edition",
+    "inLanguage":"en",
+    "author":{
+      "@type":"Person",
+      "name":"Aitor Garcés Manzanera",
+      "sameAs":["https://linkedin.com/in/aitorgarces"]
+    },
+    "image":"https://cdn.glitch.global/dbb76279-9080-4683-96a4-a2929ed450fd/FrontCover_Book?v=1740148758115",
+    "url":"https://aitorgarces.github.io/website/",
+    "about":["Education","Applied linguistics","Statistics"],
+    "workExample":{
+      "@type":"CreativeWork",
+      "url":"https://www.researchgate.net/publication/359507549_Quantitative_Approaches_for_Second_Language_Education_Research"
+    },
+    "description":"Practical quantitative methods for education and applied linguistics."
+  }
+  </script>
 </head>
 <body>
-    <div id="google_translate_container" style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
-        <div id="google_translate_element"></div>
-        <p style="margin: 0; font-size: 12px; text-align: center;">Translate page</p>
-    </div>
-    <!-- Progress Bar -->
-    <div id="progressContainer">
-        <div id="progressBar"></div>
-    </div>
+  <!-- Translate -->
+  <div id="google_translate_container" style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
+    <div id="google_translate_element"></div>
+    <p style="margin:0;font-size:12px;text-align:center">Translate page</p>
+  </div>
 
-    <!-- HEADER -->
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <a href="index.html">
-                    <i class="fas fa-user-graduate"></i> 
-                    Aitor Garcés
-                </a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="docencia.html">Teaching</a></li>
-                <li><a href="conferencias.html">Conferences</a></li>
-                <li><a href="proyectos.html">Projects</a></li>
-                <li><a href="publicaciones.html">Publications</a></li>
-                <li><a href="estadistica.html">Statistics</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="talleres.html">Workshops & Consulting</a></li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </nav>
-    </header>
+  <!-- Progress -->
+  <div id="progressContainer"><div id="progressBar"></div></div>
 
-    <!-- MAIN CONTENT -->
-    <main>
-        <!-- HERO SECTION -->
-        <section class="hero container">
-            <div class="hero-text">
-                <h1>Quantitative Approaches for Second Language Education Research.</h1>
-                <h2><strong>Second Edition</strong></h2>
-                <p>This second edition provides updated insights and tools for researchers in education and applied linguistics, exploring quantitative methods in depth.</p>
-                <div class="hero-buttons">
-                    <a href="https://www.researchgate.net/publication/359507549_Quantitative_Approaches_for_Second_Language_Education_Research" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                        <i class="fas fa-download"></i> Download the Book
-                    </a>
-                    <a href="#" class="btn btn-secondary" id="tocButton">
-                        <i class="fas fa-list"></i> View Table of Contents
-                    </a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="https://cdn.glitch.global/dbb76279-9080-4683-96a4-a2929ed450fd/FrontCover_Book?v=1740148758115" alt="Book Cover">
-            </div>
-        </section>
+  <!-- Skip link -->
+  <a class="visually-hidden" href="#main">Skip to content</a>
 
-        <!-- WHAT'S NEW SECTION -->
-        <section class="section container new-features">
-            <h2>What's NEW in the Second Edition?</h2>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Expanded Statistical Modeling</h3>
-                    <p>In-depth coverage of advanced statistical models to enhance research accuracy.</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-book-open"></i>
-                    <h3>New Case Studies</h3>
-                    <p>Additional real-world examples focusing on applied linguistics and second language education.</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-tools"></i>
-                    <h3>Open-Source Tools Integration</h3>
-                    <p>Guides on using tools like JASP for comprehensive data analysis.</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-sync-alt"></i>
-                    <h3>Updated Research Trends</h3>
-                    <p>Examples and methodologies aligned with current educational research trends.</p>
-                </div>
-            </div>
-        </section>
+  <!-- Header -->
+  <header>
+    <nav class="container" aria-label="Primary">
+      <div class="logo">
+        <a href="index.html"><i class="fas fa-user-graduate" aria-hidden="true"></i> Aitor Garcés</a>
+      </div>
+      <ul class="nav-links" role="menubar" id="site-menu">
+        <li role="none"><a role="menuitem" href="docencia.html">Teaching</a></li>
+        <li role="none"><a role="menuitem" href="conferencias.html">Conferences</a></li>
+        <li role="none"><a role="menuitem" href="proyectos.html">Projects</a></li>
+        <li role="none"><a role="menuitem" href="publicaciones.html">Publications</a></li>
+        <li role="none"><a role="menuitem" href="estadistica.html">Statistics</a></li>
+        <li role="none"><a role="menuitem" href="blog.html">Blog</a></li>
+        <li role="none"><a role="menuitem" href="talleres.html">Workshops & Consulting</a></li>
+      </ul>
+      <div class="burger">
+        <!-- button accesible (script refuerza si faltara) -->
+        <button type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
 
-        <!-- WHY THIS BOOK SECTION -->
-        <section class="section container why-this-book">
-            <h2>Why choose this book?</h2>
-            <p>This book offers a comprehensive guide for students, researchers, and educators interested in applying quantitative approaches in their research. With its focus on clarity and practical applications, it bridges the gap between theory and practice.</p>
-            <div class="benefits">
-                <div class="benefit-item">
-                    <i class="fas fa-lightbulb"></i>
-                    <h3>Comprehensive coverage</h3>
-                    <p>Thorough exploration of quantitative methods tailored for second language education research.</p>
-                </div>
-                <div class="benefit-item">
-                    <i class="fas fa-graduation-cap"></i>
-<h3>Expert guidance</h3>
-<p>Authored by Prof. Dr. Aitor Garcés Manzanera, offering a thoughtful and well-researched perspective on the subject.</p>
-
-                </div>
-                <div class="benefit-item">
-                    <i class="fas fa-chart-pie"></i>
-                    <h3>Practical applications</h3>
-                    <p>Hands-on examples and exercises to apply statistical techniques effectively.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- REPOSITORY SECTION -->
-        <section class="section container repository-section">
-            <h2>Datasets for Analyses Used in the Book</h2>
-            <div class="repository-card">
-                <div class="card-content">
-                    <h3>Dataset Repository</h3>
-                    <p>Access the datasets used in "Quantitative Approaches for Second Language Education Research" to replicate studies and conduct your own analyses.</p>
-                    <a href="https://github.com/aitorgarces/Quantitative-Approaches-for-L2-education-research-repository" target="_blank" rel="noopener noreferrer" class="btn">Visit GitHub Repository</a>
-                </div>
-                <div class="card-icon">
-                    <i class="fab fa-github fa-3x"></i>
-                </div>
-            </div>
-        </section>
-
-        <!-- CALL TO ACTION SECTION -->
-        <section class="section container call-to-action">
-            <h2>Get Your Copy Today!</h2>
-            <p>Enhance your research with robust quantitative methods. Download the second edition now and take your studies to the next level.</p>
-            <div class="cta-buttons">
-                <a href="https://www.researchgate.net/publication/359507549_Quantitative_Approaches_for_Second_Language_Education_Research" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                    <i class="fas fa-download"></i> Download the Book
-                </a>
-                <a href="mailto:aitor.garces@pdi.atlanticomedio.es" class="btn btn-secondary">Contact for More Information</a>
-            </div>
-        </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://linkedin.com/in/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://twitter.com/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <!-- Add more social links if desired -->
-            </div>
-            <p>&copy; 2024 Prof. Dr. Aitor Garcés Manzanera. All rights reserved.</p>
+  <!-- Main -->
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero container">
+      <div class="hero-text">
+        <h1>Quantitative Approaches for Second Language Education Research</h1>
+        <p class="subtitle"><strong>Second edition</strong></p>
+        <p>This new edition updates examples, adds clearer workflows, and shows how to use open tools for sound analysis in education and applied linguistics.</p>
+        <div class="hero-buttons">
+          <a class="btn" target="_blank" rel="noopener noreferrer"
+             href="https://www.researchgate.net/publication/359507549_Quantitative_Approaches_for_Second_Language_Education_Research">
+            <i class="fas fa-download"></i> Download the book
+          </a>
+          <button class="btn btn-secondary" id="tocButton" type="button" aria-haspopup="dialog" aria-controls="tocDialog">
+            <i class="fas fa-list"></i> View table of contents
+          </button>
         </div>
-    </footer>
+      </div>
+      <div class="hero-image">
+        <img
+          src="https://cdn.glitch.global/dbb76279-9080-4683-96a4-a2929ed450fd/FrontCover_Book?v=1740148758115"
+          alt="Front cover of the book Quantitative Approaches for Second Language Education Research"
+          width="340" height="480" loading="eager" fetchpriority="high" decoding="async">
+      </div>
+    </section>
 
-    <!-- Table of Contents Modal -->
-    <div id="tocModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Table of Contents</h2>
-            <ul class="toc-list">
-                <li>
-                    <button class="collapsible" aria-expanded="false">Chapter 1: Essential Concepts in Statistics</button>
-                    <div class="content">
-                        <ul>
-                            <li>Populations and Samples</li>
-                            <li>Types of Variables</li>
-                            <li>Independent Variables</li>
-                            <li>Dependent Variables</li>
-                            <li>Control Variables</li>
-                            <li>Moderator Variables</li>
-                            <li>Intervening Variables</li>
-                            <li>Confounding Variables</li>
-                            <li>Levels of Measurement</li>
-                            <li>Types of Research Design</li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <button class="collapsible" aria-expanded="false">Chapter 2: Descriptive Statistics</button>
-                    <div class="content">
-                        <ul>
-                            <li>Measures of Central Tendency</li>
-                            <li>Measures of Dispersion</li>
-                            <li>Distributions</li>
-                            <li>Graphical Representations of the Data</li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <button class="collapsible" aria-expanded="false">Chapter 3: Parametric Statistics</button>
-                    <div class="content">
-                        <ul>
-                            <li>One Sample T-Tests</li>
-                            <li>Paired Samples T-Tests</li>
-                            <li>Independent Samples T-Tests</li>
-                            <li>One-Way ANOVA</li>
-                            <li>One-Way ANOVA with Three Groups</li>
-                            <li>Two-Way ANOVA</li>
-                            <li>Repeated Measures ANOVA</li>
-                            <li>One-Way Repeated Measures ANOVA (RMANOVA)</li>
-                            <li>ANCOVA</li>
-                            <li>MANOVA</li>
-                            <li>Parametric Correlations</li>
-                            <li>Proportions, Chi-Squared Test, and Contingency Tables</li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <button class="collapsible" aria-expanded="false">Chapter 4: Non-Parametric Statistics</button>
-                    <div class="content">
-                        <ul>
-                            <li>Wilcoxon Signed-Ranks Tests</li>
-                            <li>Mann Whitney U Tests</li>
-                            <li>Friedman's Tests</li>
-                            <li>Kruskal-Wallis Tests</li>
-                            <li>Nonparametric Correlations</li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <button class="collapsible" aria-expanded="false">Chapter 5: Other Statistical Analyses</button>
-                    <div class="content">
-                        <ul>
-                            <li>Linear Regression</li>
-                            <li>Simple Linear Regression</li>
-                            <li>Multiple Regression</li>
-                            <li>Logistic Regression</li>
-                            <li>Binary Logistic Regression</li>
-                            <li>Hierarchical Logistic Regression</li>
-                            <li>Ordinal Regression</li>
-                            <li>Multinomial Logistic Regression</li>
-                            <li>Mediation Analysis</li>
-                            <li>Reliability Tests</li>
-                            <li>Cronbach's Alpha (α)</li>
-                            <li>Intraclass Correlation Coefficient (ICC)</li>
-                            <li>Cohen's Kappa</li>
-                            <li>Multivariate Techniques</li>
-                            <li>Principal Component Analysis</li>
-                            <li>Exploratory Factor Analysis</li>
-                            <li>Confirmatory Factor Analysis</li>
-                            <li>Cluster Analysis</li>
-                            <li>Structural Equation Modeling (SEM)</li>
-                            <li>Partial Least Squares (PLS) SEM</li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <button class="collapsible" aria-expanded="false">Chapter 6: Effect Sizes</button>
-                    <div class="content">
-                        <ul>
-                            <li>What Is an 'Effect Size'?</li>
-                            <li>Cohen's d</li>
-                            <li>Hedges' g</li>
-                            <li>Cramer's V</li>
-                            <li>Rank-Biserial (rb)</li>
-                            <li>Eta Squared (ƞ²)</li>
-                            <li>Partial Eta Squared (ƞ²p)</li>
-                            <li>Omega Squared (ω²)</li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <button class="collapsible" aria-expanded="false">Chapter 7: Introduction to Bayesian Statistics</button>
-                    <div class="content">
-                        <ul>
-                            <li>Basic Terminology</li>
-                            <li>Bayes Hypothesis Testing: T-Tests and Correlations</li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
+    <!-- What's new -->
+    <section class="section container">
+      <h2>What’s new in the second edition?</h2>
+      <div class="features__grid">
+        <article class="feature-item">
+          <i class="fas fa-chart-line" aria-hidden="true"></i>
+          <h3>Expanded statistical modelling</h3>
+          <p>Clearer guidance for mixed models and model checks aimed at typical datasets in education.</p>
+        </article>
+        <article class="feature-item">
+          <i class="fas fa-book-open" aria-hidden="true"></i>
+          <h3>New case studies</h3>
+          <p>Fresh classroom-based examples with reproducible steps.</p>
+        </article>
+        <article class="feature-item">
+          <i class="fas fa-tools" aria-hidden="true"></i>
+          <h3>Open-source workflows</h3>
+          <p>How to use tools such as JASP for analysis and reporting.</p>
+        </article>
+        <article class="feature-item">
+          <i class="fas fa-sync-alt" aria-hidden="true"></i>
+          <h3>Updated practices</h3>
+          <p>Reporting templates aligned with current recommendations.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Why this book -->
+    <section class="section container">
+      <h2>Why choose this book?</h2>
+      <p>The book serves students, researchers, and instructors who need straightforward procedures for quantitative studies in second language education.</p>
+      <div class="features__grid">
+        <article class="benefit-item">
+          <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          <h3>Wide coverage</h3>
+          <p>From descriptive statistics to regression, ANOVA families, non-parametric tests, effect sizes, and a concise start in Bayesian analysis.</p>
+        </article>
+        <article class="benefit-item">
+          <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+          <h3>Author’s viewpoint</h3>
+          <p>Prof. Dr. Aitor Garcés Manzanera presents a practical angle built on teaching and research experience.</p>
+        </article>
+        <article class="benefit-item">
+          <i class="fas fa-chart-pie" aria-hidden="true"></i>
+          <h3>Hands-on focus</h3>
+          <p>Worked examples and exercises that you can adapt to your own data.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Datasets / repository -->
+    <section class="section container repository-section">
+      <h2>Datasets used in the book</h2>
+      <div class="repository-card">
+        <div class="card-content">
+          <h3>Dataset repository</h3>
+          <p>Download the data behind the examples to replicate analyses or build your assignments.</p>
+          <a class="btn" target="_blank" rel="noopener noreferrer"
+             href="https://github.com/aitorgarces/Quantitative-Approaches-for-L2-education-research-repository">
+            Visit GitHub repository
+          </a>
         </div>
+        <div class="card-icon" aria-hidden="true">
+          <i class="fab fa-github fa-3x"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to action -->
+    <section class="section container">
+      <h2>Get your copy</h2>
+      <p>Strengthen your research with clear quantitative methods and reproducible examples.</p>
+      <div class="features__grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+        <a class="btn" target="_blank" rel="noopener noreferrer"
+           href="https://www.researchgate.net/publication/359507549_Quantitative_Approaches_for_Second_Language_Education_Research">
+          <i class="fas fa-download"></i> Download the book
+        </a>
+        <a class="btn btn-secondary" href="mailto:aitor.garces@pdi.atlanticomedio.es">
+          <i class="fas fa-envelope"></i> Contact for information
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="https://linkedin.com/in/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://twitter.com/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p>&copy; 2024 Prof. Dr. Aitor Garcés Manzanera. All rights reserved.</p>
     </div>
+  </footer>
 
-    <!-- JavaScript -->
-    <script src="script.js"></script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <!-- Table of contents (accessible dialog) -->
+  <dialog id="tocDialog" aria-labelledby="tocTitle" aria-modal="true">
+    <h2 id="tocTitle" style="margin-bottom:10px">Table of contents</h2>
+    <ul class="toc-list">
+      <li>
+        <details>
+          <summary>Chapter 1: Essential concepts in statistics</summary>
+          <ul>
+            <li>Populations and samples</li><li>Types of variables</li><li>Independent variables</li>
+            <li>Dependent variables</li><li>Control variables</li><li>Moderator variables</li>
+            <li>Intervening variables</li><li>Confounding variables</li><li>Levels of measurement</li>
+            <li>Types of research design</li>
+          </ul>
+        </details>
+      </li>
+      <li>
+        <details>
+          <summary>Chapter 2: Descriptive statistics</summary>
+          <ul>
+            <li>Measures of central tendency</li><li>Measures of dispersion</li>
+            <li>Distributions</li><li>Graphical representations</li>
+          </ul>
+        </details>
+      </li>
+      <li>
+        <details>
+          <summary>Chapter 3: Parametric statistics</summary>
+          <ul>
+            <li>One-sample t-tests</li><li>Paired-samples t-tests</li><li>Independent-samples t-tests</li>
+            <li>One-way ANOVA</li><li>Two-way ANOVA</li><li>Repeated-measures ANOVA</li>
+            <li>ANCOVA</li><li>MANOVA</li><li>Parametric correlations</li>
+            <li>Proportions, chi-square tests, contingency tables</li>
+          </ul>
+        </details>
+      </li>
+      <li>
+        <details>
+          <summary>Chapter 4: Non-parametric statistics</summary>
+          <ul>
+            <li>Wilcoxon signed-ranks tests</li><li>Mann-Whitney U tests</li>
+            <li>Friedman tests</li><li>Kruskal-Wallis tests</li><li>Non-parametric correlations</li>
+          </ul>
+        </details>
+      </li>
+      <li>
+        <details>
+          <summary>Chapter 5: Other statistical analyses</summary>
+          <ul>
+            <li>Linear regression (simple, multiple)</li><li>Logistic regression (binary, hierarchical, ordinal, multinomial)</li>
+            <li>Mediation analysis</li><li>Reliability (alpha, ICC, kappa)</li>
+            <li>Multivariate techniques (PCA, EFA, CFA, cluster)</li>
+            <li>Structural equation modelling (SEM, PLS-SEM)</li>
+          </ul>
+        </details>
+      </li>
+      <li>
+        <details>
+          <summary>Chapter 6: Effect sizes</summary>
+          <ul>
+            <li>What is an effect size?</li><li>Cohen’s d</li><li>Hedges’ g</li><li>Cramér’s V</li>
+            <li>Rank-biserial</li><li>Eta squared (η²)</li><li>Partial eta squared (ηp²)</li><li>Omega squared (ω²)</li>
+          </ul>
+        </details>
+      </li>
+      <li>
+        <details>
+          <summary>Chapter 7: Introduction to Bayesian statistics</summary>
+          <ul>
+            <li>Key terms</li><li>Bayes tests for t-tests and correlations</li>
+          </ul>
+        </details>
+      </li>
+    </ul>
+    <div class="toc-actions">
+      <button class="btn btn-secondary" id="closeToc" type="button">Close</button>
+    </div>
+  </dialog>
 
+  <!-- Scripts -->
+  <script src="script.js" defer></script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+
+  <!-- Page script (dialog handlers) -->
+  <script>
+    const tocBtn = document.getElementById('tocButton');
+    const tocDlg = document.getElementById('tocDialog');
+    const tocClose = document.getElementById('closeToc');
+
+    function openToc(){ try{ tocDlg.showModal(); }catch{ tocDlg.setAttribute('open','open'); } }
+    function closeToc(){ tocDlg.close?.(); tocDlg.removeAttribute('open'); }
+
+    tocBtn?.addEventListener('click', openToc);
+    tocClose?.addEventListener('click', closeToc);
+    tocDlg?.addEventListener('click', e => { if (e.target === tocDlg) closeToc(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && tocDlg.open) closeToc(); });
+  </script>
 </body>
 </html>
