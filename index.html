@@ -3,17 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Inicio - Prof. Dr. Aitor Garcés Manzanera</title>
-  <meta name="description" content="Profesor e investigador en Educación y Lingüística Aplicada.">
+  <title>Inicio · Prof. Dr. Aitor Garcés Manzanera</title>
+  <meta name="description" content="Profesor e investigador en Educación y Lingüística Aplicada. Docencia, investigación, proyectos y publicaciones.">
   <meta name="theme-color" content="#80140D">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Prof. Dr. Aitor Garcés Manzanera">
+  <meta property="og:description" content="Educación y Lingüística Aplicada. Docencia, proyectos y publicaciones.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://raw.githubusercontent.com/aitorgarces/website/refs/heads/img/Foto%20institucional%201_fondo.png">
+  <meta name="twitter:card" content="summary_large_image">
 
   <!-- Fuentes e iconos -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 
-  <!-- Estilos -->
+  <!-- Estilos base del sitio -->
   <link rel="stylesheet" href="style.css">
+  <!-- Preload LCP -->
+  <link rel="preload" as="image" href="https://raw.githubusercontent.com/aitorgarces/website/refs/heads/img/Foto%20institucional%201_fondo.png" imagesizes="(min-width: 992px) 340px, 60vw">
+
+  <!-- JSON-LD (Person) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Aitor Garcés Manzanera",
+    "honorificPrefix": "Prof. Dr.",
+    "jobTitle": "Profesor Contratado Doctor",
+    "affiliation": [{"@type":"Organization","name":"Universidad de Murcia"}],
+    "url": "https://aitorgarces.github.io/website/",
+    "sameAs": [
+      "https://linkedin.com/in/aitorgarces",
+      "https://scholar.google.com",
+      "https://orcid.org/0000-0002-1789-9046"
+    ]
+  }
+  </script>
+
+  <style>
+    /* Ajustes puntuales para esta portada */
+    .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .hero-meta .chip{display:inline-flex;align-items:center;gap:8px;border:1px solid #eee;border-radius:999px;padding:6px 12px;background:#fff}
+    .quick-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:16px}
+    .quick-links a{display:flex;align-items:center;gap:10px;border:1px solid #eee;padding:12px;border-radius:12px;background:#fff}
+    .quick-links i{font-size:1.2rem;color:#C62828}
+    .strip{background:#fff}
+    .strip .container{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));align-items:start}
+    .mini-list{list-style:none;margin:0;padding:0}
+    .mini-list li{display:flex;gap:10px;margin:8px 0}
+    .mini-list i{color:#C62828;margin-top:2px}
+    .cards-2col{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+    .avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;box-shadow:var(--shadow-sm)}
+  </style>
 </head>
 <body>
   <!-- Barra de progreso -->
@@ -51,43 +94,80 @@
   </div>
 
   <main id="main">
-    <!-- Hero -->
+    <!-- Hero académico -->
     <section class="hero-rigido container">
       <div class="hero-rigido__content">
         <div class="hero-rigido__text">
-          <h1>Prof. Dr. Aitor Garcés Manzanera</h1>
-          <p class="subtitle">Profesor Contratado Doctor · Director Máster ELE · Universidad de Murcia</p>
-          <div class="hero-rigido__buttons">
+          <img class="avatar" src="https://raw.githubusercontent.com/aitorgarces/website/refs/heads/img/Foto%20institucional%201_fondo.png" alt="Retrato de Aitor Garcés" loading="eager" decoding="async" fetchpriority="high">
+          <h1 style="margin-top:12px">Prof. Dr. Aitor Garcés Manzanera</h1>
+          <p class="subtitle">Educación y Lingüística Aplicada. Universidad de Murcia</p>
+
+          <div class="hero-meta">
+            <span class="chip"><i class="fa-solid fa-user-tie" aria-hidden="true"></i> Profesor Contratado Doctor</span>
+            <span class="chip"><i class="fa-solid fa-book" aria-hidden="true"></i> Director Máster ELE</span>
+            <span class="chip"><i class="fa-solid fa-flask" aria-hidden="true"></i> Investigación en L2</span>
+          </div>
+
+          <div class="hero-rigido__buttons" style="margin-top:12px">
             <a href="publicaciones.html" class="btn"><i class="fa-solid fa-book-open"></i> Ver publicaciones</a>
             <a href="mailto:aitor.garces@pdi.atlanticomedio.es" class="btn btn-secondary"><i class="fa-solid fa-envelope"></i> Contactar</a>
           </div>
+
+          <div class="quick-links" aria-label="Perfiles académicos" style="margin-top:16px">
+            <a href="https://orcid.org/0000-0002-1789-9046" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-orcid" aria-hidden="true"></i> ORCID</a>
+            <a href="https://scholar.google.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google" aria-hidden="true"></i> Google Scholar</a>
+            <a href="https://www.scopus.com" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-database" aria-hidden="true"></i> Scopus</a>
+            <a href="https://www.researchgate.net" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-researchgate" aria-hidden="true"></i> ResearchGate</a>
+          </div>
         </div>
         <div class="hero-rigido__photo">
-          <img src="https://raw.githubusercontent.com/aitorgarces/website/refs/heads/img/Foto%20institucional%201_fondo.png"
-               alt="Retrato institucional de Aitor Garcés" loading="lazy" decoding="async">
+          <img src="https://raw.githubusercontent.com/aitorgarces/website/refs/heads/img/Foto%20institucional%201_fondo.png" alt="Retrato institucional de Aitor Garcés" loading="lazy" decoding="async">
         </div>
       </div>
     </section>
 
-    <!-- Áreas -->
+    <!-- Líneas de trabajo -->
     <section class="section features container">
-      <h2>Mis áreas</h2>
+      <h2>Líneas de trabajo</h2>
       <div class="features__grid">
         <article class="feature-item">
-          <i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>
-          <h3>Docencia</h3>
-          <p>Programas y metodologías activas orientadas a resultados.</p>
+          <i class="fas fa-keyboard" aria-hidden="true"></i>
+          <h3>Escritura y procesos</h3>
+          <p>Ráfagas, pausas y calidad textual en L2 con datos de teclado.</p>
         </article>
         <article class="feature-item">
-          <i class="fas fa-vial" aria-hidden="true"></i>
-          <h3>Investigación</h3>
-          <p>Lingüística aplicada y aprendizaje en contextos educativos.</p>
+          <i class="fas fa-language" aria-hidden="true"></i>
+          <h3>Adquisición de L2</h3>
+          <p>Aprendizaje léxico y tareas comunicativas en contextos reales.</p>
         </article>
         <article class="feature-item">
-          <i class="fas fa-handshake" aria-hidden="true"></i>
-          <h3>Asesorías</h3>
-          <p>Talleres y consultorías para equipos y proyectos.</p>
+          <i class="fas fa-chart-line" aria-hidden="true"></i>
+          <h3>Métodos cuantitativos</h3>
+          <p>Modelos y buenas prácticas con software abierto.</p>
         </article>
+        <article class="feature-item">
+          <i class="fas fa-clipboard-check" aria-hidden="true"></i>
+          <h3>Evaluación</h3>
+          <p>Instrumentos, fiabilidad y diseño curricular.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Libro destacado -->
+    <section class="section container book-section" id="libro">
+      <h2>Libro destacado</h2>
+      <div class="book-content">
+        <div class="book-cover">
+          <img src="https://cdn.glitch.global/dbb76279-9080-4683-96a4-a2929ed450fd/FrontCover_Book?v=1740148758115" alt="Portada del libro Quantitative Approaches for Second Language Education Research" loading="lazy" decoding="async">
+        </div>
+        <div class="book-info">
+          <h3>Quantitative Approaches for Second Language Education Research</h3>
+          <p>Segunda edición con casos aplicados y flujos reproducibles.</p>
+          <div class="hero-rigido__buttons">
+            <a class="btn" target="_blank" rel="noopener noreferrer" href="https://www.researchgate.net/publication/359507549_Quantitative_Approaches_for_Second_Language_Education_Research"><i class="fa-solid fa-download"></i> Descargar</a>
+            <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://github.com/aitorgarces/Quantitative-Approaches-for-L2-education-research-repository"><i class="fa-brands fa-github"></i> Datasets</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -97,17 +177,17 @@
       <div class="publications__grid">
         <article class="publication-card">
           <h3>Exploring JASP como herramienta L2</h3>
-          <p>Visión general del uso de JASP en investigación de segundas lenguas.</p>
+          <p>Revisión de usos y reportes con ejemplos reproducibles.</p>
           <a href="publicaciones.html" class="btn btn-outline">Leer más</a>
         </article>
         <article class="publication-card">
           <h3>Incidental Vocabulary Learning</h3>
-          <p>Análisis de retención en tareas comunicativas educativas.</p>
+          <p>Evidencia de retención en tareas de aula.</p>
           <a href="publicaciones.html" class="btn btn-outline">Leer más</a>
         </article>
         <article class="publication-card">
           <h3>Pausing Behavior en EFL</h3>
-          <p>Umbrales de pausas en aprendices jóvenes.</p>
+          <p>Umbrales y relación con calidad de texto.</p>
           <a href="publicaciones.html" class="btn btn-outline">Leer más</a>
         </article>
       </div>
@@ -116,10 +196,47 @@
       </div>
     </section>
 
+    <!-- Docencia y dirección -->
+    <section class="section strip">
+      <div class="container cards-2col">
+        <article class="institution-card">
+          <h3><i class="fa-solid fa-university" aria-hidden="true"></i> Universidad de Murcia</h3>
+          <ul class="mini-list">
+            <li><i class="fa-regular fa-circle-check" aria-hidden="true"></i> Grado en Educación Infantil y Primaria</li>
+            <li><i class="fa-regular fa-circle-check" aria-hidden="true"></i> Coordinación de asignaturas y prácticas</li>
+            <li><i class="fa-regular fa-circle-check" aria-hidden="true"></i> Metodologías activas y evaluación</li>
+          </ul>
+        </article>
+        <article class="institution-card">
+          <h3><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Dirección de Máster ELE</h3>
+          <ul class="mini-list">
+            <li><i class="fa-regular fa-circle-check" aria-hidden="true"></i> Diseño de programa y seguimiento</li>
+            <li><i class="fa-regular fa-circle-check" aria-hidden="true"></i> Enfoque aplicado y proyectos</li>
+            <li><i class="fa-regular fa-circle-check" aria-hidden="true"></i> Vínculos con centros colaboradores</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Conferencias destacadas -->
+    <section class="section container">
+      <h2>Conferencias</h2>
+      <div class="conferencias-grid">
+        <article class="conferencia-card">
+          <h3>Plenaria EL21C</h3>
+          <iframe class="embed" src="https://drive.google.com/file/d/1eU2OsUx3gvU4dtS8vNnl4w3JRvbD4k9o/preview" title="Plenaria EL21C" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </article>
+        <article class="conferencia-card">
+          <h3>EDUNOVATIC22</h3>
+          <iframe class="embed" src="https://www.youtube.com/embed/o6QXDlpG1OM" title="EDUNOVATIC22" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </article>
+      </div>
+    </section>
+
     <!-- Contacto -->
     <section class="section contact container">
       <h2>Contacto</h2>
-      <p>¿Interesado en colaboraciones o talleres? Escríbeme.</p>
+      <p>Para colaboraciones, proyectos o talleres, escribe un mensaje.</p>
       <a href="mailto:aitor.garces@pdi.atlanticomedio.es" class="btn"><i class="fa-solid fa-paper-plane"></i> Enviar email</a>
     </section>
   </main>
@@ -131,7 +248,7 @@
       <a href="https://twitter.com/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
       <a href="https://github.com/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
     </div>
-    <p>&copy; 2024 Prof. Dr. Aitor Garcés Manzanera</p>
+    <p>&copy; 2025 Prof. Dr. Aitor Garcés Manzanera</p>
   </footer>
 
   <script src="script.js" defer></script>
