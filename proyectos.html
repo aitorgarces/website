@@ -1,130 +1,104 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Metadatos -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyectos - Prof. Dr. Aitor Garcés Manzanera</title>
-    <!-- Enlaces a CSS -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome para iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Meta descripción para SEO -->
-    <meta name="description" content="Proyectos de investigación y de innovación dirigidos o en los que participa el Prof. Dr. Aitor Garcés Manzanera.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyectos - Prof. Dr. Aitor Garcés Manzanera</title>
+  <meta name="description" content="Proyectos de investigación y de innovación.">
+  <meta name="theme-color" content="#80140D">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="google_translate_container" style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
-    <div id="google_translate_element"></div>
-    <p style="margin: 0; font-size: 12px; text-align: center;">Translate page</p>
-</div>
-    <!-- Barra de Progreso -->
-    <div id="progressContainer">
-        <div id="progressBar"></div>
+  <div id="progressContainer"><div id="progressBar"></div></div>
+  <a class="visually-hidden" href="#main">Saltar al contenido</a>
+
+  <header>
+    <nav class="container" aria-label="Principal">
+      <div class="logo">
+        <a href="index.html"><i class="fas fa-user-graduate" aria-hidden="true"></i> Aitor Garcés</a>
+      </div>
+      <ul class="nav-links" role="menubar" id="site-menu">
+        <li role="none"><a role="menuitem" href="docencia.html">Docencia</a></li>
+        <li role="none"><a role="menuitem" href="conferencias.html">Conferencias</a></li>
+        <li role="none"><a role="menuitem" class="active" aria-current="page" href="proyectos.html">Proyectos</a></li>
+        <li role="none"><a role="menuitem" href="publicaciones.html">Publicaciones</a></li>
+        <li role="none"><a role="menuitem" href="estadistica.html">Estadística</a></li>
+        <li role="none"><a role="menuitem" href="blog.html">Blog</a></li>
+        <li role="none"><a role="menuitem" href="talleres.html">Talleres & Asesoramiento</a></li>
+      </ul>
+      <div class="burger">
+        <button type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-menu">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="section container">
+    <h2>Proyectos</h2>
+
+    <h3 style="margin-top:10px">Proyectos de investigación</h3>
+    <div class="proyectos-grid">
+      <article class="proyecto-card">
+        <h4>PID2022-137544NB-I00</h4>
+        <p><strong>Título:</strong> Escritura Monomodal y Multimodal en Segundas Lenguas</p>
+        <p><strong>Duración:</strong> 01/09/2023 - 01/09/2026</p>
+        <p><strong>Rol:</strong> Miembro del Equipo Investigador</p>
+        <p><strong>IPs:</strong> Rosa M. Manchón Ruiz, Lourdes Cerezo García</p>
+      </article>
+
+      <article class="proyecto-card">
+        <h4>FFI2016-79763-P</h4>
+        <p><strong>Título:</strong> El Potencial de Aprendizaje de la Escritura en L2</p>
+        <p><strong>Duración:</strong> 30/12/2016 - 29/12/2019</p>
+        <p><strong>Rol:</strong> Miembro del Equipo de Trabajo</p>
+        <p><strong>IPs:</strong> Rosa M. Manchón Ruiz, Julio Roca de Larios</p>
+      </article>
+
+      <article class="proyecto-card">
+        <h4>PID2019-104353GB-I00</h4>
+        <p><strong>Título:</strong> Procesos y Productos de Escritura en L2</p>
+        <p><strong>Duración:</strong> 01/06/2020 - 31/05/2023</p>
+        <p><strong>Rol:</strong> Miembro del Equipo de Trabajo</p>
+        <p><strong>IPs:</strong> Rosa M. Manchón Ruiz, Yvette Coyle Black</p>
+      </article>
+
+      <article class="proyecto-card">
+        <h4>20832/PI/18</h4>
+        <p><strong>Título:</strong> Aprendizaje Lingüístico en L2 en entornos tradicionales y virtuales</p>
+        <p><strong>Duración:</strong> 01/04/2019 - 30/09/2022</p>
+        <p><strong>Rol:</strong> Miembro del Equipo de Trabajo</p>
+        <p><strong>IP:</strong> Rosa M. Manchón Ruiz</p>
+      </article>
     </div>
 
-    <!-- HEADER -->
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <a href="index.html"><i class="fas fa-user-graduate"></i> Aitor Garcés</a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="docencia.html">Docencia</a></li>
-                <li><a href="conferencias.html">Conferencias</a></li>
-                <li><a href="proyectos.html" class="active">Proyectos</a></li>
-                <li><a href="publicaciones.html">Publicaciones</a></li>
-                <li><a href="estadistica.html">Estadística</a></li>
-                <li><a href="blog.html">Blog</a></li>
-               <li><a href="talleres.html">Talleres & Asesoramiento</a></li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </nav>
-    </header>
+    <h3 class="subsection" style="margin-top:40px">Proyectos de innovación</h3>
+    <div class="proyectos-grid">
+      <article class="proyecto-card">
+        <h4>La Inteligencia Artificial como Herramienta Pedagógica</h4>
+        <p><strong>Duración:</strong> 01/09/2023 - 30/07/2024</p>
+        <p><strong>Rol:</strong> Investigador Principal</p>
+        <p><strong>Institución:</strong> Universidad de Murcia</p>
+      </article>
+    </div>
+  </main>
 
-    <!-- MAIN CONTENT -->
-    <main>
-        <section class="section container">
-            <h2>Proyectos</h2>
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="https://linkedin.com/in/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://twitter.com/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p>&copy; 2024 Prof. Dr. Aitor Garcés Manzanera. Todos los derechos reservados.</p>
+    </div>
+  </footer>
 
-            <!-- Proyectos de Investigación -->
-            <div class="subsection">
-                <h3><i class="fas fa-flask"></i> Proyectos de Investigación</h3>
-                <div class="proyectos-grid">
-                    <!-- Proyecto 1 -->
-                    <div class="proyecto-card fade-in">
-                        <h4>PID2022-137544NB-I00</h4>
-                        <p><strong>Título:</strong> Escritura Monomodal y Multimodal en Segundas Lenguas: Efectos de Variables Individuales y Relacionadas con la Tarea en Procesos y Productos de Escritura</p>
-                        <p><strong>Duración:</strong> 01/09/2023 - 01/09/2026</p>
-                        <p><strong>Rol:</strong> Miembro del Equipo Investigador</p>
-                        <p><strong>Investigadores Principales:</strong> Dra. Rosa M. Manchón Ruiz, Dra. Lourdes Cerezo García</p>
-                    </div>
-
-                    <!-- Proyecto 2 -->
-                    <div class="proyecto-card fade-in">
-                        <h4>FFI2016-79763-P</h4>
-                        <p><strong>Título:</strong> El Potencial de Aprendizaje de la Escritura en L2. Procesos Atencionales, Diferencias Individuales y Desarrollo Lingüístico</p>
-                        <p><strong>Duración:</strong> 30/12/2016 - 29/12/2019</p>
-                        <p><strong>Rol:</strong> Miembro del Equipo de Trabajo</p>
-                        <p><strong>Investigadores Principales:</strong> Dra. Rosa M. Manchón Ruiz, Dr. Julio Roca de Larios</p>
-                    </div>
-
-                    <!-- Proyecto 3 -->
-                    <div class="proyecto-card fade-in">
-                        <h4>PID2019-104353GB-I00</h4>
-                        <p><strong>Título:</strong> Procesos y Productos de Escritura en L2. Descripción y Entrenamiento</p>
-                        <p><strong>Duración:</strong> 01/06/2020 - 31/05/2023</p>
-                        <p><strong>Rol:</strong> Miembro del Equipo de Trabajo</p>
-                        <p><strong>Investigadores Principales:</strong> Dra. Rosa M. Manchón Ruiz, Dra. Yvette Coyle Black</p>
-                    </div>
-
-                    <!-- Proyecto 4 -->
-                    <div class="proyecto-card fade-in">
-                        <h4>20832/PI/18</h4>
-                        <p><strong>Título:</strong> Aprendizaje Lingüístico en L2 a través de la Escritura en Entornos Tradicionales y Virtuales</p>
-                        <p><strong>Duración:</strong> 01/04/2019 - 30/09/2022</p>
-                        <p><strong>Rol:</strong> Miembro del Equipo de Trabajo</p>
-                        <p><strong>Investigador Principal:</strong> Dra. Rosa M. Manchón Ruiz</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Proyectos de Innovación -->
-            <div class="subsection">
-                <h3><i class="fas fa-lightbulb"></i> Proyectos de Innovación</h3>
-                <div class="proyectos-grid">
-                    <!-- Proyecto de Innovación -->
-                    <div class="proyecto-card fade-in">
-                        <h4>La Inteligencia Artificial como Herramienta Pedagógica para la Mejora de la Expresión Escrita en L2</h4>
-                        <p><strong>Duración:</strong> 01/09/2023 - 30/07/2024</p>
-                        <p><strong>Rol:</strong> Investigador Principal</p>
-                        <p><strong>Institución:</strong> Universidad de Murcia</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://linkedin.com/in/aitorgarces" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://twitter.com/aitorgarces" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <!-- Añade más redes sociales aquí si lo deseas -->
-            </div>
-            <p>&copy; 2024 Prof. Dr. Aitor Garcés Manzanera. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-    <!-- Enlace al archivo JavaScript -->
-    <script src="scripts.js"></script>
-      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+  <script src="script.js" defer></script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
 </body>
 </html>
+
