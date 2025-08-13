@@ -1,177 +1,126 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Metadatos -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Publicaciones - Prof. Dr. Aitor Garcés Manzanera</title>
-    <!-- Enlaces a CSS -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Montserrat:400,700&display=swap" rel="stylesheet">
-    <!-- Font Awesome para iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Meta descripción para SEO -->
-    <meta name="description" content="Publicaciones seleccionadas del Prof. Dr. Aitor Garcés Manzanera en el campo de la Educación y Lingüística Aplicada.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publicaciones - Prof. Dr. Aitor Garcés Manzanera</title>
+  <meta name="description" content="Publicaciones destacadas y perfiles académicos.">
+  <meta name="theme-color" content="#80140D">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="google_translate_container" style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
-    <div id="google_translate_element"></div>
-    <p style="margin: 0; font-size: 12px; text-align: center;">Translate page</p>
-</div>
-    <!-- Barra de Progreso -->
-    <div id="progressContainer">
-        <div id="progressBar"></div>
+  <div id="progressContainer"><div id="progressBar"></div></div>
+  <a class="visually-hidden" href="#main">Saltar al contenido</a>
+
+  <header>
+    <nav class="container" aria-label="Principal">
+      <div class="logo">
+        <a href="index.html"><i class="fas fa-user-graduate" aria-hidden="true"></i> Aitor Garcés</a>
+      </div>
+      <ul class="nav-links" role="menubar" id="site-menu">
+        <li role="none"><a role="menuitem" href="docencia.html">Docencia</a></li>
+        <li role="none"><a role="menuitem" href="conferencias.html">Conferencias</a></li>
+        <li role="none"><a role="menuitem" href="proyectos.html">Proyectos</a></li>
+        <li role="none"><a role="menuitem" class="active" aria-current="page" href="publicaciones.html">Publicaciones</a></li>
+        <li role="none"><a role="menuitem" href="estadistica.html">Estadística</a></li>
+        <li role="none"><a role="menuitem" href="blog.html">Blog</a></li>
+        <li role="none"><a role="menuitem" href="talleres.html">Talleres & Asesoramiento</a></li>
+      </ul>
+      <div class="burger">
+        <button type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-menu">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="section container">
+    <h2>Publicaciones destacadas</h2>
+    <p>1 sexenio vivo de investigación (tramo 2018-2023)</p>
+
+    <div class="publications__grid">
+      <article class="publication-card">
+        <h3>Exploring JASP as a Data Analysis Tool in L2 Research: A Snapshot</h3>
+        <p>Uso de JASP en investigación de segundas lenguas.</p>
+        <a class="btn btn-outline" href="https://www.researchgate.net/" target="_blank" rel="noopener noreferrer">Leer más</a>
+      </article>
+
+      <article class="publication-card">
+        <h3>Incidental Vocabulary Learning and Retention in Education-Oriented L2 Tasks</h3>
+        <p>Aprendizaje y retención de vocabulario en tareas comunicativas.</p>
+        <a class="btn btn-outline" href="https://www.researchgate.net/" target="_blank" rel="noopener noreferrer">Leer más</a>
+      </article>
+
+      <article class="publication-card">
+        <h3>Young EFL Learners' Pausing Behavior</h3>
+        <p>Umbrales de pausa en aprendices jóvenes.</p>
+        <a class="btn btn-outline" href="https://redined.educacion.gob.es/" target="_blank" rel="noopener noreferrer">Leer más</a>
+      </article>
+
+      <article class="publication-card">
+        <h3>Language Bursts and Text Quality in Digital Writing</h3>
+        <p>Ráfagas lingüísticas y calidad textual en escritura digital.</p>
+        <a class="btn btn-outline" href="https://link.springer.com/" target="_blank" rel="noopener noreferrer">Leer más</a>
+      </article>
+
+      <article class="publication-card">
+        <h3>Mapping Motivational Networks in EFL</h3>
+        <p>Redes motivacionales y exposición adicional al inglés.</p>
+        <a class="btn btn-outline" href="https://files.eric.ed.gov/" target="_blank" rel="noopener noreferrer">Leer más</a>
+      </article>
     </div>
 
-    <!-- HEADER -->
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <a href="index.html"><i class="fas fa-user-graduate"></i> Aitor Garcés</a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="docencia.html">Docencia</a></li>
-                <li><a href="conferencias.html">Conferencias</a></li>
-                <li><a href="proyectos.html">Proyectos</a></li>
-                <li><a href="publicaciones.html" class="active">Publicaciones</a></li>
-                <li><a href="estadistica.html">Estadística</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="talleres.html">Talleres & Asesoramiento</a></li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </nav>
-    </header>
+    <section class="repository-section">
+      <h2>Mis repositorios</h2>
 
-    <!-- MAIN CONTENT -->
-    <main>
-        <!-- Sección de Publicaciones Destacadas -->
-        <section class="section container">
-            <h2>Publicaciones Destacadas</h2>
+      <div class="repositorios-grid">
+        <article class="repositorio-card">
+          <div class="icon" aria-hidden="true"><i class="fa-brands fa-orcid"></i></div>
+          <h3>ORCID</h3>
+          <p>Perfil con publicaciones y trabajos.</p>
+          <a class="btn" href="https://orcid.org/0000-0002-1789-9046" target="_blank" rel="noopener noreferrer">Ver perfil</a>
+        </article>
 
-            <!-- Enlaces a Perfiles Académicos -->
-            <div class="profile-links">
-                <a href="https://orcid.org/0000-0002-1789-9046" target="_blank" aria-label="ORCID"><i class="fab fa-orcid"></i></a>
-                <a href="https://scholar.google.com/citations?user=Rg0U18kAAAAJ&hl=es" target="_blank" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-                <a href="https://www.scopus.com/authid/detail.uri?authorId=58019388900" target="_blank" aria-label="SCOPUS"><i class="fas fa-database"></i></a>
-                <a href="https://www.webofscience.com/wos/author/rid/AFU-6007-2022" target="_blank" aria-label="Researcher ID"><i class="fas fa-user-circle"></i></a>
-            </div>
+        <article class="repositorio-card">
+          <div class="icon" aria-hidden="true"><i class="fa-brands fa-google"></i></div>
+          <h3>Google Scholar</h3>
+          <p>Perfil con citas y métricas.</p>
+          <a class="btn" href="https://scholar.google.com" target="_blank" rel="noopener noreferrer">Ver perfil</a>
+        </article>
 
-            <!-- Lista de Perfiles -->
-            <div class="profile-links-text">
-                <p><strong>ORCID:</strong> <a href="https://orcid.org/0000-0002-1789-9046" target="_blank">https://orcid.org/0000-0002-1789-9046</a></p>
-                <p><strong>Google Scholar:</strong> <a href="https://scholar.google.com/citations?user=Rg0U18kAAAAJ&hl=es" target="_blank">Perfil en Google Scholar</a></p>
-                <p><strong>SCOPUS:</strong> <a href="https://www.scopus.com/authid/detail.uri?authorId=58019388900" target="_blank">Perfil en SCOPUS</a></p>
-                <p><strong>Researcher ID:</strong> <a href="https://www.webofscience.com/wos/author/rid/AFU-6007-2022" target="_blank">Perfil en Researcher ID</a></p>
-            </div>
+        <article class="repositorio-card">
+          <div class="icon" aria-hidden="true"><i class="fa-solid fa-database"></i></div>
+          <h3>SCOPUS</h3>
+          <p>Publicaciones indexadas.</p>
+          <a class="btn" href="https://www.scopus.com" target="_blank" rel="noopener noreferrer">Ver perfil</a>
+        </article>
 
-            <p><strong>1 sexenio vivo de investigación (tramo 2018-2023)</strong></p>
+        <article class="repositorio-card">
+          <div class="icon" aria-hidden="true"><i class="fa-solid fa-id-card"></i></div>
+          <h3>Researcher ID</h3>
+          <p>Identificación en Web of Science.</p>
+          <a class="btn" href="https://www.webofscience.com" target="_blank" rel="noopener noreferrer">Ver perfil</a>
+        </article>
+      </div>
+    </section>
+  </main>
 
-            <!-- Grid de Publicaciones -->
-            <div class="publicaciones-grid">
-                <!-- Publicación 1 -->
-                <div class="publicacion-card fade-in">
-                    <h3>Exploring JASP as a Data Analysis Tool in L2 Research: A Snapshot</h3>
-                    <p>Este artículo explora el uso de JASP como herramienta de análisis de datos en la investigación de segundas lenguas.</p>
-                    <a href="https://www.researchgate.net/publication/378217443_Exploring_JASP_as_a_data_analysis_tool_in_L2_research_a_snapshot" target="_blank" class="btn">Leer Más</a>
-                </div>
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="https://linkedin.com/in/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://twitter.com/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p>&copy; 2024 Prof. Dr. Aitor Garcés Manzanera. Todos los derechos reservados.</p>
+    </div>
+  </footer>
 
-                <!-- Publicación 2 -->
-                <div class="publicacion-card fade-in">
-                    <h3>Incidental Vocabulary Learning and Retention in Education-Oriented L2 Communicative Tasks</h3>
-                    <p>Análisis del aprendizaje y retención de vocabulario incidental en tareas comunicativas orientadas a la educación en L2.</p>
-                    <a href="https://www.researchgate.net/publication/371958862_INCIDENTAL_VOCABULARY_LEARNING_AND_RETENTION_IN_EDUCATION-ORIENTED_L2_COMMUNICATIVE_TASKS_THE_EFFECT_OF_TESTING_CONDITIONS" target="_blank" class="btn">Leer Más</a>
-                </div>
-
-                <!-- Publicación 3 -->
-                <div class="publicacion-card fade-in">
-                    <h3>Young EFL Learners' Pausing Behavior: Exploring Pause Thresholds in Two Proficiency Levels</h3>
-                    <p>Investigación sobre el comportamiento de pausas en jóvenes aprendices de inglés como lengua extranjera.</p>
-                    <a href="https://redined.educacion.gob.es/xmlui/bitstream/handle/11162/250163/Garces.pdf?sequence=1" target="_blank" class="btn">Leer Más</a>
-                </div>
-
-                <!-- Publicación 4 -->
-                <div class="publicacion-card fade-in">
-                    <h3>Language Bursts and Text Quality in Digital Writing by Young EFL Learners</h3>
-                    <p>Estudio sobre las ráfagas lingüísticas y la calidad del texto en escritura digital de jóvenes aprendices de inglés.</p>
-                    <a href="https://link.springer.com/article/10.1007/s44322-024-00012-x" target="_blank" class="btn">Leer Más</a>
-                </div>
-
-                <!-- Publicación 5 -->
-                <div class="publicacion-card fade-in">
-                    <h3>Mapping Motivational Networks in EFL: Exploring the Impact of Additional L2 Lessons</h3>
-                    <p>Análisis de las redes motivacionales en el aprendizaje del inglés y el impacto de lecciones adicionales.</p>
-                    <a href="https://files.eric.ed.gov/fulltext/EJ1441520.pdf" target="_blank" class="btn">Leer Más</a>
-                </div>
-                <!-- Puedes añadir más publicaciones siguiendo el mismo formato -->
-            </div>
-        </section>
-
-        <!-- Separador -->
-        <div class="separator"></div>
-
-        <!-- Sección de Repositorios -->
-        <section class="section container">
-            <h2>Mis Repositorios</h2>
-
-            <!-- Grid de Repositorios -->
-            <div class="repositorios-grid">
-                <!-- Repositorio 1 -->
-                <div class="repositorio-card fade-in">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa02-hCw9Wox4Vmvx9K_NhPtW8kyYae8_iGw&s" alt="ORCID">
-                    <h3>ORCID</h3>
-                    <p>Perfil en ORCID con todas mis publicaciones y trabajos académicos.</p>
-                    <a href="https://orcid.org/0000-0002-1789-9046" target="_blank" class="btn">Ver Perfil</a>
-                </div>
-
-                <!-- Repositorio 2 -->
-                <div class="repositorio-card fade-in">
-                    <img src="https://cdn.icon-icons.com/icons2/2108/PNG/512/google_scholar_icon_130918.png" alt="Google Scholar">
-                    <h3>Google Scholar</h3>
-                    <p>Mi perfil en Google Scholar con citas y métricas de impacto.</p>
-                    <a href="https://scholar.google.com/citations?user=Rg0U18kAAAAJ&hl=es" target="_blank" class="btn">Ver Perfil</a>
-                </div>
-
-                <!-- Repositorio 3 -->
-                <div class="repositorio-card fade-in">
-                    <img src="https://ieeeaccess.ieee.org/wp-content/uploads/2014/10/scopus-transparent.png" alt="SCOPUS">
-                    <h3>SCOPUS</h3>
-                    <p>Perfil en SCOPUS con información sobre mis publicaciones indexadas.</p>
-                    <a href="https://www.scopus.com/authid/detail.uri?authorId=58019388900" target="_blank" class="btn">Ver Perfil</a>
-                </div>
-
-                <!-- Repositorio 4 -->
-                <div class="repositorio-card fade-in">
-                    <img src="https://www.recursoscientificos.fecyt.es/sites/default/files/webofscience_logo_tm_rgb_color_0.jpg" alt="Researcher ID">
-                    <h3>Researcher ID</h3>
-                    <p>Mi identificación de investigador en Web of Science.</p>
-                    <a href="https://www.webofscience.com/wos/author/rid/AFU-6007-2022" target="_blank" class="btn">Ver Perfil</a>
-                </div>
-                <!-- Puedes añadir más repositorios siguiendo el mismo formato -->
-            </div>
-        </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://linkedin.com/in/aitorgarces" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://twitter.com/aitorgarces" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <!-- Añade más redes sociales aquí si lo deseas -->
-            </div>
-            <p>&copy; 2024 Prof. Dr. Aitor Garcés Manzanera. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-    <!-- Enlace al archivo JavaScript -->
-    <script src="script.js"></script>
-      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+  <script src="script.js" defer></script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
 </body>
 </html>
 
