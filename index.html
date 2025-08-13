@@ -5,124 +5,140 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inicio - Prof. Dr. Aitor Garcés Manzanera</title>
   <meta name="description" content="Profesor e investigador en Educación y Lingüística Aplicada.">
+  <meta name="theme-color" content="#80140D">
 
-  <!-- Estilos principales -->
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="modern.css">
+  <!-- Fuentes e iconos -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navbar intacto -->
+  <!-- Barra de progreso -->
+  <div id="progressContainer"><div id="progressBar"></div></div>
+
+  <!-- Acceso rápido -->
+  <a class="visually-hidden" href="#main">Saltar al contenido</a>
+
+  <!-- Navbar -->
   <header>
-    <nav class="container">
+    <nav class="container" aria-label="Principal">
       <div class="logo">
-        <a href="index.html"><i class="fas fa-user-graduate"></i> Aitor Garcés</a>
+        <a href="index.html" aria-current="page"><i class="fas fa-user-graduate" aria-hidden="true"></i> Aitor Garcés</a>
       </div>
-      <ul class="nav-links">
-        <li><a href="docencia.html">Docencia</a></li>
-        <li><a href="conferencias.html">Conferencias</a></li>
-        <li><a href="proyectos.html">Proyectos</a></li>
-        <li><a href="publicaciones.html">Publicaciones</a></li>
-        <li><a href="estadistica.html">Estadística</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="talleres.html">Talleres & Asesoramiento</a></li>
+      <ul class="nav-links" role="menubar" id="site-menu">
+        <li role="none"><a role="menuitem" href="docencia.html">Docencia</a></li>
+        <li role="none"><a role="menuitem" href="conferencias.html">Conferencias</a></li>
+        <li role="none"><a role="menuitem" href="proyectos.html">Proyectos</a></li>
+        <li role="none"><a role="menuitem" href="publicaciones.html">Publicaciones</a></li>
+        <li role="none"><a role="menuitem" href="estadistica.html">Estadística</a></li>
+        <li role="none"><a role="menuitem" href="blog.html">Blog</a></li>
+        <li role="none"><a role="menuitem" href="talleres.html">Talleres & Asesoramiento</a></li>
       </ul>
-      <div class="burger"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div>
+      <div class="burger">
+        <button type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-menu">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+      </div>
     </nav>
   </header>
 
-  <main>
-    <!-- Hero práctico y limpio -->
+  <div id="google_translate_container" style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
+    <div id="google_translate_element"></div>
+    <p style="margin:0;font-size:12px;text-align:center">Translate page</p>
+  </div>
+
+  <main id="main">
+    <!-- Hero -->
     <section class="hero-rigido container">
       <div class="hero-rigido__content">
         <div class="hero-rigido__text">
           <h1>Prof. Dr. Aitor Garcés Manzanera</h1>
-          <p class="subtitle">Profesor Contratado Doctor • Director Máster ELE • Profesor Universidad de Murcia</p>
+          <p class="subtitle">Profesor Contratado Doctor · Director Máster ELE · Universidad de Murcia</p>
           <div class="hero-rigido__buttons">
-            <a href="publicaciones.html" class="btn btn-primary">Ver publicaciones</a>
-            <a href="mailto:aitor.garces@pdi.atlanticomedio.es" class="btn btn-secondary">Contactar</a>
+            <a href="publicaciones.html" class="btn"><i class="fa-solid fa-book-open"></i> Ver publicaciones</a>
+            <a href="mailto:aitor.garces@pdi.atlanticomedio.es" class="btn btn-secondary"><i class="fa-solid fa-envelope"></i> Contactar</a>
           </div>
         </div>
         <div class="hero-rigido__photo">
-          <img src="https://raw.githubusercontent.com/aitorgarces/website/refs/heads/img/Foto%20institucional%201_fondo.png" alt="Foto de Aitor Garcés">
+          <img src="https://raw.githubusercontent.com/aitorgarces/website/refs/heads/img/Foto%20institucional%201_fondo.png"
+               alt="Retrato institucional de Aitor Garcés" loading="lazy" decoding="async">
         </div>
       </div>
     </section>
 
-    <!-- Áreas de actividad -->
+    <!-- Áreas -->
     <section class="section features container">
       <h2>Mis áreas</h2>
       <div class="features__grid">
-        <div class="feature-item">
-          <i class="fas fa-chalkboard-teacher"></i>
+        <article class="feature-item">
+          <i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>
           <h3>Docencia</h3>
-          <p>Diseño de programas y metodologías activas.</p>
-        </div>
-        <div class="feature-item">
-          <i class="fas fa-vial"></i>
+          <p>Programas y metodologías activas orientadas a resultados.</p>
+        </article>
+        <article class="feature-item">
+          <i class="fas fa-vial" aria-hidden="true"></i>
           <h3>Investigación</h3>
-          <p>Estudios en lingüística aplicada y aprendizaje.</p>
-        </div>
-        <div class="feature-item">
-          <i class="fas fa-handshake"></i>
+          <p>Lingüística aplicada y aprendizaje en contextos educativos.</p>
+        </article>
+        <article class="feature-item">
+          <i class="fas fa-handshake" aria-hidden="true"></i>
           <h3>Asesorías</h3>
-          <p>Talleres y consultorías académicas.</p>
-        </div>
+          <p>Talleres y consultorías para equipos y proyectos.</p>
+        </article>
       </div>
     </section>
 
-    <!-- Publicaciones recientes en tarjetas alineadas -->
+    <!-- Publicaciones recientes -->
     <section class="section publications container">
       <h2>Publicaciones recientes</h2>
       <div class="publications__grid">
-        <div class="publication-card">
+        <article class="publication-card">
           <h3>Exploring JASP como herramienta L2</h3>
           <p>Visión general del uso de JASP en investigación de segundas lenguas.</p>
-          <a href="#" class="btn btn-outline">Leer más</a>
-        </div>
-        <div class="publication-card">
+          <a href="publicaciones.html" class="btn btn-outline">Leer más</a>
+        </article>
+        <article class="publication-card">
           <h3>Incidental Vocabulary Learning</h3>
           <p>Análisis de retención en tareas comunicativas educativas.</p>
-          <a href="#" class="btn btn-outline">Leer más</a>
-        </div>
-        <div class="publication-card">
+          <a href="publicaciones.html" class="btn btn-outline">Leer más</a>
+        </article>
+        <article class="publication-card">
           <h3>Pausing Behavior en EFL</h3>
           <p>Umbrales de pausas en aprendices jóvenes.</p>
-          <a href="#" class="btn btn-outline">Leer más</a>
-        </div>
+          <a href="publicaciones.html" class="btn btn-outline">Leer más</a>
+        </article>
       </div>
       <div class="publications__more">
         <a href="publicaciones.html" class="btn btn-secondary">Ver todas</a>
       </div>
     </section>
 
-    <!-- Contacto final -->
+    <!-- Contacto -->
     <section class="section contact container">
       <h2>Contacto</h2>
       <p>¿Interesado en colaboraciones o talleres? Escríbeme.</p>
-      <a href="mailto:aitor.garces@pdi.atlanticomedio.es" class="btn btn-primary">Enviar email</a>
+      <a href="mailto:aitor.garces@pdi.atlanticomedio.es" class="btn"><i class="fa-solid fa-paper-plane"></i> Enviar email</a>
     </section>
   </main>
 
   <!-- Footer -->
   <footer class="container footer">
-    <div class="footer__social">
-      <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-github"></i></a>
+    <div class="social-links">
+      <a href="https://linkedin.com/in/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://twitter.com/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://github.com/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
     </div>
     <p>&copy; 2024 Prof. Dr. Aitor Garcés Manzanera</p>
   </footer>
 
   <script src="script.js" defer></script>
-  <script>
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({pageLanguage:'es',includedLanguages:'en,fr,de',layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element');
-    }
-  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
 </body>
 </html>
+
 
 
 
