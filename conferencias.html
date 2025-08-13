@@ -1,107 +1,92 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Metadatos -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conferencias - Prof. Dr. Aitor Garcés Manzanera</title>
-    <!-- Enlaces a CSS -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome para iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Meta descripción para SEO -->
-    <meta name="description" content="Conferencias impartidas por el Prof. Dr. Aitor Garcés Manzanera en el ámbito de la Educación y Lingüística Aplicada.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conferencias - Prof. Dr. Aitor Garcés Manzanera</title>
+  <meta name="description" content="Conferencias impartidas por el Prof. Dr. Aitor Garcés Manzanera.">
+  <meta name="theme-color" content="#80140D">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="progressContainer"><div id="progressBar"></div></div>
+  <a class="visually-hidden" href="#main">Saltar al contenido</a>
+
+  <header>
+    <nav class="container" aria-label="Principal">
+      <div class="logo">
+        <a href="index.html"><i class="fas fa-user-graduate" aria-hidden="true"></i> Aitor Garcés</a>
+      </div>
+      <ul class="nav-links" role="menubar" id="site-menu">
+        <li role="none"><a role="menuitem" href="docencia.html">Docencia</a></li>
+        <li role="none"><a role="menuitem" class="active" aria-current="page" href="conferencias.html">Conferencias</a></li>
+        <li role="none"><a role="menuitem" href="proyectos.html">Proyectos</a></li>
+        <li role="none"><a role="menuitem" href="publicaciones.html">Publicaciones</a></li>
+        <li role="none"><a role="menuitem" href="estadistica.html">Estadística</a></li>
+        <li role="none"><a role="menuitem" href="blog.html">Blog</a></li>
+        <li role="none"><a role="menuitem" href="talleres.html">Talleres & Asesoramiento</a></li>
+      </ul>
+      <div class="burger">
+        <button type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-menu">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
   <div id="google_translate_container" style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
     <div id="google_translate_element"></div>
-    <p style="margin: 0; font-size: 12px; text-align: center;">Translate page</p>
-</div>
-    <!-- Barra de Progreso -->
-    <div id="progressContainer">
-        <div id="progressBar"></div>
+    <p style="margin:0;font-size:12px;text-align:center">Translate page</p>
+  </div>
+
+  <main id="main" class="section container">
+    <h2>Conferencias</h2>
+
+    <div class="conferencias-grid">
+      <article class="conferencia-card fade-in">
+        <h3>Conferencia Plenaria en el Congreso EL21C</h3>
+        <p><strong>Evento:</strong> Congreso EL21C</p>
+        <p><strong>Tipo:</strong> Plenaria</p>
+        <iframe class="embed" src="https://drive.google.com/file/d/1eU2OsUx3gvU4dtS8vNnl4w3JRvbD4k9o/preview"
+                title="Conferencia Plenaria en el Congreso EL21C" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </article>
+
+      <article class="conferencia-card fade-in">
+        <h3>Conferencia en EDUNOVATIC22</h3>
+        <p><strong>Evento:</strong> EDUNOVATIC22</p>
+        <p><strong>Tipo:</strong> Presentación</p>
+        <iframe class="embed" src="https://www.youtube.com/embed/o6QXDlpG1OM"
+                title="Conferencia en EDUNOVATIC22" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </article>
+
+      <article class="conferencia-card fade-in">
+        <h3>Conferencia en CIEB 2024</h3>
+        <p><strong>Evento:</strong> Congreso Internacional de Enseñanza Bilingüe 2024</p>
+        <p><strong>Tipo:</strong> Comunicación</p>
+        <figure class="post-figure">
+          <img src="https://cdn.glitch.global/dbb76279-9080-4683-96a4-a2929ed450fd/63985886552.jpg?v=1733015892153"
+               alt="Imagen de ponencia en CIEB 2024" loading="lazy" decoding="async">
+        </figure>
+      </article>
     </div>
+  </main>
 
-    <!-- HEADER -->
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <a href="index.html"><i class="fas fa-user-graduate"></i> Aitor Garcés</a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="docencia.html">Docencia</a></li>
-                <li><a href="conferencias.html" class="active">Conferencias</a></li>
-                <li><a href="proyectos.html">Proyectos</a></li>
-                <li><a href="publicaciones.html">Publicaciones</a></li>
-                <li><a href="estadistica.html">Estadística</a></li>
-                <li><a href="blog.html">Blog</a></li>
-               <li><a href="talleres.html">Talleres & Asesoramiento</a></li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </nav>
-    </header>
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="https://linkedin.com/in/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://twitter.com/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p>&copy; 2024 Prof. Dr. Aitor Garcés Manzanera. Todos los derechos reservados.</p>
+    </div>
+  </footer>
 
-    <!-- MAIN CONTENT -->
-    <main>
-        <section class="section container">
-            <h2>Conferencias</h2>
-
-            <div class="conferencias-grid">
-                <!-- Conferencia 1 -->
-                <div class="conferencia-card fade-in">
-                    <h3>Conferencia Plenaria en el Congreso EL21C</h3>
-                    <p><strong>Evento:</strong> Congreso EL21C</p>
-                    <p><strong>Tipo:</strong> Plenaria</p>
-                    <!-- Google Drive Embed -->
-                    <div class="iframe-container">
-                        <iframe src="https://drive.google.com/file/d/1eU2OsUx3gvU4dtS8vNnl4w3JRvbD4k9o/preview" title="Conferencia Plenaria en el Congreso EL21C" allowfullscreen></iframe>
-                    </div>
-                </div>
-
-                <!-- Conferencia 2 -->
-                <div class="conferencia-card fade-in">
-                    <h3>Conferencia en EDUNOVATIC22</h3>
-                    <p><strong>Evento:</strong> EDUNOVATIC22</p>
-                    <p><strong>Tipo:</strong> Presentación</p>
-                    <!-- Video Embebido -->
-                    <div class="iframe-container">
-                        <iframe src="https://www.youtube.com/embed/o6QXDlpG1OM" title="Conferencia en EDUNOVATIC22" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                                      </div>
-            <div class="conferencias-grid">
-                <div class="conferencia-card fade-in">
-                    <h3>Conferencia en CIEB 2024</h3>
-                    <p><strong>Evento:</strong> Congreso Internacional de Enseñanza Bilingüe 2024</p>
-                    <p><strong>Tipo:</strong> Comunicación</p>
-                    <!-- Video Embebido -->
-                   <img src="https://cdn.glitch.global/dbb76279-9080-4683-96a4-a2929ed450fd/63985886552.jpg?v=1733015892153" alt="Imagen de la publicación" class="responsive-image">
-                    </div>
-              </div>
-        </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://linkedin.com/in/aitorgarces" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://twitter.com/aitorgarces" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <!-- Añade más redes sociales aquí si lo deseas -->
-            </div>
-            <p>&copy; 2024 Prof. Dr. Aitor Garcés Manzanera. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-    <!-- Enlace al archivo JavaScript -->
-    <script src="script.js"></script>
-          <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+  <script src="script.js" defer></script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
 </body>
 </html>
 
