@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inicio · Prof. Dr. Aitor Garcés Manzanera</title>
-  <meta name="description" content="Profesor e investigador en Educación y Lingüística Aplicada. Docencia, investigación, proyectos y publicaciones.">
+  <meta name="description" content="Profesor e investigador en Educación y Lingüística Aplicada. Docencia, investigación, proyectos, conferencias y publicaciones.">
   <meta name="theme-color" content="#80140D">
 
-  <!-- Open Graph / Twitter -->
+  <!-- Metadatos sociales -->
   <meta property="og:title" content="Prof. Dr. Aitor Garcés Manzanera">
-  <meta property="og:description" content="Educación y Lingüística Aplicada. Docencia, proyectos y publicaciones.">
+  <meta property="og:description" content="Docencia, investigación y proyectos en Educación y Lingüística Aplicada.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://raw.githubusercontent.com/aitorgarces/website/refs/heads/img/Foto%20institucional%201_fondo.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -37,25 +37,32 @@
     "sameAs": [
       "https://linkedin.com/in/aitorgarces",
       "https://scholar.google.com",
-      "https://orcid.org/0000-0002-1789-9046"
+      "https://orcid.org/000-0002-1789-9046"
     ]
   }
   </script>
 
+  <!-- Estilos locales para esta portada -->
   <style>
-    /* Ajustes puntuales para esta portada */
-    .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
-    .hero-meta .chip{display:inline-flex;align-items:center;gap:8px;border:1px solid #eee;border-radius:999px;padding:6px 12px;background:#fff}
+    .avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;box-shadow:var(--shadow-sm)}
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .chip{display:inline-flex;align-items:center;gap:8px;border:1px solid #eee;border-radius:999px;padding:6px 12px;background:#fff}
     .quick-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:16px}
     .quick-links a{display:flex;align-items:center;gap:10px;border:1px solid #eee;padding:12px;border-radius:12px;background:#fff}
     .quick-links i{font-size:1.2rem;color:#C62828}
+    .quick-nav{position:sticky;top:70px;background:#fff;border-top:1px solid #eee;border-bottom:1px solid #eee}
+    .quick-nav .container{display:flex;gap:12px;flex-wrap:wrap;padding:10px 20px}
+    .quick-nav a{padding:8px 12px;border:1px solid #e8e8e8;border-radius:999px;background:#fff}
+    .metrics{padding:40px 0;background:#fff}
+    .metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:10px}
+    .metric{background:#fff;border:1px solid #eee;border-radius:12px;padding:18px;text-align:left;box-shadow:var(--shadow-sm)}
+    .metric strong{font-size:1.6rem;color:var(--color-primario)}
+    .metric span{display:block;color:#333;margin-top:4px}
     .strip{background:#fff}
-    .strip .container{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));align-items:start}
+    .cards-2col{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
     .mini-list{list-style:none;margin:0;padding:0}
     .mini-list li{display:flex;gap:10px;margin:8px 0}
     .mini-list i{color:#C62828;margin-top:2px}
-    .cards-2col{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-    .avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;box-shadow:var(--shadow-sm)}
   </style>
 </head>
 <body>
@@ -93,16 +100,29 @@
     <p style="margin:0;font-size:12px;text-align:center">Translate page</p>
   </div>
 
+  <!-- Navegación rápida dentro de la portada -->
+  <nav class="quick-nav" aria-label="Secciones de la página">
+    <div class="container">
+      <a href="#impacto">Impacto</a>
+      <a href="#lineas">Líneas</a>
+      <a href="#libro">Libro</a>
+      <a href="#publicaciones">Publicaciones</a>
+      <a href="#docencia">Docencia</a>
+      <a href="#conferencias">Conferencias</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </nav>
+
   <main id="main">
     <!-- Hero académico -->
-    <section class="hero-rigido container">
+    <section class="hero-rigido container" aria-labelledby="titulo-hero">
       <div class="hero-rigido__content">
         <div class="hero-rigido__text">
           <img class="avatar" src="https://raw.githubusercontent.com/aitorgarces/website/refs/heads/img/Foto%20institucional%201_fondo.png" alt="Retrato de Aitor Garcés" loading="eager" decoding="async" fetchpriority="high">
-          <h1 style="margin-top:12px">Prof. Dr. Aitor Garcés Manzanera</h1>
-          <p class="subtitle">Educación y Lingüística Aplicada. Universidad de Murcia</p>
+          <h1 id="titulo-hero" style="margin-top:12px">Prof. Dr. Aitor Garcés Manzanera</h1>
+          <p class="subtitle">Educación y Lingüística Aplicada · Universidad de Murcia</p>
 
-          <div class="hero-meta">
+          <div class="chips" aria-label="Perfiles profesionales">
             <span class="chip"><i class="fa-solid fa-user-tie" aria-hidden="true"></i> Profesor Contratado Doctor</span>
             <span class="chip"><i class="fa-solid fa-book" aria-hidden="true"></i> Director Máster ELE</span>
             <span class="chip"><i class="fa-solid fa-flask" aria-hidden="true"></i> Investigación en L2</span>
@@ -120,41 +140,64 @@
             <a href="https://www.researchgate.net" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-researchgate" aria-hidden="true"></i> ResearchGate</a>
           </div>
         </div>
-        <div class="hero-rigido__photo">
-          <img src="https://raw.githubusercontent.com/aitorgarces/website/refs/heads/img/Foto%20institucional%201_fondo.png" alt="Retrato institucional de Aitor Garcés" loading="lazy" decoding="async">
+        <div class="hero-rigido__photo" aria-hidden="true">
+          <img src="https://raw.githubusercontent.com/aitorgarces/website/refs/heads/img/Foto%20institucional%201_fondo.png" alt="" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <!-- Impacto / Logros -->
+    <section id="impacto" class="section container metrics" aria-labelledby="impacto-tit">
+      <h2 id="impacto-tit">Impacto</h2>
+      <div class="metrics-grid" role="list">
+        <div class="metric" role="listitem">
+          <strong>1</strong>
+          <span>sexenio de investigación (2018–2023)</span>
+        </div>
+        <div class="metric" role="listitem">
+          <strong>4</strong>
+          <span>proyectos competitivos · +1 de innovación</span>
+        </div>
+        <div class="metric" role="listitem">
+          <strong>2015–</strong>
+          <span>docencia universitaria</span>
+        </div>
+        <div class="metric" role="listitem">
+          <strong>2022–</strong>
+          <span>dirección del Máster ELE</span>
         </div>
       </div>
     </section>
 
     <!-- Líneas de trabajo -->
-    <section class="section features container">
+    <section id="lineas" class="section features container">
       <h2>Líneas de trabajo</h2>
       <div class="features__grid">
         <article class="feature-item">
           <i class="fas fa-keyboard" aria-hidden="true"></i>
           <h3>Escritura y procesos</h3>
-          <p>Ráfagas, pausas y calidad textual en L2 con datos de teclado.</p>
+          <p>Ráfagas, pausas y calidad textual en L2.</p>
         </article>
         <article class="feature-item">
           <i class="fas fa-language" aria-hidden="true"></i>
           <h3>Adquisición de L2</h3>
-          <p>Aprendizaje léxico y tareas comunicativas en contextos reales.</p>
+          <p>Aprendizaje léxico y tareas comunicativas.</p>
         </article>
         <article class="feature-item">
           <i class="fas fa-chart-line" aria-hidden="true"></i>
           <h3>Métodos cuantitativos</h3>
-          <p>Modelos y buenas prácticas con software abierto.</p>
+          <p>Modelos y reporte reproducible.</p>
         </article>
         <article class="feature-item">
           <i class="fas fa-clipboard-check" aria-hidden="true"></i>
           <h3>Evaluación</h3>
-          <p>Instrumentos, fiabilidad y diseño curricular.</p>
+          <p>Instrumentos, fiabilidad y currículo.</p>
         </article>
       </div>
     </section>
 
     <!-- Libro destacado -->
-    <section class="section container book-section" id="libro">
+    <section id="libro" class="section container book-section">
       <h2>Libro destacado</h2>
       <div class="book-content">
         <div class="book-cover">
@@ -172,7 +215,7 @@
     </section>
 
     <!-- Publicaciones recientes -->
-    <section class="section publications container">
+    <section id="publicaciones" class="section publications container">
       <h2>Publicaciones recientes</h2>
       <div class="publications__grid">
         <article class="publication-card">
@@ -196,8 +239,8 @@
       </div>
     </section>
 
-    <!-- Docencia y dirección -->
-    <section class="section strip">
+    <!-- Docencia / Dirección -->
+    <section id="docencia" class="section strip">
       <div class="container cards-2col">
         <article class="institution-card">
           <h3><i class="fa-solid fa-university" aria-hidden="true"></i> Universidad de Murcia</h3>
@@ -219,7 +262,7 @@
     </section>
 
     <!-- Conferencias destacadas -->
-    <section class="section container">
+    <section id="conferencias" class="section container">
       <h2>Conferencias</h2>
       <div class="conferencias-grid">
         <article class="conferencia-card">
@@ -234,7 +277,7 @@
     </section>
 
     <!-- Contacto -->
-    <section class="section contact container">
+    <section id="contacto" class="section contact container">
       <h2>Contacto</h2>
       <p>Para colaboraciones, proyectos o talleres, escribe un mensaje.</p>
       <a href="mailto:aitor.garces@pdi.atlanticomedio.es" class="btn"><i class="fa-solid fa-paper-plane"></i> Enviar email</a>
@@ -255,7 +298,6 @@
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
 </body>
 </html>
-
 
 
 
