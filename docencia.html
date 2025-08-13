@@ -1,187 +1,176 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Metadatos -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Docencia - Prof. Dr. Aitor Garcés Manzanera</title>
-    <!-- Enlaces a CSS -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome para iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Meta descripción para SEO -->
-    <meta name="description" content="Docencia impartida por el Prof. Dr. Aitor Garcés Manzanera en la Universidad del Atlántico Medio y la Universidad de Murcia.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Docencia - Prof. Dr. Aitor Garcés Manzanera</title>
+  <meta name="description" content="Docencia impartida por el Prof. Dr. Aitor Garcés Manzanera.">
+  <meta name="theme-color" content="#80140D">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="progressContainer"><div id="progressBar"></div></div>
+  <a class="visually-hidden" href="#main">Saltar al contenido</a>
+
+  <header>
+    <nav class="container" aria-label="Principal">
+      <div class="logo">
+        <a href="index.html"><i class="fas fa-user-graduate" aria-hidden="true"></i> Aitor Garcés</a>
+      </div>
+      <ul class="nav-links" role="menubar" id="site-menu">
+        <li role="none"><a role="menuitem" class="active" aria-current="page" href="docencia.html">Docencia</a></li>
+        <li role="none"><a role="menuitem" href="conferencias.html">Conferencias</a></li>
+        <li role="none"><a role="menuitem" href="proyectos.html">Proyectos</a></li>
+        <li role="none"><a role="menuitem" href="publicaciones.html">Publicaciones</a></li>
+        <li role="none"><a role="menuitem" href="estadistica.html">Estadística</a></li>
+        <li role="none"><a role="menuitem" href="blog.html">Blog</a></li>
+        <li role="none"><a role="menuitem" href="talleres.html">Talleres & Asesoramiento</a></li>
+      </ul>
+      <div class="burger">
+        <button type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-menu">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
   <div id="google_translate_container" style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
     <div id="google_translate_element"></div>
-    <p style="margin: 0; font-size: 12px; text-align: center;">Translate page</p>
-</div>
-    <!-- Barra de Progreso -->
-    <div id="progressContainer">
-        <div id="progressBar"></div>
+    <p style="margin:0;font-size:12px;text-align:center">Translate page</p>
+  </div>
+
+  <main id="main" class="section container">
+    <h2>Docencia</h2>
+
+    <!-- UMU -->
+    <section class="institution-card fade-in">
+      <h3><i class="fas fa-university" aria-hidden="true"></i> Universidad de Murcia (UMU)</h3>
+      <p class="position"><strong>Coordinador de 1º Grado en Educación Infantil</strong></p>
+      <p class="position"><strong>Docencia:</strong> 2015 - Actualmente</p>
+
+      <div class="courses-grid">
+        <article class="course-card">
+          <h4>Inglés para la Educación Infantil (1988)</h4>
+          <p class="details">1º Grado en Educación Infantil</p>
+          <p><strong>Créditos:</strong> 6</p>
+          <p><strong>Años:</strong> 2015/2016 - 2023/2024*</p>
+          <p><strong>Notas:</strong> *Coordinador de asignatura.</p>
+        </article>
+
+        <article class="course-card">
+          <h4>Comunicación Oral y Escrita en Inglés para el Aula de Primaria</h4>
+          <p class="details">1º Grado en Educación Primaria</p>
+          <p><strong>Créditos:</strong> 6</p>
+          <p><strong>Años:</strong> 2018/2019 - 2023/2024</p>
+          <p><strong>Notas:</strong> Actual</p>
+        </article>
+
+        <article class="course-card">
+          <h4>Enseñanza y Aprendizaje de Inglés</h4>
+          <p class="details">3º Grado en Educación Primaria</p>
+          <p><strong>Créditos:</strong> 6</p>
+          <p><strong>Años:</strong> 2016/2017, 2021/2022</p>
+        </article>
+
+        <article class="course-card">
+          <h4>Prácticas Escolares III Mención en Lengua Extranjera Inglés</h4>
+          <p class="details">Grado en Educación Primaria</p>
+          <p><strong>Créditos:</strong> 15</p>
+          <p><strong>Años:</strong> 2015/2016, 2022/2023, 2023/2024</p>
+        </article>
+
+        <article class="course-card">
+          <h4>Prácticas Escolares III</h4>
+          <p class="details">3º Grado en Educación Infantil</p>
+          <p><strong>Créditos:</strong> 12</p>
+          <p><strong>Años:</strong> 2020/2021, 2021/2022</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- UNAM -->
+    <section class="institution-card fade-in">
+      <h3><i class="fas fa-university" aria-hidden="true"></i> Universidad del Atlántico Medio (UNAM)</h3>
+      <p class="position"><strong>Director del Máster Oficial en Enseñanza del Español como Lengua Extranjera (ELE)</strong></p>
+      <p><strong>Periodo:</strong> 2022 - Actualmente</p>
+
+      <div class="courses-grid">
+        <article class="course-card">
+          <h4>Bilingual Schools: Politics, Organization and Features</h4>
+          <p class="details">(Máster Universitario en Educación Bilingüe)</p>
+          <p><strong>Créditos:</strong> 6</p>
+          <p><strong>Años:</strong> 2022/2023, 2023/2024*</p>
+        </article>
+
+        <article class="course-card">
+          <h4>Aprendizaje y Enseñanza de la Lengua Extranjera (Inglés)</h4>
+          <p class="details">(Máster Universitario en Formación del Profesorado)</p>
+          <p><strong>Créditos:</strong> 12</p>
+          <p><strong>Año:</strong> 2023/2024</p>
+        </article>
+
+        <article class="course-card">
+          <h4>Contextos de Aprendizaje</h4>
+          <p class="details">(Máster Universitario en ELE)</p>
+          <p><strong>Créditos:</strong> 6</p>
+          <p><strong>Año:</strong> 2023/2024</p>
+        </article>
+
+        <article class="course-card">
+          <h4>Complementos para la Formación Disciplinar de Lengua Extranjera</h4>
+          <p class="details">(Máster Universitario en Formación del Profesorado)</p>
+          <p><strong>Créditos:</strong> 6</p>
+          <p><strong>Año:</strong> 2022/2023</p>
+        </article>
+
+        <article class="course-card">
+          <h4>Second Language Learning</h4>
+          <p class="details">(4º Primaria - Mención Inglés)</p>
+          <p><strong>Créditos:</strong> 6</p>
+          <p><strong>Años:</strong> 2022/2023, 2023/2024</p>
+        </article>
+
+        <article class="course-card">
+          <h4>Literature & Culture of English Speaking Countries</h4>
+          <p class="details">(4º Primaria - Mención Inglés)</p>
+          <p><strong>Créditos:</strong> 6</p>
+          <p><strong>Años:</strong> 2022/2023, 2023/2024</p>
+        </article>
+
+        <article class="course-card">
+          <h4>Aprendizaje y Desarrollo del Lenguaje</h4>
+          <p class="details">(2º Infantil)</p>
+          <p><strong>Créditos:</strong> 6</p>
+          <p><strong>Año:</strong> 2023/2024</p>
+        </article>
+
+        <article class="course-card">
+          <h4>Inglés II</h4>
+          <p class="details">(2º Infantil)</p>
+          <p><strong>Créditos:</strong> 6</p>
+          <p><strong>Año:</strong> 2023/2024</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="https://linkedin.com/in/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://twitter.com/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p>&copy; 2024 Prof. Dr. Aitor Garcés Manzanera. Todos los derechos reservados.</p>
     </div>
+  </footer>
 
-    <!-- HEADER -->
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <a href="index.html"><i class="fas fa-user-graduate"></i> Aitor Garcés</a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="docencia.html" class="active">Docencia</a></li>
-                <li><a href="conferencias.html">Conferencias</a></li>
-                <li><a href="proyectos.html">Proyectos</a></li>
-                <li><a href="publicaciones.html">Publicaciones</a></li>
-                <li><a href="estadistica.html">Estadística</a></li>
-                <li><a href="blog.html">Blog</a></li>
-               <li><a href="talleres.html">Talleres & Asesoramiento</a></li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </nav>
-    </header>
-
-    <!-- MAIN CONTENT -->
-    <main>
-        <section class="section container">
-            <h2>Docencia</h2>
-            
-            <!-- Universidad de Murcia (UMU) -->
-            <div class="institution-card fade-in">
-                <h3><i class="fas fa-university"></i> Universidad de Murcia (UMU)</h3>
-                                <p class="position"><strong>Coordinador de 1º Grado en Educación Infantil</strong></p>
-                <p class="position"><strong>Docencia:</strong> 2015 - Actualmente</p>
-                <!-- Cursos -->
-                <div class="courses-grid">
-                    <!-- Curso 1 -->
-                    <div class="course-card">
-                        <h4>Inglés para la Educación Infantil (1988)</h4>
-                        <p class="details">1º Grado en Educación Infantil</p>
-                        <p><strong>Créditos:</strong> 6</p>
-                        <p><strong>Años:</strong> 2015/2016 - 2023/2024*</p>
-                        <p><strong>Notas:</strong> *Coordinador de asignatura.</p>
-                    </div>
-                    <!-- Curso 2 -->
-                    <div class="course-card">
-                        <h4>Comunicación Oral y Escrita en Inglés para el Aula de Primaria</h4>
-                        <p class="details">1º Grado en Educación Primaria</p>
-                        <p><strong>Créditos:</strong> 6</p>
-                        <p><strong>Años:</strong> 2018/2019 - 2023/2024</p>
-                        <p><strong>Notas:</strong> Actual</p>
-                    </div>
-                    <!-- Curso 3 -->
-                    <div class="course-card">
-                        <h4>Enseñanza y Aprendizaje de Inglés</h4>
-                        <p class="details">3º Grado en Educación Primaria</p>
-                        <p><strong>Créditos:</strong> 6</p>
-                        <p><strong>Años:</strong> 2016/2017, 2021/2022</p>
-                    </div>
-                    <!-- Curso 4 -->
-                    <div class="course-card">
-                        <h4>Prácticas Escolares III Mención en Lengua Extranjera Inglés</h4>
-                        <p class="details">Grado en Educación Primaria</p>
-                        <p><strong>Créditos:</strong> 15</p>
-                        <p><strong>Años:</strong> 2015/2016, 2022/2023, 2023/2024</p>
-                    </div>
-                    <!-- Curso 5 -->
-                    <div class="course-card">
-                        <h4>Prácticas Escolares III</h4>
-                        <p class="details">3º Grado en Educación Infantil</p>
-                        <p><strong>Créditos:</strong> 12</p>
-                        <p><strong>Años:</strong> 2020/2021, 2021/2022</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Universidad del Atlántico Medio (UNAM) -->
-            <div class="institution-card fade-in">
-                <h3><i class="fas fa-university"></i> Universidad del Atlántico Medio (UNAM)</h3>
-                <p class="position"><strong>Director del Máster Oficial en Enseñanza del Español como Lengua Extranjera (ELE)</strong></p>
-                <p><strong>Periodo:</strong> 2022 - Actualmente</p>
-                <!-- Cursos -->
-                <div class="courses-grid">
-                    <!-- Curso 1 -->
-                    <div class="course-card">
-                        <h4>Bilingual Schools: Politics, Organization and Features</h4>
-                        <p class="details">(Máster Universitario en Educación Bilingüe)</p>
-                        <p><strong>Créditos:</strong> 6</p>
-                        <p><strong>Años:</strong> 2022/2023, 2023/2024*</p>
-                    </div>
-                    <!-- Curso 2 -->
-                    <div class="course-card">
-                        <h4>Aprendizaje y Enseñanza de la Lengua Extranjera (Inglés)</h4>
-                        <p class="details">(Máster Universitario en Formación del Profesorado)</p>
-                        <p><strong>Créditos:</strong> 12</p>
-                        <p><strong>Año:</strong> 2023/2024</p>
-                    </div>
-                    <!-- Curso 3 -->
-                    <div class="course-card">
-                        <h4>Contextos de Aprendizaje</h4>
-                        <p class="details">(Máster Universitario en Enseñanza del Español como Lengua Extranjera)</p>
-                        <p><strong>Créditos:</strong> 6</p>
-                        <p><strong>Año:</strong> 2023/2024</p>
-                    </div>
-                    <!-- Curso 4 -->
-                    <div class="course-card">
-                        <h4>Complementos para la Formación Disciplinar de Lengua Extranjera</h4>
-                        <p class="details">(Máster Universitario en Formación del Profesorado)</p>
-                        <p><strong>Créditos:</strong> 6</p>
-                        <p><strong>Año:</strong> 2022/2023</p>
-                    </div>
-                    <!-- Curso 5 -->
-                    <div class="course-card">
-                        <h4>Second Language Learning</h4>
-                        <p class="details">(4º Grado en Educación Primaria - Mención Lengua Extranjera Inglés)</p>
-                        <p><strong>Créditos:</strong> 6</p>
-                        <p><strong>Años:</strong> 2022/2023, 2023/2024</p>
-                    </div>
-                    <!-- Curso 6 -->
-                    <div class="course-card">
-                        <h4>Literature & Culture of English Speaking Countries</h4>
-                        <p class="details">(4º Grado en Educación Primaria - Mención Lengua Extranjera Inglés)</p>
-                        <p><strong>Créditos:</strong> 6</p>
-                        <p><strong>Años:</strong> 2022/2023, 2023/2024</p>
-                    </div>
-                    <!-- Curso 7 -->
-                    <div class="course-card">
-                        <h4>Aprendizaje y Desarrollo del Lenguaje</h4>
-                        <p class="details">(2º Grado en Educación Infantil)</p>
-                        <p><strong>Créditos:</strong> 6</p>
-                        <p><strong>Año:</strong> 2023/2024</p>
-                    </div>
-                    <!-- Curso 8 -->
-                    <div class="course-card">
-                        <h4>Inglés II</h4>
-                        <p class="details">(2º Grado en Educación Infantil)</p>
-                        <p><strong>Créditos:</strong> 6</p>
-                        <p><strong>Año:</strong> 2023/2024</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://linkedin.com/in/aitorgarces" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://twitter.com/aitorgarces" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <!-- Añade más redes sociales aquí si lo deseas -->
-            </div>
-            <p>&copy; 2024 Prof. Dr. Aitor Garcés Manzanera. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-    <!-- Enlace al archivo JavaScript -->
-    <script src="script.js"></script>
-      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+  <script src="script.js" defer></script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
 </body>
 </html>
+
 
