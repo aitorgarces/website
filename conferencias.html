@@ -4,13 +4,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Conferencias - Prof. Dr. Aitor Garcés Manzanera</title>
-  <meta name="description" content="Conferencias impartidas por el Prof. Dr. Aitor Garcés Manzanera.">
+  <meta name="description" content="Conferencias impartidas por el Prof. Dr. Aitor Garcés Manzanera. Vídeos, resúmenes y material gráfico.">
   <meta name="theme-color" content="#80140D">
+
+  <!-- Social -->
+  <meta property="og:title" content="Conferencias — Prof. Dr. Aitor Garcés">
+  <meta property="og:description" content="Muestras de plenarias, presentaciones y comunicaciones.">
+  <meta property="og:type" content="website">
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="style.css">
+
+  <!-- JSON-LD simple (lista de ítems) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"CollectionPage",
+    "name":"Conferencias de Aitor Garcés Manzanera",
+    "about":"Muestras de charlas y participaciones",
+    "hasPart":[
+      {"@type":"CreativeWork","name":"Conferencia Plenaria en el Congreso EL21C","url":"https://drive.google.com/file/d/1eU2OsUx3gvU4dtS8vNnl4w3JRvbD4k9o/preview"},
+      {"@type":"VideoObject","name":"Conferencia en EDUNOVATIC22","url":"https://www.youtube.com/watch?v=o6QXDlpG1OM"},
+      {"@type":"ImageObject","name":"Conferencia en CIEB 2024","contentUrl":"https://cdn.glitch.global/dbb76279-9080-4683-96a4-a2929ed450fd/63985886552.jpg?v=1733015892153"}
+    ]
+  }
+  </script>
+
+  <!-- Estilos locales de esta página -->
+  <style>
+    .toolbar{position:sticky;top:70px;background:#fff;border-top:1px solid #eee;border-bottom:1px solid #eee;z-index:5}
+    .toolbar .container{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:10px 20px}
+    .search{flex:1 1 260px;display:flex;align-items:center;gap:8px;border:1px solid #e8e8e8;border-radius:12px;padding:8px 12px;background:#fff}
+    .search input{border:0;outline:0;width:100%;font-family:inherit}
+    .filters{display:flex;gap:8px;flex-wrap:wrap}
+    .filter-btn{padding:8px 12px;border:1px solid #e8e8e8;border-radius:999px;background:#fff;cursor:pointer}
+    .filter-btn[aria-pressed="true"]{background:var(--color-acento);color:#fff;border-color:var(--color-acento)}
+    .count{margin-left:auto;font-size:.95rem;color:#333}
+    .conferencias-grid{margin-top:24px}
+    .conferencia-card{display:flex;flex-direction:column;gap:10px}
+    .meta{font-size:.95rem;color:#333}
+    .chips{display:flex;gap:8px;flex-wrap:wrap}
+    .chip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;border:1px solid #eee;background:#fff}
+    .embed{width:100%;aspect-ratio:16/9;border:0;border-radius:var(--radio-borde);box-shadow:var(--sombra)}
+    .thumb{width:100%;border-radius:var(--radio-borde);box-shadow:var(--sombra)}
+    .card-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+    @media (max-width: 768px){ .toolbar .container{justify-content:space-between} .count{order:3;width:100%} }
+  </style>
 </head>
 <body>
   <div id="progressContainer"><div id="progressBar"></div></div>
@@ -43,36 +84,102 @@
     <p style="margin:0;font-size:12px;text-align:center">Translate page</p>
   </div>
 
+  <!-- Barra de búsqueda y filtros -->
+  <div class="toolbar" role="region" aria-label="Herramientas">
+    <div class="container">
+      <form class="search" role="search" aria-label="Buscar conferencias" onsubmit="event.preventDefault();">
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        <label for="q" class="visually-hidden">Buscar</label>
+        <input id="q" type="search" placeholder="Buscar por título o evento…" autocomplete="off">
+      </form>
+
+      <div class="filters" role="group" aria-label="Filtrar por tipo">
+        <button type="button" class="filter-btn" data-type="all" aria-pressed="true">Todas</button>
+        <button type="button" class="filter-btn" data-type="Plenaria">Plenarias</button>
+        <button type="button" class="filter-btn" data-type="Presentación">Presentaciones</button>
+        <button type="button" class="filter-btn" data-type="Comunicación">Comunicaciones</button>
+      </div>
+
+      <div class="count" aria-live="polite" aria-atomic="true">
+        <span id="resultCount">3</span> resultados
+      </div>
+    </div>
+  </div>
+
   <main id="main" class="section container">
     <h2>Conferencias</h2>
 
-    <div class="conferencias-grid">
-      <article class="conferencia-card fade-in">
+    <div id="grid" class="conferencias-grid">
+      <!-- EL21C -->
+      <article class="conferencia-card fade-in" data-type="Plenaria" data-title="Conferencia Plenaria en el Congreso EL21C" data-evento="Congreso EL21C">
         <h3>Conferencia Plenaria en el Congreso EL21C</h3>
-        <p><strong>Evento:</strong> Congreso EL21C</p>
-        <p><strong>Tipo:</strong> Plenaria</p>
-        <iframe class="embed" src="https://drive.google.com/file/d/1eU2OsUx3gvU4dtS8vNnl4w3JRvbD4k9o/preview"
-                title="Conferencia Plenaria en el Congreso EL21C" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <p class="meta"><strong>Evento:</strong> Congreso EL21C</p>
+        <div class="chips" aria-label="Tipo">
+          <span class="chip"><i class="fa-solid fa-microphone" aria-hidden="true"></i> Plenaria</span>
+        </div>
+        <iframe class="embed"
+                src="https://drive.google.com/file/d/1eU2OsUx3gvU4dtS8vNnl4w3JRvbD4k9o/preview"
+                title="Conferencia Plenaria en el Congreso EL21C"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+        <div class="card-actions">
+          <a class="btn btn-secondary" href="https://drive.google.com/file/d/1eU2OsUx3gvU4dtS8vNnl4w3JRvbD4k9o/view" target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver en Drive
+          </a>
+        </div>
       </article>
 
-      <article class="conferencia-card fade-in">
+      <!-- EDUNOVATIC22 -->
+      <article class="conferencia-card fade-in" data-type="Presentación" data-title="Conferencia en EDUNOVATIC22" data-evento="EDUNOVATIC22">
         <h3>Conferencia en EDUNOVATIC22</h3>
-        <p><strong>Evento:</strong> EDUNOVATIC22</p>
-        <p><strong>Tipo:</strong> Presentación</p>
-        <iframe class="embed" src="https://www.youtube.com/embed/o6QXDlpG1OM"
-                title="Conferencia en EDUNOVATIC22" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <p class="meta"><strong>Evento:</strong> EDUNOVATIC22</p>
+        <div class="chips" aria-label="Tipo">
+          <span class="chip"><i class="fa-solid fa-presentation-screen" aria-hidden="true"></i> Presentación</span>
+        </div>
+        <iframe class="embed"
+                src="https://www.youtube.com/embed/o6QXDlpG1OM"
+                title="Conferencia en EDUNOVATIC22"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+        <div class="card-actions">
+          <a class="btn btn-secondary" href="https://www.youtube.com/watch?v=o6QXDlpG1OM" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-youtube"></i> Ver en YouTube
+          </a>
+        </div>
       </article>
 
-      <article class="conferencia-card fade-in">
+      <!-- CIEB 2024 -->
+      <article class="conferencia-card fade-in" data-type="Comunicación" data-title="Conferencia en CIEB 2024" data-evento="Congreso Internacional de Enseñanza Bilingüe 2024">
         <h3>Conferencia en CIEB 2024</h3>
-        <p><strong>Evento:</strong> Congreso Internacional de Enseñanza Bilingüe 2024</p>
-        <p><strong>Tipo:</strong> Comunicación</p>
-        <figure class="post-figure">
-          <img src="https://cdn.glitch.global/dbb76279-9080-4683-96a4-a2929ed450fd/63985886552.jpg?v=1733015892153"
-               alt="Imagen de ponencia en CIEB 2024" loading="lazy" decoding="async">
+        <p class="meta"><strong>Evento:</strong> Congreso Internacional de Enseñanza Bilingüe 2024</p>
+        <div class="chips" aria-label="Tipo">
+          <span class="chip"><i class="fa-regular fa-comments" aria-hidden="true"></i> Comunicación</span>
+        </div>
+        <figure class="post-figure" style="margin:0">
+          <img class="thumb"
+               src="https://cdn.glitch.global/dbb76279-9080-4683-96a4-a2929ed450fd/63985886552.jpg?v=1733015892153"
+               alt="Imagen de ponencia en CIEB 2024"
+               loading="lazy" decoding="async">
+          <figcaption class="visually-hidden">Ponencia en CIEB 2024</figcaption>
         </figure>
       </article>
     </div>
+
+    <!-- CTA -->
+    <section class="section" aria-label="Invitaciones">
+      <div class="repository-card" style="max-width:720px">
+        <div class="card-content">
+          <h3><i class="fa-solid fa-calendar-plus" aria-hidden="true"></i> ¿Quieres invitar una charla?</h3>
+          <p>Escribe con el contexto del evento y la audiencia prevista.</p>
+          <a class="btn" href="mailto:aitor.garces@pdi.atlanticomedio.es"><i class="fa-solid fa-envelope"></i> Solicitar información</a>
+        </div>
+        <div class="card-icon" aria-hidden="true">
+          <i class="fa-solid fa-people-group fa-2x"></i>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -81,12 +188,50 @@
         <a href="https://linkedin.com/in/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         <a href="https://twitter.com/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
       </div>
-      <p>&copy; 2024 Prof. Dr. Aitor Garcés Manzanera. Todos los derechos reservados.</p>
+      <p>&copy; 2025 Prof. Dr. Aitor Garcés Manzanera. Todos los derechos reservados.</p>
     </div>
   </footer>
 
   <script src="script.js" defer></script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+
+  <!-- Filtro y búsqueda -->
+  <script>
+    (function(){
+      const q = document.getElementById('q');
+      const buttons = Array.from(document.querySelectorAll('.filter-btn'));
+      const grid = document.getElementById('grid');
+      const cards = Array.from(grid.querySelectorAll('.conferencia-card'));
+      const count = document.getElementById('resultCount');
+      let activeType = 'all';
+
+      function apply(){
+        const term = (q.value || '').trim().toLowerCase();
+        let visible = 0;
+        cards.forEach(card=>{
+          const matchesType = activeType === 'all' || card.dataset.type === activeType;
+          const haystack = (card.dataset.title + ' ' + card.dataset.evento).toLowerCase();
+          const matchesText = !term || haystack.includes(term);
+          const show = matchesType && matchesText;
+          card.style.display = show ? '' : 'none';
+          if(show) visible++;
+        });
+        count.textContent = visible;
+      }
+
+      buttons.forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          buttons.forEach(b=>b.setAttribute('aria-pressed','false'));
+          btn.setAttribute('aria-pressed','true');
+          activeType = btn.dataset.type;
+          apply();
+        });
+      });
+
+      q.addEventListener('input', apply);
+      apply();
+    })();
+  </script>
 </body>
 </html>
 
