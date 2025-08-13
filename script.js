@@ -1,32 +1,30 @@
-// script.js
-// ===== Utilidades
+// Utilidades
 const $ = (s, r=document) => r.querySelector(s);
 const $$ = (s, r=document) => [...r.querySelectorAll(s)];
 const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// ===== Progreso lectura
+// Barra de progreso
 const bar = $('#progressBar');
 if (bar) {
   const onScroll = () => {
     const h = document.documentElement;
-    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
+    const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight || 1);
     bar.style.width = `${Math.max(0, Math.min(1, scrolled))*100}%`;
   };
   document.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
 }
 
-// ===== Menú accesible
+// Menú accesible
 const nav = $('header nav');
 const list = $('.nav-links', nav);
 let burgerBtn = $('.burger button', nav);
 
 if (!burgerBtn) {
-  // crea el botón si no existe
   const wrap = document.createElement('div');
   wrap.className = 'burger';
   const btn = document.createElement('button');
-  btn.setAttribute('type', 'button');
+  btn.type = 'button';
   btn.setAttribute('aria-label', 'Abrir menú');
   btn.setAttribute('aria-expanded', 'false');
   btn.setAttribute('aria-controls', 'site-menu');
@@ -44,19 +42,13 @@ burgerBtn?.addEventListener('click', () => {
   const open = nav.getAttribute('data-open') === 'true';
   open ? closeMenu() : openMenu();
 });
-
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
-document.addEventListener('click', e => {
-  if (!nav.contains(e.target)) closeMenu();
-});
+document.addEventListener('click', e => { if (!nav.contains(e.target)) closeMenu(); });
 
-// ===== Lazy-load seguro en imágenes
-$$('img:not([loading])').forEach(img=>{
-  img.loading = 'lazy';
-  img.decoding = 'async';
-});
+// Lazy-load imágenes
+$$('img:not([loading])').forEach(img => { img.loading = 'lazy'; img.decoding = 'async'; });
 
-// ===== Aparición suave opcional
+// Aparición suave
 if (!prefersReduce && 'IntersectionObserver' in window) {
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
@@ -69,10 +61,21 @@ if (!prefersReduce && 'IntersectionObserver' in window) {
     });
   },{threshold:.08});
 
-  $$('.fade-in, .taller-card, .proyecto-card, .publicacion-card, .course-card').forEach(el=>{
+  $$('.taller-card,.proyecto-card,.publication-card,.publicacion-card,.course-card,.feature-item').forEach(el=>{
     el.style.opacity = '0';
     el.style.transform = 'translateY(12px)';
     io.observe(el);
   });
 }
+
+// Google Translate init (si está el contenedor)
+window.googleTranslateElementInit = function(){
+  if ($('#google_translate_element')) {
+    new google.translate.TranslateElement(
+      {pageLanguage:'es', includedLanguages:'en,fr,de', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},
+      'google_translate_element'
+    );
+  }
+};
+
 
