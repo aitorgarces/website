@@ -5,24 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inicio · Prof. Dr. Aitor Garcés Manzanera</title>
   <meta name="description" content="Profesor e investigador en Educación y Lingüística Aplicada. Docencia, investigación, proyectos, conferencias y publicaciones.">
-  <meta name="theme-color" content="#80140D">
+  <meta name="theme-color" content="#80140D" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://aitorgarces.github.io/website/">
 
   <!-- Metadatos sociales -->
   <meta property="og:title" content="Prof. Dr. Aitor Garcés Manzanera">
   <meta property="og:description" content="Docencia, investigación y proyectos en Educación y Lingüística Aplicada.">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:url" content="https://aitorgarces.github.io/website/">
   <meta property="og:image" content="https://raw.githubusercontent.com/aitorgarces/website/refs/heads/img/Foto%20institucional%201_fondo.png">
+  <meta property="og:image:alt" content="Retrato institucional de Aitor Garcés Manzanera">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Prof. Dr. Aitor Garcés Manzanera">
+  <meta name="twitter:description" content="Docencia, investigación y proyectos en Educación y Lingüística Aplicada.">
 
   <!-- Fuentes e iconos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <!-- Estilos base del sitio -->
   <link rel="stylesheet" href="style.css">
+
   <!-- Preload LCP -->
-  <link rel="preload" as="image" href="https://raw.githubusercontent.com/aitorgarces/website/refs/heads/img/Foto%20institucional%201_fondo.png" imagesizes="(min-width: 992px) 340px, 60vw">
+  <link rel="preload" as="image" href="https://raw.githubusercontent.com/aitorgarces/website/refs/heads/img/Foto%20institucional%201_fondo.png" imagesizes="(min-width: 992px) 340px, 60vw" imagesrcset="https://raw.githubusercontent.com/aitorgarces/website/refs/heads/img/Foto%20institucional%201_fondo.png 1024w">
 
   <!-- JSON-LD (Person) -->
   <script type="application/ld+json">
@@ -34,40 +45,47 @@
     "jobTitle": "Profesor Contratado Doctor",
     "affiliation": [{"@type":"Organization","name":"Universidad de Murcia"}],
     "url": "https://aitorgarces.github.io/website/",
+    "email": "mailto:aitor.garces@um.es",
+    "image": "https://raw.githubusercontent.com/aitorgarces/website/refs/heads/img/Foto%20institucional%201_fondo.png",
     "sameAs": [
       "https://linkedin.com/in/aitorgarces",
       "https://scholar.google.com",
-      "https://orcid.org/000-0002-1789-9046"
-    ]
+      "https://orcid.org/0000-0002-1789-9046",
+      "https://researchgate.net/profile/Aitor-Garces",
+      "https://github.com/aitorgarces"
+    ],
+    "knowsAbout": ["L2 writing","keystroke logging","educational measurement","SLA","quantitative methods"]
   }
   </script>
 
-  <!-- Estilos locales para esta portada -->
+  <!-- Estilos locales de portada -->
   <style>
     .avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;box-shadow:var(--shadow-sm)}
     .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
-    .chip{display:inline-flex;align-items:center;gap:8px;border:1px solid #eee;border-radius:999px;padding:6px 12px;background:#fff}
+    .chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--surface-3);border-radius:999px;padding:6px 12px;background:var(--surface-1)}
+    .chip i{color:var(--color-acento)}
     .quick-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:16px}
-    .quick-links a{display:flex;align-items:center;gap:10px;border:1px solid #eee;padding:12px;border-radius:12px;background:#fff}
-    .quick-links i{font-size:1.2rem;color:#C62828}
-    .quick-nav{position:sticky;top:70px;background:#fff;border-top:1px solid #eee;border-bottom:1px solid #eee}
+    .quick-links a{display:flex;align-items:center;gap:10px;border:1px solid var(--surface-3);padding:12px;border-radius:12px;background:var(--surface-1)}
+    .quick-links i{font-size:1.2rem;color:var(--color-acento)}
+    .quick-nav{position:sticky;top:70px;background:var(--surface-1);border-top:1px solid var(--surface-3);border-bottom:1px solid var(--surface-3);backdrop-filter:saturate(120%) blur(6px)}
     .quick-nav .container{display:flex;gap:12px;flex-wrap:wrap;padding:10px 20px}
-    .quick-nav a{padding:8px 12px;border:1px solid #e8e8e8;border-radius:999px;background:#fff}
-    .metrics{padding:40px 0;background:#fff}
+    .quick-nav a{padding:8px 12px;border:1px solid var(--surface-3);border-radius:999px;background:var(--surface-1)}
+    .quick-nav a[aria-current="true"]{border-color:var(--color-acento);box-shadow:0 0 0 2px color-mix(in oklab, var(--color-acento) 28%, transparent)}
+    .metrics{padding:40px 0;background:var(--surface-1)}
     .metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:10px}
-    .metric{background:#fff;border:1px solid #eee;border-radius:12px;padding:18px;text-align:left;box-shadow:var(--shadow-sm)}
+    .metric{background:var(--surface-1);border:1px solid var(--surface-3);border-radius:12px;padding:18px;text-align:left;box-shadow:var(--shadow-sm)}
     .metric strong{font-size:1.6rem;color:var(--color-primario)}
-    .metric span{display:block;color:#333;margin-top:4px}
-    .strip{background:#fff}
+    .metric span{display:block;color:var(--muted-1);margin-top:4px}
+    .strip{background:var(--surface-1)}
     .cards-2col{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
     .mini-list{list-style:none;margin:0;padding:0}
     .mini-list li{display:flex;gap:10px;margin:8px 0}
-    .mini-list i{color:#C62828;margin-top:2px}
+    .mini-list i{color:var(--color-acento);margin-top:2px}
   </style>
 </head>
 <body>
   <!-- Barra de progreso -->
-  <div id="progressContainer"><div id="progressBar"></div></div>
+  <div id="progressContainer" aria-hidden="true"><div id="progressBar"></div></div>
 
   <!-- Acceso rápido -->
   <a class="visually-hidden" href="#main">Saltar al contenido</a>
@@ -85,7 +103,7 @@
         <li role="none"><a role="menuitem" href="publicaciones.html">Publicaciones</a></li>
         <li role="none"><a role="menuitem" href="estadistica.html">Estadística</a></li>
         <li role="none"><a role="menuitem" href="blog.html">Blog</a></li>
-        <li role="none"><a role="menuitem" href="talleres.html">Talleres & Asesoramiento</a></li>
+        <li role="none"><a role="menuitem" href="talleres.html">Talleres &amp; asesoramiento</a></li>
       </ul>
       <div class="burger">
         <button type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-menu">
@@ -100,7 +118,7 @@
     <p style="margin:0;font-size:12px;text-align:center">Translate page</p>
   </div>
 
-  <!-- Navegación rápida dentro de la portada -->
+  <!-- Navegación rápida -->
   <nav class="quick-nav" aria-label="Secciones de la página">
     <div class="container">
       <a href="#impacto">Impacto</a>
@@ -118,14 +136,17 @@
     <section class="hero-rigido container" aria-labelledby="titulo-hero">
       <div class="hero-rigido__content">
         <div class="hero-rigido__text">
-          <img class="avatar" src="https://raw.githubusercontent.com/aitorgarces/website/refs/heads/img/Foto%20institucional%201_fondo.png" alt="Retrato de Aitor Garcés" loading="eager" decoding="async" fetchpriority="high">
+          <picture>
+            <source srcset="https://raw.githubusercontent.com/aitorgarces/website/refs/heads/img/Foto%20institucional%201_fondo.png" media="(min-width: 480px)">
+            <img class="avatar" src="https://raw.githubusercontent.com/aitorgarces/website/refs/heads/img/Foto%20institucional%201_fondo.png" alt="Retrato de Aitor Garcés" loading="eager" decoding="async" fetchpriority="high" width="96" height="96">
+          </picture>
           <h1 id="titulo-hero" style="margin-top:12px">Prof. Dr. Aitor Garcés Manzanera</h1>
           <p class="subtitle">Educación y Lingüística Aplicada · Universidad de Murcia</p>
 
-          <div class="chips" aria-label="Perfiles profesionales">
-            <span class="chip"><i class="fa-solid fa-user-tie" aria-hidden="true"></i> Profesor Contratado Doctor</span>
-            <span class="chip"><i class="fa-solid fa-book" aria-hidden="true"></i> Director Máster ELE</span>
-            <span class="chip"><i class="fa-solid fa-flask" aria-hidden="true"></i> Investigación en L2</span>
+          <div class="chips" role="list" aria-label="Perfiles profesionales">
+            <span class="chip" role="listitem"><i class="fa-solid fa-user-tie" aria-hidden="true"></i> Profesor Contratado Doctor</span>
+            <span class="chip" role="listitem"><i class="fa-solid fa-book" aria-hidden="true"></i> Director Máster ELE</span>
+            <span class="chip" role="listitem"><i class="fa-solid fa-flask" aria-hidden="true"></i> Investigación en L2</span>
           </div>
 
           <div class="hero-rigido__buttons" style="margin-top:12px">
@@ -141,7 +162,7 @@
           </div>
         </div>
         <div class="hero-rigido__photo" aria-hidden="true">
-          <img src="https://raw.githubusercontent.com/aitorgarces/website/refs/heads/img/Foto%20institucional%201_fondo.png" alt="" loading="lazy" decoding="async">
+          <img src="https://raw.githubusercontent.com/aitorgarces/website/refs/heads/img/Foto%20institucional%201_fondo.png" alt="" loading="lazy" decoding="async" width="340" height="340">
         </div>
       </div>
     </section>
@@ -170,8 +191,8 @@
     </section>
 
     <!-- Líneas de trabajo -->
-    <section id="lineas" class="section features container">
-      <h2>Líneas de trabajo</h2>
+    <section id="lineas" class="section features container" aria-labelledby="lineas-tit">
+      <h2 id="lineas-tit">Líneas de trabajo</h2>
       <div class="features__grid">
         <article class="feature-item">
           <i class="fas fa-keyboard" aria-hidden="true"></i>
@@ -197,11 +218,11 @@
     </section>
 
     <!-- Libro destacado -->
-    <section id="libro" class="section container book-section">
-      <h2>Libro destacado</h2>
+    <section id="libro" class="section container book-section" aria-labelledby="libro-tit">
+      <h2 id="libro-tit">Libro destacado</h2>
       <div class="book-content">
         <div class="book-cover">
-          <img src="https://cdn.glitch.global/dbb76279-9080-4683-96a4-a2929ed450fd/FrontCover_Book?v=1740148758115" alt="Portada del libro Quantitative Approaches for Second Language Education Research" loading="lazy" decoding="async">
+          <img src="https://cdn.glitch.global/dbb76279-9080-4683-96a4-a2929ed450fd/FrontCover_Book?v=1740148758115" alt="Portada del libro Quantitative Approaches for Second Language Education Research" loading="lazy" decoding="async" width="200" height="300">
         </div>
         <div class="book-info">
           <h3>Quantitative Approaches for Second Language Education Research</h3>
@@ -215,8 +236,8 @@
     </section>
 
     <!-- Publicaciones recientes -->
-    <section id="publicaciones" class="section publications container">
-      <h2>Publicaciones recientes</h2>
+    <section id="publicaciones" class="section publications container" aria-labelledby="pubs-tit">
+      <h2 id="pubs-tit">Publicaciones recientes</h2>
       <div class="publications__grid">
         <article class="publication-card">
           <h3>Exploring JASP como herramienta L2</h3>
@@ -240,10 +261,10 @@
     </section>
 
     <!-- Docencia / Dirección -->
-    <section id="docencia" class="section strip">
+    <section id="docencia" class="section strip" aria-labelledby="docencia-tit">
       <div class="container cards-2col">
         <article class="institution-card">
-          <h3><i class="fa-solid fa-university" aria-hidden="true"></i> Universidad de Murcia</h3>
+          <h3 id="docencia-tit"><i class="fa-solid fa-university" aria-hidden="true"></i> Universidad de Murcia</h3>
           <ul class="mini-list">
             <li><i class="fa-regular fa-circle-check" aria-hidden="true"></i> Grado en Educación Infantil y Primaria</li>
             <li><i class="fa-regular fa-circle-check" aria-hidden="true"></i> Coordinación de asignaturas y prácticas</li>
@@ -262,23 +283,23 @@
     </section>
 
     <!-- Conferencias destacadas -->
-    <section id="conferencias" class="section container">
-      <h2>Conferencias</h2>
+    <section id="conferencias" class="section container" aria-labelledby="conferencias-tit">
+      <h2 id="conferencias-tit">Conferencias</h2>
       <div class="conferencias-grid">
         <article class="conferencia-card">
           <h3>Plenaria EL21C</h3>
-          <iframe class="embed" src="https://drive.google.com/file/d/1eU2OsUx3gvU4dtS8vNnl4w3JRvbD4k9o/preview" title="Plenaria EL21C" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          <iframe class="embed" src="https://drive.google.com/file/d/1eU2OsUx3gvU4dtS8vNnl4w3JRvbD4k9o/preview" title="Plenaria EL21C" loading="lazy" allow="fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe>
         </article>
         <article class="conferencia-card">
           <h3>EDUNOVATIC22</h3>
-          <iframe class="embed" src="https://www.youtube.com/embed/o6QXDlpG1OM" title="EDUNOVATIC22" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          <iframe class="embed" src="https://www.youtube.com/embed/o6QXDlpG1OM" title="EDUNOVATIC22" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </article>
       </div>
     </section>
 
     <!-- Contacto -->
-    <section id="contacto" class="section contact container">
-      <h2>Contacto</h2>
+    <section id="contacto" class="section contact container" aria-labelledby="contacto-tit">
+      <h2 id="contacto-tit">Contacto</h2>
       <p>Para colaboraciones, proyectos o talleres, escribe un mensaje.</p>
       <a href="mailto:aitor.garces@um.es" class="btn"><i class="fa-solid fa-paper-plane"></i> Enviar email</a>
     </section>
@@ -286,15 +307,68 @@
 
   <!-- Footer -->
   <footer class="container footer">
-    <div class="social-links">
+    <div class="social-links" aria-label="Redes sociales">
       <a href="https://linkedin.com/in/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://twitter.com/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://twitter.com/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
       <a href="https://github.com/aitorgarces" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
     </div>
     <p>&copy; 2025 Prof. Dr. Aitor Garcés Manzanera</p>
   </footer>
 
-  <script src="script.js" defer></script>
+  <!-- JS mínimo accesible -->
+  <script>
+    // Google Translate callback
+    function googleTranslateElementInit(){
+      if (window.google && window.google.translate){
+        new google.translate.TranslateElement({pageLanguage:'es', includedLanguages: 'en,fr,it,de,pt', autoDisplay:false}, 'google_translate_element');
+      }
+    }
+
+    // Evitar doble inicialización si existe script.js
+    (function(){
+      if (document.documentElement.dataset.uiReady) return;
+      document.documentElement.dataset.uiReady = "1";
+
+      // Burger
+      const nav = document.querySelector('header nav');
+      const btn = document.querySelector('.burger button');
+      const menu = document.getElementById('site-menu');
+      if (btn && menu && nav){
+        btn.addEventListener('click', ()=>{
+          const open = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!open));
+          nav.dataset.open = String(!open);
+        });
+      }
+
+      // Barra de progreso
+      const bar = document.getElementById('progressBar');
+      const onScroll = ()=>{
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        const p = h > 0 ? (window.scrollY / h) * 100 : 0;
+        bar.style.width = p + '%';
+      };
+      onScroll();
+      document.addEventListener('scroll', onScroll, {passive:true});
+
+      // Quick-nav activo
+      const sections = Array.from(document.querySelectorAll('main section[id]'));
+      const links = Array.from(document.querySelectorAll('.quick-nav a[href^="#"]'));
+      const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if (e.isIntersecting){
+            const id = e.target.id;
+            links.forEach(a => a.removeAttribute('aria-current'));
+            const a = map.get(id);
+            if (a) a.setAttribute('aria-current','true');
+          }
+        });
+      }, {rootMargin:'-40% 0px -50% 0px', threshold:0.01});
+      sections.forEach(s => io.observe(s));
+    })();
+  </script>
+
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
 </body>
 </html>
