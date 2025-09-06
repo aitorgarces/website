@@ -1,143 +1,315 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Metadatos -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - Prof. Dr. Aitor Garcés Manzanera</title>
-    <!-- Enlaces a CSS -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome para iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Meta descripción para SEO -->
-    <meta name="description" content="Prof. Dr. Aitor Garcés Manzanera - Profesor e investigador especializado en Educación y Lingüística Aplicada.">
-  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <!-- ===== Metadatos base ===== -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inicio · Prof. Dr. Aitor Garcés Manzanera</title>
+  <meta name="description" content="Profesor universitario en la Universidad de Murcia. Didáctica de la Lengua y la Literatura. Investigación en escritura L2, KLS e Inputlog." />
+  <link rel="canonical" href="https://webs.um.es/aitor.garces/" />
+
+  <!-- ===== Colores del navegador ===== -->
+  <meta name="theme-color" content="#0f3a5b" />
+
+  <!-- ===== Open Graph / Twitter ===== -->
+  <meta property="og:title" content="Prof. Dr. Aitor Garcés Manzanera" />
+  <meta property="og:description" content="Profesor universitario en la Universidad de Murcia · Didáctica de la Lengua y la Literatura · Escritura L2 y KLS" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/aitorgarces/website/refs/heads/img/Foto%20institucional%201_fondo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- ===== Fuentes e iconos ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
+
+  <!-- ===== Estilos ===== -->
+  <style>
+    :root{
+      --bg: #fff;
+      --fg: #0b1220;
+      --muted:#5a677a;
+      --brand:#0f3a5b;   /* CESI palette */
+      --brand-2:#1e88e5;
+      --card:#f6f8fb;
+      --ring: rgba(31, 120, 180, .25);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{--bg:#0b1220; --fg:#eef1f6; --muted:#9ba7bb; --card:#0f1729;}
+    }
+    [data-theme="dark"]{--bg:#0b1220; --fg:#eef1f6; --muted:#9ba7bb; --card:#0f1729;}
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:var(--bg); color:var(--fg);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      line-height:1.6; text-rendering:optimizeLegibility;
+    }
+    a{color:var(--brand-2); text-decoration:none}
+    a:hover{text-decoration:underline}
+    img{max-width:100%; display:block}
+    .container{max-width:1100px; padding:0 16px; margin:0 auto}
+
+    /* Header */
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.5) blur(6px); background:color-mix(in oklab, var(--bg) 85%, transparent)}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:12px 0}
+    .logo a{font-weight:800; color:var(--fg); letter-spacing:.2px}
+    .logo i{color:var(--brand-2); margin-right:8px}
+    .nav-links{display:flex; gap:18px; align-items:center}
+    .nav-links a{color:var(--fg); opacity:.9}
+    .nav-links a[aria-current="page"]{font-weight:600}
+
+    /* Burger */
+    .burger{display:none; width:40px; height:40px; border-radius:12px; border:1px solid color-mix(in oklab, var(--fg) 15%, transparent); background:transparent; align-items:center; justify-content:center}
+    .burger span{display:block; width:20px; height:2px; background:var(--fg); position:relative}
+    .burger span::before,.burger span::after{content:""; position:absolute; left:0; width:20px; height:2px; background:var(--fg)}
+    .burger span::before{top:-6px} .burger span::after{top:6px}
+
+    @media (max-width: 900px){
+      .nav-links{display:none}
+      .burger{display:flex}
+      .nav.open .nav-links{display:flex; position:absolute; left:0; right:0; top:60px; flex-direction:column; background:var(--bg); padding:16px; border-top:1px solid color-mix(in oklab, var(--fg) 12%, transparent)}
+    }
+
+    /* Progress */
+    .progress{height:3px; background:linear-gradient(90deg, var(--brand), var(--brand-2)); width:0%;}
+
+    /* Hero */
+    .hero{display:grid; grid-template-columns:1.25fr .9fr; gap:28px; align-items:center; padding:40px 0 20px}
+    @media (max-width: 1024px){.hero{grid-template-columns:1fr}}
+    .hero h1{font-size: clamp(1.8rem, 2.8vw, 3rem); margin:6px 0 10px}
+    .hero p{margin:.25rem 0; color:var(--muted)}
+    .badge{display:inline-flex; gap:8px; align-items:center; background:var(--card); border:1px solid color-mix(in oklab, var(--fg) 10%, transparent); padding:8px 12px; border-radius:999px; font-size:.9rem}
+    .btn{display:inline-block; border-radius:14px; padding:12px 16px; font-weight:600; border:1px solid color-mix(in oklab, var(--brand-2) 40%, var(--fg) 10%); background:linear-gradient(180deg, color-mix(in oklab, var(--brand-2) 12%, transparent), transparent); color:var(--fg)}
+    .btn:hover{transform:translateY(-1px)}
+    .hero-figure{display:grid; place-items:center}
+    .hero-figure img{border-radius:18px; box-shadow:0 10px 30px color-mix(in oklab, var(--brand) 20%, transparent)}
+
+    /* Secciones */
+    section{padding:34px 0}
+    h2{font-size: clamp(1.2rem, 1.9vw, 2rem); margin:0 0 14px}
+    .card-grid{display:grid; gap:18px; grid-template-columns:repeat(3, 1fr)}
+    @media (max-width: 900px){.card-grid{grid-template-columns:1fr}}
+    .card{background:var(--card); border:1px solid color-mix(in oklab, var(--fg) 10%, transparent); border-radius:18px; padding:18px}
+    .card h3{margin-top:0}
+    .meta{font-size:.9rem; color:var(--muted)}
+
+    /* Perfiles académicos */
+    .profiles{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:14px}
+    @media (max-width: 700px){.profiles{grid-template-columns:repeat(2, minmax(0,1fr))}}
+    .profiles a{display:flex; gap:10px; align-items:center; padding:12px 14px; border:1px solid color-mix(in oklab, var(--fg) 10%, transparent); border-radius:14px; background:var(--bg)}
+    .profiles i{width:22px; text-align:center; color:var(--brand-2)}
+
+    /* Footer */
+    footer{border-top:1px solid color-mix(in oklab, var(--fg) 12%, transparent); padding:24px 0 60px}
+    .social a{margin-right:12px; font-size:1.1rem; color:var(--fg); opacity:.85}
+    .social a:hover{opacity:1}
+
+    /* Accesibilidad */
+    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+  </style>
+
+  <!-- ===== JSON-LD (schema.org/Person) ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Aitor Garcés Manzanera",
+    "jobTitle": "Profesor universitario",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Universidad de Murcia"
+    },
+    "department": "Didáctica de la Lengua y la Literatura",
+    "url": "https://webs.um.es/aitor.garces/",
+    "sameAs": [
+      "https://scholar.google.com/citations?user=Rg0U18kAAAAJ",
+      "https://www.scopus.com/authid/detail.uri?authorId=58019388900",
+      "https://www.webofscience.com/wos/author/record/AFU-6007-2022",
+      "https://www.researchgate.net/profile/Aitor-Garces-Manzanera",
+      "https://linkedin.com/in/aitorgarces",
+      "https://github.com/aitorgarces"
+    ]
+  }
+  </script>
 </head>
 <body>
-<div id="google_translate_container" style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
-    <div id="google_translate_element"></div>
-    <p style="margin: 0; font-size: 12px; text-align: center;">Translate page</p>
-</div>
-    <!-- Barra de Progreso -->
-    <div id="progressContainer">
-        <div id="progressBar"></div>
+  <!-- Barra de progreso -->
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav" id="nav">
+      <div class="logo">
+        <a href="./"><i class="fa-solid fa-graduation-cap"></i> Aitor Garcés</a>
+      </div>
+      <nav class="nav-links" aria-label="principal">
+        <a href="docencia.html">Docencia</a>
+        <a href="conferencias.html">Conferencias</a>
+        <a href="proyectos.html">Proyectos</a>
+        <a href="publicaciones.html">Publicaciones</a>
+        <a href="estadistica.html">Estadística</a>
+        <a href="blog.html">Blog</a>
+        <a href="talleres.html">Talleres y asesoramiento</a>
+      </nav>
+      <button class="burger" id="burger" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+        <span></span>
+      </button>
     </div>
-    <!-- HEADER -->
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <a href="index.html"><i class="fas fa-user-graduate"></i> Aitor Garcés</a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="docencia.html">Docencia</a></li>
-                <li><a href="conferencias.html">Conferencias</a></li>
-                <li><a href="proyectos.html">Proyectos</a></li>
-                <li><a href="publicaciones.html">Publicaciones</a></li>
-                <li><a href="estadistica.html">Estadística</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="talleres.html">Talleres & Asesoramiento</a></li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </nav>
-    </header>
+  </header>
 
-    <!-- SECCIÓN HERO -->
-    <section class="hero container">
-        <div class="hero-text">
-            <h1>Prof. Dr. Aitor Garcés Manzanera</h1>
-            <p><strong>Profesor Contratado Doctor</strong> en la Universidad del Atlántico Medio</p>
-            <p><strong>Director</strong> del Máster Oficial en Enseñanza del Español como Lengua Extranjera (ELE).</p>
-                      <p><strong>Profesor acreditado a Permanente Laboral</strong> en la Universidad de Murcia</p>
-            <a href="publicaciones.html" class="btn">Ver Publicaciones</a>
-        </div>
-        <div class="hero-image">
-            <img src="https://77b517631f.cbaul-cdnwnd.com/7124c50895aa20e5e2a901397ce7f075/200000001-b2e0db2e0e/Foto%20institucional%201_recortada.webp?ph=77b517631f" alt="Foto de Aitor Garcés" style="max-width: 60%; height: auto;">
-        </div>
+  <!-- Hero -->
+  <main class="container">
+    <section class="hero" id="inicio">
+      <div>
+        <span class="badge"><i class="fa-solid fa-circle-check"></i> Acreditado a Contratado Doctor</span>
+        <h1>Prof. Dr. Aitor Garcés Manzanera</h1>
+        <p><strong>Profesor universitario</strong> en la <strong>Universidad de Murcia</strong></p>
+        <p>Departamento de Didáctica de la Lengua y la Literatura</p>
+        <p>1 tramo de sexenio de investigación (2018–2023)</p>
+        <p>
+          <a class="btn" href="#perfiles">Perfiles académicos</a>
+          <a class="btn" href="publicaciones.html" style="margin-left:8px">Ver publicaciones</a>
+        </p>
+      </div>
+      <figure class="hero-figure">
+        <img loading="eager" fetchpriority="high" src="https://raw.githubusercontent.com/aitorgarces/website/refs/heads/img/Foto%20institucional%201_fondo.png" alt="Fotografía institucional de Aitor Garcés Manzanera" width="720" height="900" />
+      </figure>
     </section>
 
-    <!-- SECCIÓN SOBRE MÍ -->
-    <section class="section container">
-        <h2>Sobre Mí</h2>
-        <img src="https://cdn.glitch.global/dbb76279-9080-4683-96a4-a2929ed450fd/63985886552.jpg?v=1733015892153" alt="Imagen de Aitor Garcés" class="responsive-image index-image">
-        <p class="fade-in">Soy Profesor Contratado Doctor en la Universidad del Atlántico Medio (UNAM) y Director del Programa de Máster Oficial en Enseñanza del Español como Lengua Extranjera (ELE). Con amplia experiencia en la enseñanza y la investigación en lingüística aplicada, me apasiona compartir conocimiento y contribuir al desarrollo académico de mis estudiantes.</p>
-        <a href="docencia.html" class="btn">Más sobre mi Docencia</a>
+    <!-- Sobre mí -->
+    <section aria-labelledby="sobre">
+      <h2 id="sobre">Sobre mí</h2>
+      <div class="card">
+        <p>Profesor universitario en la Universidad de Murcia. Investigo escritura en L2, registro de pulsaciones (KLS/Inputlog), procesos de planificación, formulación y revisión, y su relación con la calidad textual y la temporalidad de la escritura.</p>
+      </div>
     </section>
 
-    <!-- SECCIÓN PUBLICACIONES DESTACADAS -->
-    <section class="section container">
-        <h2>Publicaciones Destacadas</h2>
-        <div class="publicaciones">
-            <!-- Publicación 1 -->
-            <div class="publicacion-card fade-in">
-                <h3>Exploring JASP as a Data Analysis Tool in L2 Research: A Snapshot</h3>
-                <p>Este artículo explora el uso de JASP como herramienta de análisis de datos en la investigación de segundas lenguas.</p>
-                <a href="https://www.researchgate.net/publication/378217443_Exploring_JASP_as_a_data_analysis_tool_in_L2_research_a_snapshot" target="_blank" class="btn">Leer Más</a>
-            </div>
-            <!-- Publicación 2 -->
-            <div class="publicacion-card fade-in">
-                <h3>Incidental Vocabulary Learning and Retention in Education-Oriented L2 Communicative Tasks</h3>
-                <p>Análisis del aprendizaje y retención de vocabulario incidental en tareas comunicativas orientadas a la educación en L2.</p>
-                <a href="https://www.researchgate.net/publication/371958862_INCIDENTAL_VOCABULARY_LEARNING_AND_RETENTION_IN_EDUCATION-ORIENTED_L2_COMMUNICATIVE_TASKS_THE_EFFECT_OF_TESTING_CONDITIONS" target="_blank" class="btn">Leer Más</a>
-            </div>
-            <!-- Publicación 3 -->
-            <div class="publicacion-card fade-in">
-                <h3>Young EFL Learners' Pausing Behavior: Exploring Pause Thresholds in Two Proficiency Levels</h3>
-                <p>Investigación sobre el comportamiento de pausas en jóvenes aprendices de inglés como lengua extranjera.</p>
-                <a href="https://redined.educacion.gob.es/xmlui/bitstream/handle/11162/250163/Garces.pdf?sequence=1" target="_blank" class="btn">Leer Más</a>
-            </div>
-        </div>
-        <!-- Botón para ver todas las publicaciones -->
-        <div class="more-publications">
-            <a href="publicaciones.html" class="btn">Ver Todas las Publicaciones</a>
-        </div>
+    <!-- Perfiles académicos -->
+    <section id="perfiles" aria-labelledby="perfiles-tit">
+      <h2 id="perfiles-tit">Perfiles académicos</h2>
+      <div class="profiles">
+        <a href="https://scholar.google.com/citations?user=Rg0U18kAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="fa-brands fa-google"></i> Google Scholar</a>
+        <a href="https://www.scopus.com/authid/detail.uri?authorId=58019388900" target="_blank" rel="noopener" aria-label="Scopus"><i class="fa-solid fa-flask"></i> Scopus</a>
+        <a href="https://www.webofscience.com/wos/author/record/AFU-6007-2022" target="_blank" rel="noopener" aria-label="Web of Science"><i class="fa-solid fa-atom"></i> Web of Science</a>
+        <a href="https://www.researchgate.net/profile/Aitor-Garces-Manzanera" target="_blank" rel="noopener" aria-label="ResearchGate"><i class="fa-brands fa-researchgate"></i> ResearchGate</a>
+      </div>
     </section>
 
-    <!-- SECCIÓN CONTACTO -->
-    <section class="section container">
-        <h2>Contacto</h2>
-        <p class="fade-in">Si estás interesado en colaboraciones, proyectos de investigación o necesitas más información, no dudes en contactarme.</p>
-        <a href="mailto:aitor.garces@pdi.atlanticomedio.es" class="btn">Enviar Email</a>
+    <!-- Publicaciones destacadas -->
+    <section aria-labelledby="pubs">
+      <h2 id="pubs">Publicaciones destacadas</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Exploring JASP as a data analysis tool in L2 research: a snapshot</h3>
+          <p class="meta">TEISEL (Universitat de Barcelona)</p>
+          <p>Panorámica de funcionalidades de JASP y ejemplos aplicados en investigación en adquisición de segundas lenguas.</p>
+          <p><a class="btn" href="https://revistes.ub.edu/index.php/teisel/article/view/45189" target="_blank" rel="noopener">Leer</a></p>
+        </article>
+        <article class="card">
+          <h3>From pauses to processes: Automating the classification of L2 writing processes from keystroke logs</h3>
+          <p class="meta">Feedback Research in Second Language, 3, 22–49</p>
+          <p>Clasificación automática de planificación, formulación y revisión a partir de Inputlog en una tarea argumentativa.</p>
+          <p><a class="btn" href="https://eurokd.com/doi/10.32038/frsl.2025.03.02" target="_blank" rel="noopener">Leer</a></p>
+        </article>
+        <article class="card">
+          <h3>Language bursts and text quality in digital writing by young EFL learners</h3>
+          <p class="meta">Journal of New Approaches in Educational Research (2024)</p>
+          <p>Relación entre ráfagas de escritura y calidad textual en alumnado joven en entornos digitales.</p>
+          <p><a class="btn" href="https://link.springer.com/article/10.1007/s44322-024-00012-x" target="_blank" rel="noopener">Leer</a></p>
+        </article>
+      </div>
+      <p style="margin-top:10px"><a href="publicaciones.html">Ver todas las publicaciones</a></p>
     </section>
 
-<!-- VISITOR COUNTER SECTION -->
-<section class="section container counter-section">
-    <h2>Visitor Count</h2>
-    <p>This page has been visited <a href='http://www.freevisitorcounters.com'>on freevisitorcounters.com</a>
-    <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=319d859131f509f80dae24e275e1d596f6035449'></script>
-    <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1270026/t/5"></script>
-    </p>
-</section>
+    <!-- Contacto -->
+    <section aria-labelledby="contacto">
+      <h2 id="contacto">Contacto</h2>
+      <div class="card">
+        <p>Para colaboraciones o proyectos, puedes escribirme. <em>(Actualiza aquí tu correo de la UMU si procede)</em></p>
+        <p>
+          <!-- TODO: sustituir por el correo definitivo -->
+          <a class="btn" href="mailto:REEMPLAZAR@um.es">Enviar correo</a>
+        </p>
+      </div>
+    </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://linkedin.com/in/aitorgarces" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://twitter.com/aitorgarces" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://github.com/aitorgarces" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <!-- Añade más redes sociales aquí -->
-            </div>
-            <p>&copy; 2024 Prof. Dr. Aitor Garcés Manzanera. Todos los derechos reservados.</p>
-        </div>
-    </footer>
- 
-    <!-- Enlace al archivo JavaScript -->
-    <script src="script.js"></script>
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'es',
-            includedLanguages: 'en,fr,de', // Idiomas disponibles (puedes añadir más separados por coma)
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-        }, 'google_translate_element');
+    <!-- Contador local (privacidad) -->
+    <section aria-labelledby="contador">
+      <h2 id="contador">Visitas en este navegador</h2>
+      <div class="card">
+        <p>Conteo local aproximado sin cookies ni terceras partes: <strong id="pv">0</strong></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="social" aria-label="redes sociales">
+        <a href="https://linkedin.com/in/aitorgarces" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://twitter.com/aitorgarces" target="_blank" rel="noopener" aria-label="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://github.com/aitorgarces" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+      <p>© <span id="year"></span> Prof. Dr. Aitor Garcés Manzanera.</p>
+      <button class="btn" id="themeToggle" style="margin-top:10px">Cambiar tema</button>
+    </div>
+  </footer>
+
+  <!-- ===== Google Translate (opcional) ===== -->
+  <div id="google_translate_container" class="container" style="position: fixed; bottom: 14px; right: 14px; z-index: 1000;">
+    <div id="google_translate_element" style="background:var(--card); padding:8px 10px; border-radius:12px; border:1px solid color-mix(in oklab, var(--fg) 10%, transparent)"></div>
+  </div>
+  <script>
+    function googleTranslateElementInit(){
+      new google.translate.TranslateElement({pageLanguage:'es', includedLanguages:'en,fr,de', layout:google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
     }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <!-- ===== JS ===== -->
+  <script>
+    // Año
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Burger
+    const nav = document.getElementById('nav');
+    const burger = document.getElementById('burger');
+    burger.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    // Barra de progreso
+    const progress = document.getElementById('progress');
+    const onScroll = () => {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const pct = Math.max(0, Math.min(100, (scrollTop / height) * 100));
+      progress.style.width = pct + '%';
+    };
+    document.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+
+    // Contador local
+    const pvKey = 'localPageViews';
+    const pv = Number(localStorage.getItem(pvKey) || 0) + 1;
+    localStorage.setItem(pvKey, pv);
+    document.getElementById('pv').textContent = pv.toLocaleString('es-ES');
+
+    // Tema claro/oscuro persistente
+    const toggle = document.getElementById('themeToggle');
+    const THEME_KEY = 'pref-theme';
+    const applyTheme = (t) => document.documentElement.setAttribute('data-theme', t);
+    const stored = localStorage.getItem(THEME_KEY);
+    if(stored){ applyTheme(stored); }
+    toggle.addEventListener('click', () => {
+      const now = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      applyTheme(now); localStorage.setItem(THEME_KEY, now);
+    });
+  </script>
 </body>
 </html>
+
